@@ -30,11 +30,15 @@ Place MobileNetSSD_deploy.prototxt and MobileNetSSD_deploy.caffemodel in the sam
 
 """
 import time
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import socketserver
 import threading
+import io
 import cv2
 import numpy as np
 from picamera2 import Picamera2
 import pigpio
+import subprocess
 
 # ------------------- Configuration -------------------
 CONF_THRESH = 0.5
@@ -78,6 +82,7 @@ pi.set_servo_pulsewidth(CH2_OUT, NEUTRAL_PULSE)
 # State variables
 tagret_detected = False
 autopilot_mode = False
+current_frame = None 
 
 _last_tick = {}
 _pulse_widths = {CH1_IN: NEUTRAL_PULSE, CH2_IN: NEUTRAL_PULSE, CH5_IN: NEUTRAL_PULSE}
@@ -100,35 +105,44 @@ for pin in (CH1_IN, CH2_IN, CH5_IN):
     pi.set_pull_up_down(pin, pigpio.PUD_DOWN)
     pi.callback(pin, pigpio.EITHER_EDGE, create_callback(pin))
 
+
 # =====================================================
 # Camera Thread
 # =====================================================
 
 def camera_thread():
-    global tagret_detected
+    global target_detected, current_frame
 
     print("[INFO] Loading MobileNetSSD model...")
     net = cv2.dnn.readNetFromCaffe(PROTOTXT, MODEL)
+    net.setPreferableBackend(cv2.dnn.DNN_BACKEND_DEFAULT)
+    net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 
     cam = Picamera2()
-    cam.configure(cam.create_preview_configuration(main={"size": (320, 240)}))
+    cam.configure(cam.create_video_configuration(main={"size": (640, 480)}))
     cam.start()
     time.sleep(1)
 
     print("[INFO] Camera active. Scanning for people...")
  
-                      
+    frame_count = 0
     while True:
-        
+        frame = cam.capture_array()
+        current_frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
+        """
         if not autopilot_mode:
             time.sleep(0.3);
             continue
+          """
         #OD TU NAPREJ DELA SAMO V STANJU AUTOPLIOTA:    
-        frame = cam.capture_array()
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
  
-        blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 0.007843,
-                                     (300, 300), 127.5)
+        frame_count += 1
+        if frame_count % 2 != 0:   # detect ~7 FPS if camera is ~28 FPS
+            continue
+
+        small = cv2.resize(current_frame, (160, 160))
+        blob = cv2.dnn.blobFromImage(small, 0.007843, (160, 160), 127.5)
+
         net.setInput(blob)
         detections = net.forward()
 
@@ -136,7 +150,7 @@ def camera_thread():
             float(detections[0, 0, i, 2]) >= CONF_THRESH and
             CLASSES[int(detections[0, 0, i, 1])] in TARGETS
             for i in range(detections.shape[2])
-)
+        )
 
         if detected_now != tagret_detected:
             target_detected = detected_now
@@ -178,12 +192,54 @@ def control_loop():
 
 
 # =====================================================
+# MJPEG Web Stream Thread
+# =====================================================
+def mjpeg_stream_thread():
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            if self.path != '/stream':
+                self.send_response(404)
+                self.end_headers()
+                return
+
+            self.send_response(200)
+            self.send_header('Content-Type', 'multipart/x-mixed-replace; boundary=frame')
+            self.end_headers()
+
+            while True:
+                if current_frame is None:
+                    time.sleep(0.05)
+                    continue
+
+                ok, jpeg = cv2.imencode('.jpg', current_frame, [cv2.IMWRITE_JPEG_QUALITY, 45])
+
+                if not ok:
+                    continue
+
+                try:
+                    self.wfile.write(b'--frame\r\n')
+                    self.wfile.write(b'Content-Type: image/jpeg\r\n\r\n')
+                    self.wfile.write(jpeg.tobytes())
+                    self.wfile.write(b'\r\n')
+                except BrokenPipeError:
+                    break
+
+    server = HTTPServer(("0.0.0.0", 8090), Handler)
+    print("[WEB] Video available at: http://<PI-IP>:8090/stream")
+    server.serve_forever()
+
+
+    
+
+# =====================================================
 # Main
 # =====================================================
 
 if __name__ == "__main__":
     try:
         threading.Thread(target=camera_thread, daemon=True).start()
+        threading.Thread(target=mjpeg_stream_thread, daemon=True).start()
         control_loop()
     except KeyboardInterrupt:
         print("\n[INFO] Exiting safely...")
