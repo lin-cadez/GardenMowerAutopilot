@@ -371,59 +371,118 @@ class WebHandler(BaseHTTPRequestHandler):
 
 # ================= HTML UI =================
 HTML_PAGE = """
+HTML_PAGE = """
 <!DOCTYPE html>
 <html>
 <head>
     <title>RC Mower</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
-        body { font-family: sans-serif; text-align: center; background: #eee; }
-        #map { height: 50vh; width: 100%; border-bottom: 2px solid #333; }
-        #video { width: 320px; height: 240px; background: #000; margin: 10px; border: 2px solid #333; }
-        .btn { padding: 15px 25px; font-size: 16px; margin: 5px; cursor: pointer; border: none; border-radius: 5px; color: white;}
-        .estop { background-color: #ff0000; font-weight: bold; font-size: 20px; padding: 20px 40px; width: 80%; border: 4px solid darkred; animation: pulse 1s infinite; }
-        .rec { background: #2196F3; } .gen { background: #FF9800; } .go { background: #4CAF50; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-        #info { margin: 10px; font-weight: bold; font-size: 18px; }
+        body { font-family: sans-serif; text-align: center; background: #f0f0f0; margin: 0; padding: 10px; }
+        #map { height: 50vh; width: 100%; border: 2px solid #333; margin-bottom: 10px; }
+        #video { width: 300px; height: 225px; background: #000; border: 2px solid #333; }
+        
+        /* Dashboard */
+        #dashboard { background: #fff; padding: 10px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .stat-box { display: inline-block; margin: 0 10px; font-size: 18px; }
+        
+        /* Buttons */
+        .btn { 
+            display: block; width: 90%; max-width: 400px; margin: 10px auto; 
+            padding: 15px; font-size: 18px; font-weight: bold; color: white; 
+            border: none; border-radius: 8px; cursor: pointer; 
+            box-shadow: 0 4px #999; 
+        }
+        .btn:active { box-shadow: 0 2px #666; transform: translateY(2px); }
+        
+        .estop { background-color: #ff0000; border: 3px solid darkred; animation: pulse 1.5s infinite; }
+        .rec { background-color: #2196F3; }
+        .gen { background-color: #FF9800; }
+        .go { background-color: #4CAF50; }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
+
     <div id="map"></div>
-    <div id="info">Mode: <span id="mode">-</span> | Fix: <span id="fix">-</span> | Safety: <span id="safe">-</span></div>
+
+    <div id="dashboard">
+        <div class="stat-box">Mode: <span id="mode" style="font-weight:bold; color:blue">-</span></div>
+        <div class="stat-box">GPS Fix: <span id="fix" style="font-weight:bold">-</span></div>
+        <div class="stat-box">Safety: <span id="safe" style="font-weight:bold">-</span></div>
+    </div>
     
-    <button class="btn estop" onclick="sendCmd('emergency_stop')">🚨 EMERGENCY STOP & MANUAL 🚨</button>
-    <br>
+    <button class="btn estop" onclick="sendCmd('emergency_stop')">🚨 EMERGENCY STOP 🚨</button>
     <img id="video" src="/stream">
-    <br>
+    
+    <hr>
     <button class="btn rec" onclick="sendCmd('start_rec')">1. Record Perimeter</button>
-    <button class="btn gen" onclick="sendCmd('stop_rec')">2. Stop Rec / Gen Path</button>
+    <button class="btn gen" onclick="sendCmd('stop_rec')">2. Stop Rec & Generate Path</button>
     <button class="btn go" onclick="sendCmd('start_mow')">3. START AUTO MOW</button>
 
     <script>
+        // Initialize Map
         var map = L.map('map').setView([0,0], 19);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 22}).addTo(map);
+        
         var car = L.marker([0,0]).addTo(map);
         var poly = L.polygon([], {color: 'red'}).addTo(map);
         var path = L.polyline([], {color: 'green'}).addTo(map);
+        var trail = L.polyline([], {color: 'yellow'}).addTo(map);
 
+        // Periodic Update
         function update() {
-            fetch('/status').then(r => r.json()).then(d => {
-                document.getElementById('mode').innerText = d.mode;
-                document.getElementById('fix').innerText = d.fix;
-                document.getElementById('safe').innerText = d.safety ? "OBSTACLE!" : "OK";
-                document.getElementById('safe').style.color = d.safety ? "red" : "green";
-                
-                if(d.lat) { car.setLatLng([d.lat, d.lon]); if(d.mode!=='MANUAL') map.panTo([d.lat, d.lon]); }
-                if(d.perimeter.length) poly.setLatLngs(d.perimeter);
-                if(d.path.length) path.setLatLngs(d.path);
-            });
+            fetch('/status')
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById('mode').innerText = d.mode;
+                    document.getElementById('fix').innerText = d.fix;
+                    
+                    var s = document.getElementById('safe');
+                    s.innerText = d.safety ? "OBSTACLE DETECTED!" : "CLEAR";
+                    s.style.color = d.safety ? "red" : "green";
+                    
+                    if(d.lat && d.lon && d.lat !== 0) { 
+                        car.setLatLng([d.lat, d.lon]); 
+                        if(d.mode !== 'MANUAL') map.panTo([d.lat, d.lon]); 
+                    }
+                    if(d.perimeter && d.perimeter.length) poly.setLatLngs(d.perimeter);
+                    if(d.path && d.path.length) path.setLatLngs(d.path);
+                    if(d.trail && d.trail.length) trail.setLatLngs(d.trail);
+                })
+                .catch(e => console.log("Status error", e));
         }
         setInterval(update, 500);
-        function sendCmd(c) { fetch('/cmd', {method: 'POST', body: JSON.stringify({command: c})}); }
+
+        // Command Sender
+        function sendCmd(c) {
+            console.log("Sending command: " + c);
+            fetch('/cmd', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({command: c})
+            })
+            .then(response => {
+                if(response.ok) {
+                    console.log("Command OK");
+                } else {
+                    alert("Server Error: " + response.status);
+                }
+            })
+            .catch(err => {
+                alert("Connection Failed! Is the script running?");
+                console.error(err);
+            });
+        }
     </script>
 </body>
 </html>
+"""
 """
 
 if __name__ == "__main__":
