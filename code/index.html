@@ -1,273 +1,56 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Mower Path Recorder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <style>
-    body { margin:0; font-family: system-ui, Arial; }
-    #map { width: 100vw; height: 100vh; }
-
-    .panel {
-      position: absolute; top: 12px; left: 12px; z-index: 9999;
-      background: rgba(255,255,255,0.92); padding: 10px 12px;
-      border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      max-width: 560px; font-size: 14px;
-    }
-
-    .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-    button { border: 0; padding: 8px 12px; border-radius: 10px; cursor: pointer; }
-    button.primary { background: #1f7ae0; color: white; }
-    button.danger  { background: #e02b2b; color: white; }
-    button.secondary { background: #eaeaea; }
-    button:disabled { opacity: 0.55; cursor: not-allowed; }
-
-    .pill { padding: 2px 8px; border-radius: 999px; background: #eee; font-variant-numeric: tabular-nums; }
-    .stream {
-      margin-top: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12px; background: #fafafa;
-      border: 1px solid #eee; border-radius: 10px; padding: 8px;
-      white-space: pre;
-    }
-    select { padding: 7px 10px; border-radius: 10px; border: 1px solid #ddd; background: white; }
-    label { user-select: none; }
-  </style>
+<meta charset="utf-8">
+<title>RC Mower Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body{margin:0;font-family:sans-serif}
+#map{height:100vh}
+.panel{
+ position:absolute;top:10px;left:10px;background:#fff;padding:10px;
+ border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.2)
+}
+button{margin:4px;padding:8px}
+</style>
 </head>
 <body>
-  <div id="map"></div>
-
-  <div class="panel">
-    <div style="font-weight:700;">Live GNSS + Recording</div>
-
-    <div class="row" style="margin-top:8px;">
-      <button id="startBtn" class="primary">Start recording</button>
-      <button id="stopBtn" class="danger" disabled>Stop recording</button>
-
-      <span class="pill" id="recState">REC: OFF</span>
-      <span class="pill" id="fixPill">Fix: -</span>
-      <span class="pill" id="satsPill">Sats: -</span>
-      <span class="pill" id="hdopPill">HDOP: -</span>
-    </div>
-
-    <div class="row" style="margin-top:8px;">
-      <label class="row" style="gap:6px;">
-        <input type="checkbox" id="showMarker" checked>
-        Show current marker
-      </label>
-
-      <button id="refreshFilesBtn" class="secondary">Refresh files</button>
-      <select id="fileSelect"></select>
-      <button id="loadBtn" class="secondary">Load</button>
-    </div>
-
-    <div style="margin-top:8px; font-size:12px; color:#444;">
-      <div id="fileLine">File: -</div>
-      <div id="latlonLine">Lat/Lon: -</div>
-      <div id="countLine">Points recorded: 0</div>
-      <div id="loadedLine">Loaded file: -</div>
-      <div id="areaLine">Area: -</div>
-    </div>
-
-    <!-- Only last 3 entries -->
-    <div class="stream" id="streamBox">waiting for GNSS...</div>
-  </div>
+<div id="map"></div>
+<div class="panel">
+<button onclick="post('/perimeter/start')">Start perimeter</button>
+<button onclick="post('/perimeter/stop')">Stop perimeter</button>
+<button onclick="post('/guidance/on')">Guidance ON</button>
+<button onclick="post('/guidance/off')">Guidance OFF</button>
+<div id="info"></div>
+</div>
 
 <script>
-  const map = L.map("map").setView([46.1178, 14.0213], 17);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 20,
-    attribution: "&copy; OpenStreetMap contributors"
-  }).addTo(map);
+const map=L.map("map").setView([46.1,14.0],18);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+const marker=L.marker([46.1,14.0]).addTo(map);
+let poly=null,rings=[];
 
-  const liveMarker = L.marker([46.1178, 14.0213]).addTo(map);
-  const showMarker = document.getElementById("showMarker");
+async function api(p){return (await fetch(p,{method:p.startsWith("/state")?"GET":"POST"})).json()}
+async function post(p){await api(p)}
 
-  // While recording: show raw path (optional)
-  const liveLine = L.polyline([], {}).addTo(map);
-
-  // Loaded outer boundary (closed polyline)
-  let loadedOuter = null;
-
-  // Recorded outer boundary after stop
-  let stoppedOuter = null;
-
-  const streamBox = document.getElementById("streamBox");
-  const streamLines = [];
-
-  function fmt(n, d=7) {
-    if (n === null || n === undefined) return "-";
-    return Number(n).toFixed(d);
-  }
-
-  function setArea(area_m2) {
-    if (!area_m2 || area_m2 <= 0) {
-      document.getElementById("areaLine").textContent = "Area: -";
-      return;
-    }
-    const ha = area_m2 / 10000.0;
-    document.getElementById("areaLine").textContent =
-      `Area: ${area_m2.toFixed(1)} m²  (${ha.toFixed(4)} ha)`;
-  }
-
-  function addStreamLine(line) {
-    streamLines.push(line);
-    while (streamLines.length > 3) streamLines.shift();
-    streamBox.textContent = streamLines.join("\n");
-  }
-
-  async function api(path, method="GET") {
-    const r = await fetch(path, { method, cache:"no-store" });
-    return await r.json();
-  }
-
-  async function refreshFiles() {
-    const sel = document.getElementById("fileSelect");
-    sel.innerHTML = "";
-
-    try {
-      const r = await api("/files");
-      if (!r.ok) throw new Error(r.error || "files failed");
-
-      const files = r.files || [];
-      // Always add placeholder so dropdown is never visually empty
-      const ph = document.createElement("option");
-      ph.value = "";
-      ph.textContent = files.length ? "(select a file)" : "(no files found)";
-      sel.appendChild(ph);
-
-      for (const f of files) {
-        const opt = document.createElement("option");
-        opt.value = f;
-        opt.textContent = f;
-        sel.appendChild(opt);
-      }
-    } catch (e) {
-      const opt = document.createElement("option");
-      opt.value = "";
-      opt.textContent = "(error loading file list)";
-      sel.appendChild(opt);
-    }
-  }
-
-  async function loadSelectedFile() {
-    const sel = document.getElementById("fileSelect");
-    const file = sel.value;
-    if (!file) {
-      alert("Select a file first.");
-      return;
-    }
-
-    const r = await api("/load?file=" + encodeURIComponent(file));
-    if (!r.ok) {
-      alert(r.error || "Load failed");
-      return;
-    }
-
-    document.getElementById("loadedLine").textContent = "Loaded file: " + file;
-    setArea(r.area_m2);
-
-    const outer = r.outer || [];
-    if (outer.length >= 3) {
-      if (loadedOuter) map.removeLayer(loadedOuter);
-      // draw as CLOSED polyline (outer already includes last==first when possible)
-      loadedOuter = L.polyline(outer, {}).addTo(map);
-      map.fitBounds(loadedOuter.getBounds(), { padding: [20, 20] });
-    } else {
-      alert("Not enough points to draw outer boundary.");
-    }
-  }
-
-  async function startRec() {
-    const r = await api("/start", "POST");
-    if (!r.ok) { alert(r.error || "Start failed"); return; }
-
-    document.getElementById("startBtn").disabled = true;
-    document.getElementById("stopBtn").disabled = false;
-    document.getElementById("recState").textContent = "REC: ON";
-    document.getElementById("fileLine").textContent = "File: " + r.filename;
-
-    streamLines.length = 0;
-    addStreamLine("RECORDING STARTED");
-    setArea(null);
-
-    liveLine.setLatLngs([]);
-    if (stoppedOuter) { map.removeLayer(stoppedOuter); stoppedOuter = null; }
-  }
-
-  async function stopRec() {
-    const r = await api("/stop", "POST");
-    if (!r.ok) { alert(r.error || "Stop failed"); return; }
-
-    document.getElementById("startBtn").disabled = false;
-    document.getElementById("stopBtn").disabled = true;
-    document.getElementById("recState").textContent = "REC: OFF";
-    document.getElementById("fileLine").textContent = "File: " + (r.filename || "-");
-
-    addStreamLine("RECORDING STOPPED");
-    addStreamLine("Points: " + (r.count || 0));
-
-    setArea(r.area_m2);
-
-    const outer = r.outer || [];
-    if (outer.length >= 3) {
-      if (stoppedOuter) map.removeLayer(stoppedOuter);
-      stoppedOuter = L.polyline(outer, {}).addTo(map);
-      map.fitBounds(stoppedOuter.getBounds(), { padding: [20, 20] });
-    } else {
-      alert("Not enough points to draw outer boundary.");
-    }
-
-    refreshFiles();
-  }
-
-  document.getElementById("startBtn").addEventListener("click", startRec);
-  document.getElementById("stopBtn").addEventListener("click", stopRec);
-  document.getElementById("refreshFilesBtn").addEventListener("click", refreshFiles);
-  document.getElementById("loadBtn").addEventListener("click", loadSelectedFile);
-
-  showMarker.addEventListener("change", () => {
-    if (showMarker.checked) liveMarker.addTo(map);
-    else map.removeLayer(liveMarker);
-  });
-
-  async function update() {
-    try {
-      const pos = await api("/pos");
-      const rec = await api("/status");
-
-      document.getElementById("startBtn").disabled = rec.active;
-      document.getElementById("stopBtn").disabled = !rec.active;
-      document.getElementById("recState").textContent = rec.active ? "REC: ON" : "REC: OFF";
-      document.getElementById("countLine").textContent = "Points recorded: " + (rec.count || 0);
-      if (rec.filename) document.getElementById("fileLine").textContent = "File: " + rec.filename;
-
-      if (pos.lat && pos.lon) {
-        if (showMarker.checked) liveMarker.setLatLng([pos.lat, pos.lon]);
-        map.panTo([pos.lat, pos.lon], { animate: true });
-
-        document.getElementById("fixPill").textContent = "Fix: " + (pos.fix_text || pos.fix || "-");
-        document.getElementById("satsPill").textContent = "Sats: " + (pos.sats ?? "-");
-        document.getElementById("hdopPill").textContent = "HDOP: " + (pos.hdop ?? "-");
-        document.getElementById("latlonLine").textContent = "Lat/Lon: " + fmt(pos.lat) + ", " + fmt(pos.lon);
-
-        addStreamLine(`${new Date().toISOString()}  ${fmt(pos.lat)}  ${fmt(pos.lon)}  fix=${pos.fix_text || pos.fix}`);
-
-        if (rec.active && rec.points) {
-          liveLine.setLatLngs(rec.points);
-        }
-      }
-    } catch (e) {
-      // ignore transient errors
-    }
-  }
-
-  refreshFiles();
-  setInterval(update, 1000);
-  update();
+async function upd(){
+ const s=await api("/state");
+ if(s.latest.lat){
+  marker.setLatLng([s.latest.lat,s.latest.lon]);
+  map.panTo(marker.getLatLng(),{animate:true});
+ }
+ if(s.perimeter.polygon.length){
+  if(poly)map.removeLayer(poly);
+  poly=L.polygon(s.perimeter.polygon,{color:"red",fillOpacity:.3}).addTo(map);
+ }
+ rings.forEach(r=>map.removeLayer(r)); rings=[];
+ s.perimeter.rings.slice(0,8).forEach(r=>rings.push(L.polyline(r).addTo(map)));
+ document.getElementById("info").innerText=
+  `Fix: ${s.latest.fix_text||"-"}  Area: ${s.perimeter.area_m2.toFixed(1)} m²`;
+}
+setInterval(upd,500);
+upd();
 </script>
 </body>
 </html>
