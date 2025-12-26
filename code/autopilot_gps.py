@@ -7,11 +7,33 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 import serial
+import pigpio
+
+# --- GPIO Pin Assignments ---
+CH1_OUT = 23
+CH2_OUT = 24
+
+# --- PWM Constants ---
+MIN_PULSE = 900
+MAX_PULSE = 2100
+NEUTRAL_PULSE = 1500
+
+# Initialize Hardware Connection
+pi = pigpio.pi()
+if not pi.connected:
+    print("[ERROR] Could not connect to pigpio. Did you run 'sudo pigpiod'?")
+else:
+    # Set initial neutral state for safety
+    pi.set_servo_pulsewidth(CH1_OUT, NEUTRAL_PULSE)
+    pi.set_servo_pulsewidth(CH2_OUT, NEUTRAL_PULSE)
 
 # ================= CONFIG =================
 SERIAL_PORT = "/dev/serial0"
 SERIAL_BAUD = 115200
 HTTP_PORT = 8080
+
+autopilot_mode = False
+target_detected = False  # FIXED: Was 'tagret_detected'
 
 CAR_WIDTH_M = 1.20
 OVERLAP_M   = 0.40
@@ -167,33 +189,71 @@ def bearing(a,b):
 
 def angle_diff(a,b): return (a-b+180)%360-180
 
+# --- PID Constants (Tune these for your mower) ---
+Kp = 1.5   # Proportional: How hard to turn based on current error
+Ki = 0.01  # Integral: Corrects long-term drift
+Kd = 0.1   # Derivative: Prevents overshooting/oscillations
+
+# PID State Variables
+integral = 0
+last_error = 0
+base_speed = 1600  # Base forward speed when on track
+
 def guidance_thread():
-    global _last_pos,_last_msg
+    global _last_pos, _last_msg, integral, last_error, autopilot_mode, target_detected  # FIXED: Added target_detected
+    
     while True:
-        time.sleep(0.3)
+        time.sleep(0.1)
+        
         with lock:
-            if not guidance["active"] or not perimeter["rings"]:
+            # Check if we actually have data and are in autopilot
+            if not guidance["active"] or not autopilot_mode or not perimeter["rings"] or latest["lat"] is None:
+                integral = 0
+                last_error = 0
                 continue
-            if latest["lat"] is None: continue
-            cur=[latest["lat"],latest["lon"]]
+            
+            cur = [latest["lat"], latest["lon"]]
             if _last_pos is None:
-                _last_pos=cur; continue
-            hdg=bearing(_last_pos,cur)
-            _last_pos=cur
+                _last_pos = cur
+                continue
+            
+            # Distance check to prevent GPS jitter from ruining heading
+            dist = math.hypot(cur[0]-_last_pos[0], cur[1]-_last_pos[1])
+            if dist < 0.000005:  # Roughly 0.5 meters
+                continue
 
-            ring=perimeter["rings"][min(guidance["ring"],len(perimeter["rings"])-1)]
-            a,b=ring[0],ring[1]
-            trg=bearing(a,b)
-            diff=angle_diff(trg,hdg)
-
-            if abs(diff)<8: msg="GO FORWARD (gentle)"
-            elif diff>0: msg="TURN RIGHT (fast)" if diff>30 else "TURN RIGHT (gentle)"
-            else: msg="TURN LEFT (fast)" if diff<-30 else "TURN LEFT (gentle)"
-
-            if msg!=_last_msg:
-                print(f"[GUIDE] {msg}")
-                _last_msg=msg
-
+            current_hdg = bearing(_last_pos, cur)
+            _last_pos = cur
+            
+            # Target the specific segment of the ring based on progress
+            ring = perimeter["rings"][min(guidance["ring"], len(perimeter["rings"])-1)]
+            
+            # Simple look-ahead: Target the next point in the ring
+            if len(ring) < 2:  # FIXED: Added safety check
+                continue
+            target_hdg = bearing(cur, ring[1]) 
+            
+            error = angle_diff(target_hdg, current_hdg)
+            
+            # PID Math
+            integral = max(min(integral + error, 50), -50)
+            derivative = error - last_error
+            last_error = error
+            
+            steering_correction = (Kp * error) + (Ki * integral) + (Kd * derivative)
+            
+            # Apply to motors ONLY if safety allows
+            if not target_detected:
+                left_motor = max(min(base_speed + steering_correction, MAX_PULSE), MIN_PULSE)
+                right_motor = max(min(base_speed - steering_correction, MAX_PULSE), MIN_PULSE)
+                pi.set_servo_pulsewidth(CH1_OUT, int(left_motor))
+                pi.set_servo_pulsewidth(CH2_OUT, int(right_motor))
+            else:
+                # E-STOP
+                pi.set_servo_pulsewidth(CH1_OUT, NEUTRAL_PULSE)
+                pi.set_servo_pulsewidth(CH2_OUT, NEUTRAL_PULSE)
+                
+                
 # ================ HTTP =====================
 class Handler(BaseHTTPRequestHandler):
     def _json(self,o):
@@ -201,7 +261,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type","application/json")
         self.send_header("Content-Length",str(len(d)))
-        self.end_headers(); self.wfile.write(d)
+        self.end_headers()
+        self.wfile.write(d)
 
     def do_GET(self):
         p=urlparse(self.path)
@@ -209,30 +270,51 @@ class Handler(BaseHTTPRequestHandler):
             h=(BASE_DIR/"index.html").read_bytes()
             self.send_response(200)
             self.send_header("Content-Type","text/html")
-            self.end_headers(); self.wfile.write(h)
+            self.end_headers()
+            self.wfile.write(h)
             return
         if p.path=="/state":
             with lock:
-                self._json({"latest":latest,"perimeter":perimeter,"guidance":guidance})
+                self._json({
+                    "latest": latest,
+                    "perimeter": perimeter,
+                    "guidance": guidance,
+                    "autopilot_mode": autopilot_mode,  # ADDED: Expose autopilot state
+                    "target_detected": target_detected  # ADDED: Expose safety state
+                })
             return
-        self.send_response(404); self.end_headers()
+        self.send_response(404)
+        self.end_headers()
 
     def do_POST(self):
-        global _record_fp
+        global _record_fp, autopilot_mode
         p=urlparse(self.path)
+        
         if p.path=="/perimeter/start":
             with lock:
                 perimeter["recording"]=True
                 perimeter["points"]=[]; perimeter["rings"]=[]; perimeter["polygon"]=[]
             f=PATH_DIR/f"perimeter_{int(time.time())}.txt"
             _record_fp=open(f,"w")
-            self._json({"ok":True}); return
-
+            self._json({"ok":True})
+            return
+            
+        if p.path == "/guidance/manual_override":
+            with lock:
+                guidance["active"] = False
+                autopilot_mode = False
+                # Force hardware back to neutral/RC passthrough immediately
+                pi.set_servo_pulsewidth(CH1_OUT, NEUTRAL_PULSE)
+                pi.set_servo_pulsewidth(CH2_OUT, NEUTRAL_PULSE)
+            self._json({"ok": True, "status": "Manual Control Engaged"})
+            return
+            
         if p.path=="/perimeter/stop":
             with lock:
                 perimeter["recording"]=False
             if _record_fp:
                 _record_fp.close()
+                _record_fp = None  # FIXED: Clear the file pointer
             with lock:
                 hull=convex_hull(perimeter["points"])
                 perimeter["polygon"]=hull+[hull[0]]
@@ -244,14 +326,28 @@ class Handler(BaseHTTPRequestHandler):
                     cur=shrink(cur,STEP_M)
                     if len(cur)<3: break
                 perimeter["rings"]=rings
-            self._json({"ok":True}); return
+            self._json({"ok":True})
+            return
 
         if p.path=="/guidance/on":
-            guidance["active"]=True; self._json({"ok":True}); return
+            with lock:
+                guidance["active"]=True
+                autopilot_mode = True  # ADDED: Set autopilot mode
+            self._json({"ok":True})
+            return
+            
         if p.path=="/guidance/off":
-            guidance["active"]=False; self._json({"ok":True}); return
+            with lock:
+                guidance["active"]=False
+                autopilot_mode = False  # ADDED: Clear autopilot mode
+                # Stop motors
+                pi.set_servo_pulsewidth(CH1_OUT, NEUTRAL_PULSE)
+                pi.set_servo_pulsewidth(CH2_OUT, NEUTRAL_PULSE)
+            self._json({"ok":True})
+            return
 
-        self.send_response(404); self.end_headers()
+        self.send_response(404)
+        self.end_headers()
 
 # ================= MAIN ====================
 if __name__=="__main__":
