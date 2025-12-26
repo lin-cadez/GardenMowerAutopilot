@@ -70,7 +70,6 @@ def start_recording():
         fname = new_record_filename()
         fpath = PATH_DIR / fname
         _record_fp = open(fpath, "w", buffering=1)  # line-buffered
-
         _record_fp.write("# epoch,lat,lon,fix,sats,hdop,alt\n")
 
         recording["active"] = True
@@ -78,7 +77,6 @@ def start_recording():
         recording["started_ts"] = time.time()
         recording["points"] = []
         recording["count"] = 0
-
         return {"ok": True, "filename": str(fpath)}
 
 
@@ -89,7 +87,6 @@ def stop_recording():
             return {"ok": False, "error": "Not recording"}
 
         recording["active"] = False
-
         try:
             if _record_fp:
                 _record_fp.flush()
@@ -98,19 +95,48 @@ def stop_recording():
             _record_fp = None
 
         pts = list(recording["points"])
-        return {
-            "ok": True,
-            "filename": recording["filename"],
-            "points": pts,
-            "count": recording["count"],
-        }
+        return {"ok": True, "filename": recording["filename"], "points": pts, "count": recording["count"]}
 
 
 def append_point_to_file(epoch, lat, lon, fix, sats, hdop, alt):
-    # max precision: repr(lat/lon) preserves full float precision
+    # max precision: repr() preserves full float precision
     line = f"{epoch:.3f},{repr(lat)},{repr(lon)},{fix},{sats},{hdop},{alt}\n"
     if _record_fp:
         _record_fp.write(line)
+
+
+def list_path_files():
+    files = sorted(PATH_DIR.glob("*.txt"), key=lambda p: p.stat().st_mtime, reverse=True)
+    return [p.name for p in files]
+
+
+def load_points_from_file(filename: str):
+    # Prevent path traversal: only allow plain filenames that exist in mowing_paths
+    safe = Path(filename).name
+    fpath = PATH_DIR / safe
+    if not fpath.exists() or not fpath.is_file():
+        return {"ok": False, "error": "File not found"}
+
+    pts = []
+    count = 0
+    with fpath.open("r") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            # epoch,lat,lon,fix,sats,hdop,alt
+            parts = line.split(",")
+            if len(parts) < 3:
+                continue
+            try:
+                lat = float(parts[1])
+                lon = float(parts[2])
+            except ValueError:
+                continue
+            pts.append([lat, lon])
+            count += 1
+
+    return {"ok": True, "filename": str(fpath), "points": pts, "count": count}
 
 
 def gnss_reader_thread():
@@ -169,7 +195,6 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == "/" or self.path.startswith("/index.html"):
-            # Serve index.html from the same folder as backend.py
             html_path = BASE_DIR / "index.html"
             if not html_path.exists():
                 self.send_response(404)
@@ -199,6 +224,31 @@ class Handler(BaseHTTPRequestHandler):
                     "count": recording["count"],
                     "points": recording["points"],  # live polyline points
                 })
+            return
+
+        if self.path.startswith("/files"):
+            self._send_json({"ok": True, "files": list_path_files()})
+            return
+
+        if self.path.startswith("/load"):
+            # query: /load?file=XYZ.txt
+            try:
+                _, q = self.path.split("?", 1)
+            except ValueError:
+                self._send_json({"ok": False, "error": "Missing query ?file="}, status=400)
+                return
+
+            params = {}
+            for kv in q.split("&"):
+                if "=" in kv:
+                    k, v = kv.split("=", 1)
+                    params[k] = v
+
+            fn = params.get("file", "")
+            # very small decode for spaces etc.
+            fn = fn.replace("%20", " ")
+            res = load_points_from_file(fn)
+            self._send_json(res, status=200 if res.get("ok") else 404)
             return
 
         self.send_response(404)
