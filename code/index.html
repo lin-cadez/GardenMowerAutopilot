@@ -1,206 +1,136 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>RC Mower Map</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<style>
-body{margin:0;font-family:sans-serif}
-#map{height:100vh}
-.panel{
- position:absolute;top:10px;left:10px;background:#fff;padding:15px;
- border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.2);z-index:1000;
- max-width:300px;
-}
-button{
- margin:4px;padding:10px 15px;border-radius:5px;border:none;
- cursor:pointer;font-size:14px;font-weight:bold;transition:all 0.2s;
-}
-button:hover{transform:scale(1.05)}
-.btn-start{background:#4CAF50;color:white}
-.btn-stop{background:#f44336;color:white}
-.btn-guidance-on{background:#2196F3;color:white}
-.btn-guidance-off{background:#FF9800;color:white}
-.btn-manual{background:#9C27B0;color:white}
-.status{
- margin-top:10px;padding:8px;border-radius:5px;
- font-size:13px;line-height:1.6;
-}
-.status-indicator{
- display:inline-block;width:12px;height:12px;
- border-radius:50%;margin-right:5px;
-}
-.indicator-active{background:#4CAF50}
-.indicator-inactive{background:#ccc}
-.indicator-warning{background:#FF9800}
-.indicator-danger{background:#f44336}
-.info-section{
- margin:8px 0;padding:8px;
- background:#f5f5f5;border-radius:5px;
-}
-.info-label{font-weight:bold;color:#555}
-.info-value{color:#000}
-h3{margin:0 0 10px 0;color:#333;font-size:16px}
-</style>
+  <meta charset="utf-8" />
+  <title>Mower Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body { margin:0; font-family: system-ui, Arial, sans-serif; }
+    #map { height: 78vh; }
+    #bar {
+      padding: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      align-items: center;
+      border-top: 1px solid #ddd;
+    }
+    button {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #f7f7f7;
+      cursor: pointer;
+    }
+    button:hover { background:#efefef; }
+    .pill {
+      padding: 6px 10px; border-radius: 999px; background:#eee;
+      font-size: 13px;
+    }
+    .warn { background: #ffe3e3; }
+    .ok { background: #e4ffe8; }
+  </style>
 </head>
 <body>
-<div id="map"></div>
-<div class="panel">
-<h3>🚜 Mower Control</h3>
+  <div id="map"></div>
+  <div id="bar">
+    <button onclick="post('/perimeter/start')">Start Perimeter</button>
+    <button onclick="post('/perimeter/stop')">Stop + Build Polygon</button>
+    <button onclick="post('/autonomy/start')">Start Autonomous</button>
+    <button onclick="post('/autonomy/stop')">Stop Autonomous</button>
 
-<div class="info-section">
-<div><span class="info-label">GPS Fix:</span> <span id="fix" class="info-value">-</span></div>
-<div><span class="info-label">Satellites:</span> <span id="sats" class="info-value">-</span></div>
-<div><span class="info-label">HDOP:</span> <span id="hdop" class="info-value">-</span></div>
-<div><span class="info-label">Area:</span> <span id="area" class="info-value">0.0 m²</span></div>
-</div>
+    <span id="armed" class="pill">Armed: ?</span>
+    <span id="auto" class="pill">Autonomy: ?</span>
+    <span id="fix" class="pill">Fix: ?</span>
+    <span id="area" class="pill">Area: ?</span>
+    <span id="safety" class="pill">Safety: ?</span>
+  </div>
 
-<div class="info-section">
-<div>
-<span class="status-indicator" id="autopilot-indicator"></span>
-<span class="info-label">Autopilot:</span> <span id="autopilot-status">OFF</span>
-</div>
-<div>
-<span class="status-indicator" id="guidance-indicator"></span>
-<span class="info-label">Guidance:</span> <span id="guidance-status">OFF</span>
-</div>
-<div>
-<span class="status-indicator" id="recording-indicator"></span>
-<span class="info-label">Recording:</span> <span id="recording-status">OFF</span>
-</div>
-<div>
-<span class="status-indicator" id="safety-indicator"></span>
-<span class="info-label">Safety:</span> <span id="safety-status">OK</span>
-</div>
-</div>
+  <script>
+    const map = L.map('map').setView([46.05, 14.5], 18);
 
-<div style="margin-top:10px">
-<button class="btn-start" onclick="post('/perimeter/start')">▶ Start Perimeter</button>
-<button class="btn-stop" onclick="post('/perimeter/stop')">⏹ Stop Perimeter</button>
-</div>
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20, attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
 
-<div style="margin-top:5px">
-<button class="btn-guidance-on" onclick="post('/guidance/on')">🎯 Guidance ON</button>
-<button class="btn-guidance-off" onclick="post('/guidance/off')">⏸ Guidance OFF</button>
-</div>
+    let posMarker = null;
+    let polyLayer = null;
+    let ringLayers = [];
 
-<div style="margin-top:5px">
-<button class="btn-manual" onclick="post('/guidance/manual_override')">🛑 Manual Override</button>
-</div>
+    function setPill(id, text, cls) {
+      const el = document.getElementById(id);
+      el.textContent = text;
+      el.className = "pill " + (cls || "");
+    }
 
-<div id="message" style="margin-top:10px;padding:8px;border-radius:5px;display:none"></div>
-</div>
+    async function post(path) {
+      const r = await fetch(path, { method: "POST" });
+      const j = await r.json().catch(()=>({ok:false,error:"bad json"}));
+      if (!j.ok && j.error) alert(j.error);
+    }
 
-<script>
-const map=L.map("map").setView([46.1,14.0],18);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
- attribution:'&copy; OpenStreetMap contributors'
-}).addTo(map);
+    function clearRings() {
+      for (const l of ringLayers) map.removeLayer(l);
+      ringLayers = [];
+    }
 
-const marker=L.marker([46.1,14.0]).addTo(map);
-let poly=null,rings=[];
-let lastLat=null,lastLon=null;
+    async function tick() {
+      const r = await fetch("/state");
+      const s = await r.json();
 
-function showMessage(msg,type='info'){
- const msgDiv=document.getElementById('message');
- msgDiv.textContent=msg;
- msgDiv.style.display='block';
- msgDiv.style.background=type==='error'?'#ffebee':type==='success'?'#e8f5e9':'#e3f2fd';
- msgDiv.style.color=type==='error'?'#c62828':type==='success'?'#2e7d32':'#1565c0';
- setTimeout(()=>msgDiv.style.display='none',3000);
-}
+      // UI pills
+      setPill("armed", `Armed (CH5): ${s.autopilot_armed}`, s.autopilot_armed ? "ok" : "warn");
+      setPill("auto", `Autonomy active: ${s.guidance.active}`, s.guidance.active ? "warn" : "ok");
+      setPill("fix", `Fix: ${s.latest.fix_text || "?"}`);
+      setPill("area", `Area: ${s.perimeter.area_m2 ? s.perimeter.area_m2.toFixed(1) + " m²" : "?"}`);
+      setPill("safety", `Target detected: ${s.target_detected}`, s.target_detected ? "warn" : "ok");
 
-async function api(p){
- try{
-  return (await fetch(p,{method:p.startsWith("/state")?"GET":"POST"})).json();
- }catch(e){
-  console.error('API error:',e);
-  return null;
- }
-}
+      // Position marker
+      const lat = s.latest.lat, lon = s.latest.lon;
+      if (lat && lon) {
+        const ll = [lat, lon];
+        if (!posMarker) {
+          posMarker = L.circleMarker(ll, { radius: 7 }).addTo(map);
+          map.setView(ll, 19);
+        } else {
+          posMarker.setLatLng(ll);
+        }
+      }
 
-async function post(p){
- const res=await api(p);
- if(res&&res.ok){
-  showMessage(res.status||'Command sent successfully','success');
- }else{
-  showMessage(res?.error||'Command failed','error');
- }
-}
+      // Red filled polygon
+      if (polyLayer) map.removeLayer(polyLayer);
+      const poly = s.perimeter.polygon || [];
+      if (poly.length >= 3) {
+        polyLayer = L.polygon(poly, {
+          fill: true,
+          fillOpacity: 0.25,
+          color: "#ff0000",
+          weight: 2
+        }).addTo(map);
+      }
 
-function updateIndicator(id,active,warning=false){
- const el=document.getElementById(id);
- el.className='status-indicator';
- if(warning){
-  el.classList.add('indicator-danger');
- }else if(active){
-  el.classList.add('indicator-active');
- }else{
-  el.classList.add('indicator-inactive');
- }
-}
+      // Rings
+      clearRings();
+      const rings = s.perimeter.rings || [];
+      for (let i=0; i<rings.length; i++) {
+        const ring = rings[i];
+        if (ring.length < 3) continue;
+        const isOuter = (i === 0);
+        const line = L.polyline(ring, {
+          weight: isOuter ? 4 : 2,
+          opacity: isOuter ? 0.9 : 0.6
+        }).addTo(map);
+        ringLayers.push(line);
+      }
+    }
 
-async function upd(){
- const s=await api("/state");
- if(!s)return;
- 
- // Update GPS position
- if(s.latest&&s.latest.lat){
-  const newLat=s.latest.lat;
-  const newLon=s.latest.lon;
-  
-  // Only pan if position changed significantly (reduce jitter)
-  if(!lastLat||Math.abs(newLat-lastLat)>0.00001||Math.abs(newLon-lastLon)>0.00001){
-   marker.setLatLng([newLat,newLon]);
-   map.panTo(marker.getLatLng(),{animate:true,duration:0.5});
-   lastLat=newLat;
-   lastLon=newLon;
-  }
-  
-  // Update GPS info
-  document.getElementById('fix').textContent=s.latest.fix_text||'-';
-  document.getElementById('sats').textContent=s.latest.sats||'-';
-  document.getElementById('hdop').textContent=s.latest.hdop||'-';
- }
- 
- // Update perimeter polygon
- if(s.perimeter&&s.perimeter.polygon&&s.perimeter.polygon.length){
-  if(poly)map.removeLayer(poly);
-  poly=L.polygon(s.perimeter.polygon,{color:"red",fillOpacity:.3}).addTo(map);
-  document.getElementById('area').textContent=`${s.perimeter.area_m2.toFixed(1)} m²`;
- }
- 
- // Update guidance rings
- rings.forEach(r=>map.removeLayer(r));
- rings=[];
- if(s.perimeter&&s.perimeter.rings){
-  s.perimeter.rings.slice(0,8).forEach((r,i)=>{
-   const color=i===0?'blue':'#aaa';
-   rings.push(L.polyline(r,{color:color,weight:2}).addTo(map));
-  });
- }
- 
- // Update status indicators
- updateIndicator('autopilot-indicator',s.autopilot_mode);
- updateIndicator('guidance-indicator',s.guidance&&s.guidance.active);
- updateIndicator('recording-indicator',s.perimeter&&s.perimeter.recording);
- updateIndicator('safety-indicator',!s.target_detected,s.target_detected);
- 
- // Update status text
- document.getElementById('autopilot-status').textContent=s.autopilot_mode?'ON':'OFF';
- document.getElementById('guidance-status').textContent=(s.guidance&&s.guidance.active)?'ACTIVE':'OFF';
- document.getElementById('recording-status').textContent=(s.perimeter&&s.perimeter.recording)?'RECORDING':'OFF';
- document.getElementById('safety-status').textContent=s.target_detected?'⚠ TARGET DETECTED':'OK';
- 
- // Change safety status color
- const safetyEl=document.getElementById('safety-status');
- safetyEl.style.color=s.target_detected?'#f44336':'#4CAF50';
- safetyEl.style.fontWeight=s.target_detected?'bold':'normal';
-}
-
-setInterval(upd,500);
-upd();
-</script>
+    setInterval(tick, 400);
+    tick();
+  </script>
 </body>
 </html>
