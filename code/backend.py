@@ -4,6 +4,8 @@ import threading
 import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
+from urllib.parse import urlparse, parse_qs
+import math
 
 import serial
 
@@ -61,6 +63,13 @@ def new_record_filename():
     return time.strftime("%Y%m%d_%H%M%S") + ".txt"
 
 
+def append_point_to_file(epoch, lat, lon, fix, sats, hdop, alt):
+    # max precision: repr() preserves full float precision
+    line = f"{epoch:.3f},{repr(lat)},{repr(lon)},{fix},{sats},{hdop},{alt}\n"
+    if _record_fp:
+        _record_fp.write(line)
+
+
 def start_recording():
     global _record_fp
     with state_lock:
@@ -69,7 +78,7 @@ def start_recording():
 
         fname = new_record_filename()
         fpath = PATH_DIR / fname
-        _record_fp = open(fpath, "w", buffering=1)  # line-buffered
+        _record_fp = open(fpath, "w", buffering=1)
         _record_fp.write("# epoch,lat,lon,fix,sats,hdop,alt\n")
 
         recording["active"] = True
@@ -77,6 +86,7 @@ def start_recording():
         recording["started_ts"] = time.time()
         recording["points"] = []
         recording["count"] = 0
+
         return {"ok": True, "filename": str(fpath)}
 
 
@@ -95,14 +105,16 @@ def stop_recording():
             _record_fp = None
 
         pts = list(recording["points"])
-        return {"ok": True, "filename": recording["filename"], "points": pts, "count": recording["count"]}
+        hull_closed, area_m2 = hull_and_area(pts)
 
-
-def append_point_to_file(epoch, lat, lon, fix, sats, hdop, alt):
-    # max precision: repr() preserves full float precision
-    line = f"{epoch:.3f},{repr(lat)},{repr(lon)},{fix},{sats},{hdop},{alt}\n"
-    if _record_fp:
-        _record_fp.write(line)
+        return {
+            "ok": True,
+            "filename": recording["filename"],
+            "count": recording["count"],
+            "points": pts,
+            "outer": hull_closed,     # closed polyline
+            "area_m2": area_m2,
+        }
 
 
 def list_path_files():
@@ -111,7 +123,6 @@ def list_path_files():
 
 
 def load_points_from_file(filename: str):
-    # Prevent path traversal: only allow plain filenames that exist in mowing_paths
     safe = Path(filename).name
     fpath = PATH_DIR / safe
     if not fpath.exists() or not fpath.is_file():
@@ -124,7 +135,6 @@ def load_points_from_file(filename: str):
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-            # epoch,lat,lon,fix,sats,hdop,alt
             parts = line.split(",")
             if len(parts) < 3:
                 continue
@@ -136,9 +146,112 @@ def load_points_from_file(filename: str):
             pts.append([lat, lon])
             count += 1
 
-    return {"ok": True, "filename": str(fpath), "points": pts, "count": count}
+    hull_closed, area_m2 = hull_and_area(pts)
+
+    return {
+        "ok": True,
+        "filename": str(fpath),
+        "count": count,
+        "points": pts,
+        "outer": hull_closed,   # closed polyline of outer boundary
+        "area_m2": area_m2,
+    }
 
 
+# ---------- Convex hull + area (outer boundary only) ----------
+def _to_xy(points):
+    """
+    Convert lat/lon to local meters using equirectangular projection around centroid.
+    Returns (xy_points, lat0_rad) where xy_points = [(x,y,lat,lon),...]
+    """
+    if not points:
+        return [], 0.0
+    lat0 = sum(p[0] for p in points) / len(points)
+    lon0 = sum(p[1] for p in points) / len(points)
+    lat0r = math.radians(lat0)
+    R = 6371000.0
+
+    xy = []
+    for lat, lon in points:
+        x = R * math.cos(lat0r) * math.radians(lon - lon0)
+        y = R * math.radians(lat - lat0)
+        xy.append((x, y, lat, lon))
+    return xy, lat0r
+
+
+def _cross(o, a, b):
+    return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+
+
+def convex_hull_latlon(points):
+    """
+    Monotonic chain convex hull.
+    Input: [[lat,lon],...]
+    Output: hull as [[lat,lon],...] (NOT closed)
+    """
+    # Deduplicate (lat,lon)
+    uniq = sorted(set((p[0], p[1]) for p in points))
+    if len(uniq) <= 2:
+        return [[lat, lon] for lat, lon in uniq]
+
+    xy, _ = _to_xy([[lat, lon] for lat, lon in uniq])
+    # Sort by x then y
+    xy_sorted = sorted(xy, key=lambda t: (t[0], t[1]))
+
+    lower = []
+    for p in xy_sorted:
+        while len(lower) >= 2 and _cross(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+
+    upper = []
+    for p in reversed(xy_sorted):
+        while len(upper) >= 2 and _cross(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+
+    hull_xy = lower[:-1] + upper[:-1]
+    hull = [[p[2], p[3]] for p in hull_xy]  # lat, lon
+    return hull
+
+
+def polygon_area_m2(points_latlon):
+    """
+    Shoelace on projected xy meters. points_latlon should be NOT closed.
+    """
+    if len(points_latlon) < 3:
+        return 0.0
+    xy, _ = _to_xy(points_latlon)
+    xs = [p[0] for p in xy]
+    ys = [p[1] for p in xy]
+    area = 0.0
+    n = len(xs)
+    for i in range(n):
+        j = (i + 1) % n
+        area += xs[i] * ys[j] - xs[j] * ys[i]
+    return abs(area) * 0.5
+
+
+def hull_and_area(points):
+    """
+    Returns (hull_closed_polyline, area_m2)
+    hull_closed_polyline: [[lat,lon],...,[lat,lon]] with last==first (if >=3 points)
+    """
+    if len(points) < 2:
+        return [], 0.0
+
+    hull = convex_hull_latlon(points)
+    area = polygon_area_m2(hull)
+
+    if len(hull) >= 3:
+        hull_closed = hull + [hull[0]]
+    else:
+        hull_closed = hull[:]  # no closure possible
+
+    return hull_closed, area
+
+
+# ---------- GNSS thread ----------
 def gnss_reader_thread():
     global latest
     ser = serial.Serial(SERIAL_PORT, SERIAL_BAUD, timeout=1)
@@ -183,6 +296,7 @@ def gnss_reader_thread():
                 append_point_to_file(now, lat, lon, fix, sats, hdop, alt)
 
 
+# ---------- HTTP ----------
 class Handler(BaseHTTPRequestHandler):
     def _send_json(self, obj, status=200):
         data = json.dumps(obj).encode("utf-8")
@@ -194,7 +308,10 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
-        if self.path == "/" or self.path.startswith("/index.html"):
+        parsed = urlparse(self.path)
+        path = parsed.path
+
+        if path == "/" or path == "/index.html":
             html_path = BASE_DIR / "index.html"
             if not html_path.exists():
                 self.send_response(404)
@@ -210,43 +327,33 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(body)
             return
 
-        if self.path.startswith("/pos"):
+        if path == "/pos":
             with state_lock:
                 self._send_json(latest)
             return
 
-        if self.path.startswith("/status"):
+        if path == "/status":
             with state_lock:
                 self._send_json({
                     "active": recording["active"],
                     "filename": recording["filename"],
                     "started_ts": recording["started_ts"],
                     "count": recording["count"],
-                    "points": recording["points"],  # live polyline points
+                    "points": recording["points"],
                 })
             return
 
-        if self.path.startswith("/files"):
-            self._send_json({"ok": True, "files": list_path_files()})
+        if path == "/files":
+            files = list_path_files()
+            self._send_json({"ok": True, "files": files})
             return
 
-        if self.path.startswith("/load"):
-            # query: /load?file=XYZ.txt
-            try:
-                _, q = self.path.split("?", 1)
-            except ValueError:
-                self._send_json({"ok": False, "error": "Missing query ?file="}, status=400)
+        if path == "/load":
+            qs = parse_qs(parsed.query)
+            fn = (qs.get("file") or [""])[0]
+            if not fn:
+                self._send_json({"ok": False, "error": "Missing file="}, status=400)
                 return
-
-            params = {}
-            for kv in q.split("&"):
-                if "=" in kv:
-                    k, v = kv.split("=", 1)
-                    params[k] = v
-
-            fn = params.get("file", "")
-            # very small decode for spaces etc.
-            fn = fn.replace("%20", " ")
             res = load_points_from_file(fn)
             self._send_json(res, status=200 if res.get("ok") else 404)
             return
@@ -255,11 +362,14 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        if self.path.startswith("/start"):
+        parsed = urlparse(self.path)
+        path = parsed.path
+
+        if path == "/start":
             self._send_json(start_recording())
             return
 
-        if self.path.startswith("/stop"):
+        if path == "/stop":
             self._send_json(stop_recording())
             return
 
