@@ -348,15 +348,15 @@ INDEX_HTML = r"""<!doctype html>
 <header>
   <div class="wrap">
     <div class="topbar">
-      <div class="title"><span style="font-size:18px">🧭</span><span>Mower Dashboard</span><span class="badge">Live Stream + DGPS Map</span></div>
+      <div class="title"><span style="font-size:18px"></span><span>Mower Dashboard</span><span class="badge">Live Stream + DGPS Map</span></div>
       <div class="badge" id="clock">--:--:--</div>
     </div>
     <div class="statusRow">
       <div class="chip"><span class="dot" id="fixDot"></span><span><b id="fixText">Fix:</b> <span id="fixVal">--</span></span></div>
-      <div class="chip"><span>🛰️ <b>Sats:</b> <span id="satsVal">--</span></span></div>
-      <div class="chip"><span>📉 <b>HDOP:</b> <span id="hdopVal">--</span></span></div>
-      <div class="chip"><span>⛰️ <b>Alt:</b> <span id="altVal">--</span></span></div>
-      <div class="chip"><span>⏱️ <b>Age:</b> <span id="ageVal">--</span>s</span></div>
+      <div class="chip"><span><b>Sats:</b> <span id="satsVal">--</span></span></div>
+      <div class="chip"><span><b>HDOP:</b> <span id="hdopVal">--</span></span></div>
+      <div class="chip"><span><b>Alt:</b> <span id="altVal">--</span></span></div>
+      <div class="chip"><span><b>Age:</b> <span id="ageVal">--</span>s</span></div>
     </div>
   </div>
 </header>
@@ -365,7 +365,7 @@ INDEX_HTML = r"""<!doctype html>
   <div class="wrap">
     <div class="grid">
       <section class="card">
-        <div class="cardHeader"><h2>📷 Live Camera</h2><span class="pill" id="streamPill">Stream: connecting…</span></div>
+        <div class="cardHeader"><h2>Live Camera</h2><span class="pill" id="streamPill">Stream: connecting…</span></div>
         <div class="streamWrap">
           <img id="streamImg" class="streamImg" alt="Live stream" src="" />
           <div class="streamOverlay">
@@ -376,7 +376,7 @@ INDEX_HTML = r"""<!doctype html>
       </section>
 
       <section class="card">
-        <div class="cardHeader"><h2>🗺️ DGPS Position</h2><span class="pill" id="posPill">/pos: waiting…</span></div>
+        <div class="cardHeader"><h2>DGPS Position</h2><span class="pill" id="posPill">/pos: waiting…</span></div>
         <div id="map"></div>
       </section>
     </div>
