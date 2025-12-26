@@ -16,38 +16,24 @@
       position: absolute; top: 12px; left: 12px; z-index: 9999;
       background: rgba(255,255,255,0.92); padding: 10px 12px;
       border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      max-width: 520px; font-size: 14px;
+      max-width: 560px; font-size: 14px;
     }
 
     .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-    button {
-      border: 0; padding: 8px 12px; border-radius: 10px; cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
+    button { border: 0; padding: 8px 12px; border-radius: 10px; cursor: pointer; }
     button.primary { background: #1f7ae0; color: white; }
     button.danger  { background: #e02b2b; color: white; }
     button.secondary { background: #eaeaea; }
     button:disabled { opacity: 0.55; cursor: not-allowed; }
 
-    .pill {
-      padding: 2px 8px; border-radius: 999px; background: #eee;
-      font-variant-numeric: tabular-nums;
-    }
-
+    .pill { padding: 2px 8px; border-radius: 999px; background: #eee; font-variant-numeric: tabular-nums; }
     .stream {
       margin-top: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px; background: #fafafa;
       border: 1px solid #eee; border-radius: 10px; padding: 8px;
       white-space: pre;
     }
-
-    select {
-      padding: 7px 10px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background: white;
-    }
-
+    select { padding: 7px 10px; border-radius: 10px; border: 1px solid #ddd; background: white; }
     label { user-select: none; }
   </style>
 </head>
@@ -83,9 +69,10 @@
       <div id="latlonLine">Lat/Lon: -</div>
       <div id="countLine">Points recorded: 0</div>
       <div id="loadedLine">Loaded file: -</div>
+      <div id="areaLine">Area: -</div>
     </div>
 
-    <!-- Stream view limited to 3 entries -->
+    <!-- Only last 3 entries -->
     <div class="stream" id="streamBox">waiting for GNSS...</div>
   </div>
 
@@ -96,26 +83,34 @@
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
 
-  // Current marker + option to hide
   const liveMarker = L.marker([46.1178, 14.0213]).addTo(map);
   const showMarker = document.getElementById("showMarker");
 
-  // Live polyline while recording
+  // While recording: show raw path (optional)
   const liveLine = L.polyline([], {}).addTo(map);
 
-  // Loaded polygon (from file)
-  let loadedPolygon = null;
+  // Loaded outer boundary (closed polyline)
+  let loadedOuter = null;
 
-  // Final polygon after stop (current session)
-  let finalPolygon = null;
+  // Recorded outer boundary after stop
+  let stoppedOuter = null;
 
-  // Stream limited to 3 entries
   const streamBox = document.getElementById("streamBox");
-  const streamLines = []; // keep last 3
+  const streamLines = [];
 
   function fmt(n, d=7) {
     if (n === null || n === undefined) return "-";
     return Number(n).toFixed(d);
+  }
+
+  function setArea(area_m2) {
+    if (!area_m2 || area_m2 <= 0) {
+      document.getElementById("areaLine").textContent = "Area: -";
+      return;
+    }
+    const ha = area_m2 / 10000.0;
+    document.getElementById("areaLine").textContent =
+      `Area: ${area_m2.toFixed(1)} m²  (${ha.toFixed(4)} ha)`;
   }
 
   function addStreamLine(line) {
@@ -130,37 +125,41 @@
   }
 
   async function refreshFiles() {
-    const r = await api("/files");
-    if (!r.ok) return;
-
     const sel = document.getElementById("fileSelect");
-    const current = sel.value;
-
     sel.innerHTML = "";
-    const files = r.files || [];
-    if (files.length === 0) {
+
+    try {
+      const r = await api("/files");
+      if (!r.ok) throw new Error(r.error || "files failed");
+
+      const files = r.files || [];
+      // Always add placeholder so dropdown is never visually empty
+      const ph = document.createElement("option");
+      ph.value = "";
+      ph.textContent = files.length ? "(select a file)" : "(no files found)";
+      sel.appendChild(ph);
+
+      for (const f of files) {
+        const opt = document.createElement("option");
+        opt.value = f;
+        opt.textContent = f;
+        sel.appendChild(opt);
+      }
+    } catch (e) {
       const opt = document.createElement("option");
       opt.value = "";
-      opt.textContent = "(no files)";
-      sel.appendChild(opt);
-      return;
-    }
-
-    for (const f of files) {
-      const opt = document.createElement("option");
-      opt.value = f;
-      opt.textContent = f;
+      opt.textContent = "(error loading file list)";
       sel.appendChild(opt);
     }
-
-    // keep selection if still present
-    if (files.includes(current)) sel.value = current;
   }
 
   async function loadSelectedFile() {
     const sel = document.getElementById("fileSelect");
     const file = sel.value;
-    if (!file) return;
+    if (!file) {
+      alert("Select a file first.");
+      return;
+    }
 
     const r = await api("/load?file=" + encodeURIComponent(file));
     if (!r.ok) {
@@ -169,21 +168,16 @@
     }
 
     document.getElementById("loadedLine").textContent = "Loaded file: " + file;
+    setArea(r.area_m2);
 
-    const pts = r.points || [];
-    if (pts.length >= 3) {
-      const closed = pts.concat([pts[0]]);
-
-      if (loadedPolygon) map.removeLayer(loadedPolygon);
-      loadedPolygon = L.polygon(closed, {}).addTo(map);
-      map.fitBounds(loadedPolygon.getBounds(), { padding: [20, 20] });
-    } else if (pts.length >= 2) {
-      // if not enough for polygon, show as polyline
-      if (loadedPolygon) map.removeLayer(loadedPolygon);
-      loadedPolygon = L.polyline(pts, {}).addTo(map);
-      map.fitBounds(loadedPolygon.getBounds(), { padding: [20, 20] });
+    const outer = r.outer || [];
+    if (outer.length >= 3) {
+      if (loadedOuter) map.removeLayer(loadedOuter);
+      // draw as CLOSED polyline (outer already includes last==first when possible)
+      loadedOuter = L.polyline(outer, {}).addTo(map);
+      map.fitBounds(loadedOuter.getBounds(), { padding: [20, 20] });
     } else {
-      alert("File has too few points to draw.");
+      alert("Not enough points to draw outer boundary.");
     }
   }
 
@@ -196,13 +190,12 @@
     document.getElementById("recState").textContent = "REC: ON";
     document.getElementById("fileLine").textContent = "File: " + r.filename;
 
-    // reset visuals for this session
-    liveLine.setLatLngs([]);
-    if (finalPolygon) { map.removeLayer(finalPolygon); finalPolygon = null; }
-
-    // keep loaded polygon if user loaded a file (don’t auto-delete)
     streamLines.length = 0;
     addStreamLine("RECORDING STARTED");
+    setArea(null);
+
+    liveLine.setLatLngs([]);
+    if (stoppedOuter) { map.removeLayer(stoppedOuter); stoppedOuter = null; }
   }
 
   async function stopRec() {
@@ -217,18 +210,17 @@
     addStreamLine("RECORDING STOPPED");
     addStreamLine("Points: " + (r.count || 0));
 
-    const pts = r.points || [];
-    if (pts.length >= 3) {
-      const closed = pts.concat([pts[0]]);
-      if (finalPolygon) map.removeLayer(finalPolygon);
-      finalPolygon = L.polygon(closed, {}).addTo(map);
-      map.fitBounds(finalPolygon.getBounds(), { padding: [20, 20] });
+    setArea(r.area_m2);
+
+    const outer = r.outer || [];
+    if (outer.length >= 3) {
+      if (stoppedOuter) map.removeLayer(stoppedOuter);
+      stoppedOuter = L.polyline(outer, {}).addTo(map);
+      map.fitBounds(stoppedOuter.getBounds(), { padding: [20, 20] });
     } else {
-      addStreamLine("Not enough points for polygon");
-      alert("Not enough points to create a shape (need at least 3).");
+      alert("Not enough points to draw outer boundary.");
     }
 
-    // Update file list so the new file appears
     refreshFiles();
   }
 
@@ -238,11 +230,8 @@
   document.getElementById("loadBtn").addEventListener("click", loadSelectedFile);
 
   showMarker.addEventListener("change", () => {
-    if (showMarker.checked) {
-      liveMarker.addTo(map);
-    } else {
-      map.removeLayer(liveMarker);
-    }
+    if (showMarker.checked) liveMarker.addTo(map);
+    else map.removeLayer(liveMarker);
   });
 
   async function update() {
@@ -250,7 +239,6 @@
       const pos = await api("/pos");
       const rec = await api("/status");
 
-      // Page refresh robustness
       document.getElementById("startBtn").disabled = rec.active;
       document.getElementById("stopBtn").disabled = !rec.active;
       document.getElementById("recState").textContent = rec.active ? "REC: ON" : "REC: OFF";
@@ -258,9 +246,7 @@
       if (rec.filename) document.getElementById("fileLine").textContent = "File: " + rec.filename;
 
       if (pos.lat && pos.lon) {
-        if (showMarker.checked) {
-          liveMarker.setLatLng([pos.lat, pos.lon]);
-        }
+        if (showMarker.checked) liveMarker.setLatLng([pos.lat, pos.lon]);
         map.panTo([pos.lat, pos.lon], { animate: true });
 
         document.getElementById("fixPill").textContent = "Fix: " + (pos.fix_text || pos.fix || "-");
@@ -270,12 +256,8 @@
 
         addStreamLine(`${new Date().toISOString()}  ${fmt(pos.lat)}  ${fmt(pos.lon)}  fix=${pos.fix_text || pos.fix}`);
 
-        // Live polyline while recording
         if (rec.active && rec.points) {
           liveLine.setLatLngs(rec.points);
-        } else {
-          // keep the last live line visible; optional: clear when not recording
-          // liveLine.setLatLngs([]);
         }
       }
     } catch (e) {
@@ -283,7 +265,6 @@
     }
   }
 
-  // init
   refreshFiles();
   setInterval(update, 1000);
   update();
