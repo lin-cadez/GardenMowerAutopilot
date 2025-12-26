@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mower Path Recorder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body { margin:0; font-family: system-ui, Arial; }
+    #map { width: 100vw; height: 100vh; }
+
+    .panel {
+      position: absolute; top: 12px; left: 12px; z-index: 9999;
+      background: rgba(255,255,255,0.92); padding: 10px 12px;
+      border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      max-width: 460px; font-size: 14px;
+    }
+
+    .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    button {
+      border: 0; padding: 8px 12px; border-radius: 10px; cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    button.primary { background: #1f7ae0; color: white; }
+    button.danger  { background: #e02b2b; color: white; }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .pill {
+      padding: 2px 8px; border-radius: 999px; background: #eee;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stream {
+      margin-top: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px; max-height: 140px; overflow: auto; background: #fafafa;
+      border: 1px solid #eee; border-radius: 10px; padding: 8px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="panel">
+    <div style="font-weight:700;">Live GNSS + Recording</div>
+
+    <div class="row" style="margin-top:8px;">
+      <button id="startBtn" class="primary">Start recording</button>
+      <button id="stopBtn" class="danger" disabled>Stop recording</button>
+      <span class="pill" id="recState">REC: OFF</span>
+      <span class="pill" id="fixPill">Fix: -</span>
+      <span class="pill" id="satsPill">Sats: -</span>
+      <span class="pill" id="hdopPill">HDOP: -</span>
+    </div>
+
+    <div style="margin-top:8px; font-size:12px; color:#444;">
+      <div id="fileLine">File: -</div>
+      <div id="latlonLine">Lat/Lon: -</div>
+      <div id="countLine">Points recorded: 0</div>
+    </div>
+
+    <div class="stream" id="streamBox">waiting for GNSS...</div>
+  </div>
+
+<script>
+  const map = L.map("map").setView([46.1178, 14.0213], 17);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 20,
+    attribution: "&copy; OpenStreetMap contributors"
+  }).addTo(map);
+
+  const liveMarker = L.marker([46.1178, 14.0213]).addTo(map);
+
+  // live line while recording
+  const liveLine = L.polyline([], {}).addTo(map);
+
+  // final polygon after stop
+  let finalPolygon = null;
+
+  const streamBox = document.getElementById("streamBox");
+
+  function fmt(n, d=7) {
+    if (n === null || n === undefined) return "-";
+    return Number(n).toFixed(d);
+  }
+
+  function appendStream(line) {
+    streamBox.textContent += line + "\n";
+    const lines = streamBox.textContent.split("\n");
+    if (lines.length > 220) {
+      streamBox.textContent = lines.slice(lines.length - 220).join("\n");
+    }
+    streamBox.scrollTop = streamBox.scrollHeight;
+  }
+
+  async function api(path, method="GET") {
+    const r = await fetch(path, { method, cache:"no-store" });
+    return await r.json();
+  }
+
+  async function startRec() {
+    const r = await api("/start", "POST");
+    if (!r.ok) { alert(r.error || "Start failed"); return; }
+
+    document.getElementById("startBtn").disabled = true;
+    document.getElementById("stopBtn").disabled = false;
+    document.getElementById("recState").textContent = "REC: ON";
+    document.getElementById("fileLine").textContent = "File: " + r.filename;
+
+    // reset visuals
+    liveLine.setLatLngs([]);
+    if (finalPolygon) { map.removeLayer(finalPolygon); finalPolygon = null; }
+    streamBox.textContent = "";
+    appendStream("RECORDING STARTED");
+  }
+
+  async function stopRec() {
+    const r = await api("/stop", "POST");
+    if (!r.ok) { alert(r.error || "Stop failed"); return; }
+
+    document.getElementById("startBtn").disabled = false;
+    document.getElementById("stopBtn").disabled = true;
+    document.getElementById("recState").textContent = "REC: OFF";
+    document.getElementById("fileLine").textContent = "File: " + (r.filename || "-");
+
+    appendStream("RECORDING STOPPED");
+    appendStream("Points: " + (r.count || 0));
+
+    const pts = r.points || [];
+    if (pts.length >= 3) {
+      const closed = pts.concat([pts[0]]); // close shape
+      if (finalPolygon) map.removeLayer(finalPolygon);
+      finalPolygon = L.polygon(closed, {}).addTo(map);
+      map.fitBounds(finalPolygon.getBounds(), { padding: [20, 20] });
+    } else {
+      alert("Not enough points to create a shape (need at least 3).");
+    }
+  }
+
+  document.getElementById("startBtn").addEventListener("click", startRec);
+  document.getElementById("stopBtn").addEventListener("click", stopRec);
+
+  async function update() {
+    try {
+      const pos = await api("/pos");
+      const rec = await api("/status");
+
+      // page refresh robustness
+      document.getElementById("startBtn").disabled = rec.active;
+      document.getElementById("stopBtn").disabled = !rec.active;
+      document.getElementById("recState").textContent = rec.active ? "REC: ON" : "REC: OFF";
+      document.getElementById("countLine").textContent = "Points recorded: " + (rec.count || 0);
+      if (rec.filename) document.getElementById("fileLine").textContent = "File: " + rec.filename;
+
+      if (pos.lat && pos.lon) {
+        liveMarker.setLatLng([pos.lat, pos.lon]);
+        map.panTo([pos.lat, pos.lon], { animate: true });
+
+        document.getElementById("fixPill").textContent = "Fix: " + (pos.fix_text || pos.fix || "-");
+        document.getElementById("satsPill").textContent = "Sats: " + (pos.sats ?? "-");
+        document.getElementById("hdopPill").textContent = "HDOP: " + (pos.hdop ?? "-");
+        document.getElementById("latlonLine").textContent = "Lat/Lon: " + fmt(pos.lat) + ", " + fmt(pos.lon);
+
+        appendStream(`${new Date().toISOString()}  ${fmt(pos.lat)}  ${fmt(pos.lon)}  fix=${pos.fix_text || pos.fix}`);
+
+        if (rec.active && rec.points) {
+          liveLine.setLatLngs(rec.points);
+        }
+      }
+    } catch (e) {
+      // ignore transient errors
+    }
+  }
+
+  setInterval(update, 1000);
+  update();
+</script>
+</body>
+</html>
