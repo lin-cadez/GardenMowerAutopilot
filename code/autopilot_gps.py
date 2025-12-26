@@ -271,54 +271,103 @@ def control_thread():
 
 # ================= WEB SERVER =================
 class WebHandler(BaseHTTPRequestHandler):
+    def log_message(self, format, *args):
+        return  # Silence default logs to keep console clean
+
     def do_GET(self):
-        parsed = urlparse(self.path)
-        if parsed.path == "/":
-            self.send_response(200); self.send_header("Content-type", "text/html"); self.end_headers()
-            self.wfile.write(HTML_PAGE.encode('utf-8'))
-        elif parsed.path == "/status":
-            with state_lock:
-                d = {
-                    "lat": state["lat"], "lon": state["lon"], "fix": state["fix"],
-                    "mode": state["mode"], "safety": state["safety_stop"],
-                    "perimeter": state["perimeter"], "path": state["mow_path"],
-                    "trail": state["mowed_trail"]
-                }
-            self.send_response(200); self.send_header("Content-type", "application/json"); self.end_headers()
-            self.wfile.write(json.dumps(d).encode())
-        elif parsed.path == "/stream":
-            self.send_response(200)
-            self.send_header('Content-Type', 'multipart/x-mixed-replace; boundary=frame')
-            self.end_headers()
-            while True:
-                if current_frame is None: time.sleep(0.1); continue
-                try:
-                    _, jpeg = cv2.imencode('.jpg', current_frame)
-                    self.wfile.write(b'--frame\r\n'); self.wfile.write(b'Content-Type: image/jpeg\r\n\r\n')
-                    self.wfile.write(jpeg.tobytes()); self.wfile.write(b'\r\n')
-                    time.sleep(0.1)
-                except: break
+        try:
+            parsed = urlparse(self.path)
+            if parsed.path == "/":
+                self.send_response(200)
+                self.send_header("Content-type", "text/html")
+                self.end_headers()
+                self.wfile.write(HTML_PAGE.encode('utf-8'))
+            elif parsed.path == "/status":
+                with state_lock:
+                    # Create a safe copy of data to send
+                    d = {
+                        "lat": state["lat"], "lon": state["lon"], "fix": state["fix"],
+                        "mode": state["mode"], "safety": state["safety_stop"],
+                        "perimeter": state["perimeter"], "path": state["mow_path"],
+                        "trail": state["mowed_trail"]
+                    }
+                self.send_response(200)
+                self.send_header("Content-type", "application/json")
+                self.end_headers()
+                self.wfile.write(json.dumps(d).encode())
+            elif parsed.path == "/stream":
+                self.send_response(200)
+                self.send_header('Content-Type', 'multipart/x-mixed-replace; boundary=frame')
+                self.end_headers()
+                while True:
+                    if current_frame is None: 
+                        time.sleep(0.1)
+                        continue
+                    try:
+                        _, jpeg = cv2.imencode('.jpg', current_frame)
+                        self.wfile.write(b'--frame\r\n')
+                        self.wfile.write(b'Content-Type: image/jpeg\r\n\r\n')
+                        self.wfile.write(jpeg.tobytes())
+                        self.wfile.write(b'\r\n')
+                        time.sleep(0.1)
+                    except Exception:
+                        break
+        except Exception as e:
+            print(f"[WEB ERROR] GET failed: {e}")
 
     def do_POST(self):
-        parsed = urlparse(self.path)
-        if parsed.path == "/cmd":
-            l = int(self.headers.get('Content-Length'))
-            data = json.loads(self.rfile.read(l))
+        try:
+            # 1. Safely get content length
+            content_len = int(self.headers.get('Content-Length', 0))
+            if content_len == 0:
+                self.send_response(400)
+                self.end_headers()
+                return
+
+            # 2. Read and parse body
+            post_body = self.rfile.read(content_len)
+            data = json.loads(post_body)
             cmd = data.get("command")
             
+            print(f"[WEB] Received Command: {cmd}") # DEBUG PRINT
+
+            # 3. Process Command
             with state_lock:
                 if cmd == "emergency_stop":
-                    state["mode"] = "MANUAL" # Force Manual immediately
-                    print("[WEB] EMERGENCY STOP TRIGGERED")
+                    state["mode"] = "MANUAL"
+                    print("[ACTION] EMERGENCY STOP TRIGGERED")
+                
                 elif cmd == "start_rec":
-                    state["perimeter"] = []; state["mode"] = "RECORDING"
+                    state["perimeter"] = []
+                    state["mode"] = "RECORDING"
+                    print("[ACTION] Recording Started")
+                
                 elif cmd == "stop_rec":
                     state["mode"] = "MANUAL"
-                    state["mow_path"] = generate_snail_path(state["perimeter"])
+                    print("[ACTION] Generating Path...")
+                    try:
+                        state["mow_path"] = generate_snail_path(state["perimeter"])
+                        print(f"[ACTION] Path Generated with {len(state['mow_path'])} points")
+                    except Exception as e:
+                        print(f"[ERROR] Path Generation Failed: {e}")
+                        state["mow_path"] = []
+                
                 elif cmd == "start_mow":
-                    if state["mow_path"]: state["target_idx"] = 0; state["mode"] = "AUTO_MOW"
+                    if state["mow_path"]: 
+                        state["target_idx"] = 0
+                        state["mode"] = "AUTO_MOW"
+                        print("[ACTION] Auto Mowing Started")
+                    else:
+                        print("[ERROR] Cannot start: No path generated")
             
-            self.send_response(200); self.end_headers(); self.wfile.write(b"OK")
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK")
+            
+        except Exception as e:
+            print(f"[WEB ERROR] POST processing failed: {e}")
+            self.send_response(500)
+            self.end_headers()
 
 # ================= HTML UI =================
 HTML_PAGE = """
