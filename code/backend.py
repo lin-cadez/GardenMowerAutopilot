@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+#123
 import json
 import threading
 import time
@@ -6,10 +8,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 import math
-
 import serial
 
-# ------------------- Config -------------------
 SERIAL_PORT = "/dev/serial0"
 SERIAL_BAUD = 115200
 HTTP_PORT = 8080
@@ -18,29 +18,12 @@ BASE_DIR = Path(__file__).resolve().parent
 PATH_DIR = BASE_DIR / "mowing_paths"
 PATH_DIR.mkdir(exist_ok=True)
 
-FIX_MAP = {
-    "0": "NO FIX",
-    "1": "GNSS",
-    "2": "DGPS",
-    "4": "RTK FIXED",
-    "5": "RTK FLOAT",
-}
+FIX_MAP = {"0":"NO FIX","1":"GNSS","2":"DGPS","4":"RTK FIXED","5":"RTK FLOAT"}
 
 state_lock = threading.Lock()
 
-latest = {
-    "lat": None, "lon": None, "fix": None, "fix_text": None,
-    "sats": None, "hdop": None, "alt": None, "ts": None, "raw": None,
-}
-
-recording = {
-    "active": False,
-    "filename": None,
-    "started_ts": None,
-    "points": [],  # list of [lat, lon]
-    "count": 0,
-}
-
+latest = {"lat":None,"lon":None,"fix":None,"fix_text":None,"sats":None,"hdop":None,"alt":None,"ts":None,"raw":None}
+recording = {"active":False,"filename":None,"started_ts":None,"points":[],"count":0}
 _record_fp = None
 
 
@@ -52,9 +35,7 @@ def nmea_to_deg(value: str, hemi: str):
         deg = int(d // 100)
         minutes = d - deg * 100
         coord = deg + minutes / 60.0
-        if hemi in ("S", "W"):
-            coord = -coord
-        return coord
+        return -coord if hemi in ("S","W") else coord
     except ValueError:
         return None
 
@@ -64,7 +45,6 @@ def new_record_filename():
 
 
 def append_point_to_file(epoch, lat, lon, fix, sats, hdop, alt):
-    # max precision: repr() preserves full float precision
     line = f"{epoch:.3f},{repr(lat)},{repr(lon)},{fix},{sats},{hdop},{alt}\n"
     if _record_fp:
         _record_fp.write(line)
@@ -75,18 +55,11 @@ def start_recording():
     with state_lock:
         if recording["active"]:
             return {"ok": False, "error": "Already recording"}
-
         fname = new_record_filename()
         fpath = PATH_DIR / fname
         _record_fp = open(fpath, "w", buffering=1)
         _record_fp.write("# epoch,lat,lon,fix,sats,hdop,alt\n")
-
-        recording["active"] = True
-        recording["filename"] = str(fpath)
-        recording["started_ts"] = time.time()
-        recording["points"] = []
-        recording["count"] = 0
-
+        recording.update({"active":True,"filename":str(fpath),"started_ts":time.time(),"points":[],"count":0})
         return {"ok": True, "filename": str(fpath)}
 
 
@@ -95,7 +68,6 @@ def stop_recording():
     with state_lock:
         if not recording["active"]:
             return {"ok": False, "error": "Not recording"}
-
         recording["active"] = False
         try:
             if _record_fp:
@@ -105,16 +77,8 @@ def stop_recording():
             _record_fp = None
 
         pts = list(recording["points"])
-        hull_closed, area_m2 = hull_and_area(pts)
-
-        return {
-            "ok": True,
-            "filename": recording["filename"],
-            "count": recording["count"],
-            "points": pts,
-            "outer": hull_closed,     # closed polyline
-            "area_m2": area_m2,
-        }
+        outer, area_m2 = hull_and_area(pts)
+        return {"ok": True, "filename": recording["filename"], "count": recording["count"], "points": pts, "outer": outer, "area_m2": area_m2}
 
 
 def list_path_files():
@@ -129,7 +93,6 @@ def load_points_from_file(filename: str):
         return {"ok": False, "error": "File not found"}
 
     pts = []
-    count = 0
     with fpath.open("r") as f:
         for line in f:
             line = line.strip()
@@ -139,38 +102,23 @@ def load_points_from_file(filename: str):
             if len(parts) < 3:
                 continue
             try:
-                lat = float(parts[1])
-                lon = float(parts[2])
+                lat = float(parts[1]); lon = float(parts[2])
             except ValueError:
                 continue
             pts.append([lat, lon])
-            count += 1
 
-    hull_closed, area_m2 = hull_and_area(pts)
-
-    return {
-        "ok": True,
-        "filename": str(fpath),
-        "count": count,
-        "points": pts,
-        "outer": hull_closed,   # closed polyline of outer boundary
-        "area_m2": area_m2,
-    }
+    outer, area_m2 = hull_and_area(pts)
+    return {"ok": True, "filename": str(fpath), "count": len(pts), "points": pts, "outer": outer, "area_m2": area_m2}
 
 
-# ---------- Convex hull + area (outer boundary only) ----------
+# --------- Convex hull (outer boundary) + area in m² ---------
 def _to_xy(points):
-    """
-    Convert lat/lon to local meters using equirectangular projection around centroid.
-    Returns (xy_points, lat0_rad) where xy_points = [(x,y,lat,lon),...]
-    """
     if not points:
         return [], 0.0
     lat0 = sum(p[0] for p in points) / len(points)
     lon0 = sum(p[1] for p in points) / len(points)
     lat0r = math.radians(lat0)
     R = 6371000.0
-
     xy = []
     for lat, lon in points:
         x = R * math.cos(lat0r) * math.radians(lon - lon0)
@@ -178,24 +126,15 @@ def _to_xy(points):
         xy.append((x, y, lat, lon))
     return xy, lat0r
 
-
 def _cross(o, a, b):
-    return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
-
+    return (a[0]-o[0])*(b[1]-o[1]) - (a[1]-o[1])*(b[0]-o[0])
 
 def convex_hull_latlon(points):
-    """
-    Monotonic chain convex hull.
-    Input: [[lat,lon],...]
-    Output: hull as [[lat,lon],...] (NOT closed)
-    """
-    # Deduplicate (lat,lon)
     uniq = sorted(set((p[0], p[1]) for p in points))
     if len(uniq) <= 2:
         return [[lat, lon] for lat, lon in uniq]
 
     xy, _ = _to_xy([[lat, lon] for lat, lon in uniq])
-    # Sort by x then y
     xy_sorted = sorted(xy, key=lambda t: (t[0], t[1]))
 
     lower = []
@@ -211,47 +150,33 @@ def convex_hull_latlon(points):
         upper.append(p)
 
     hull_xy = lower[:-1] + upper[:-1]
-    hull = [[p[2], p[3]] for p in hull_xy]  # lat, lon
-    return hull
-
+    return [[p[2], p[3]] for p in hull_xy]
 
 def polygon_area_m2(points_latlon):
-    """
-    Shoelace on projected xy meters. points_latlon should be NOT closed.
-    """
     if len(points_latlon) < 3:
         return 0.0
     xy, _ = _to_xy(points_latlon)
-    xs = [p[0] for p in xy]
-    ys = [p[1] for p in xy]
+    xs = [p[0] for p in xy]; ys = [p[1] for p in xy]
     area = 0.0
     n = len(xs)
     for i in range(n):
         j = (i + 1) % n
-        area += xs[i] * ys[j] - xs[j] * ys[i]
+        area += xs[i]*ys[j] - xs[j]*ys[i]
     return abs(area) * 0.5
 
-
 def hull_and_area(points):
-    """
-    Returns (hull_closed_polyline, area_m2)
-    hull_closed_polyline: [[lat,lon],...,[lat,lon]] with last==first (if >=3 points)
-    """
     if len(points) < 2:
         return [], 0.0
-
     hull = convex_hull_latlon(points)
     area = polygon_area_m2(hull)
-
+    # closed polyline (connected on both ends)
     if len(hull) >= 3:
         hull_closed = hull + [hull[0]]
     else:
-        hull_closed = hull[:]  # no closure possible
-
+        hull_closed = hull[:]
     return hull_closed, area
 
 
-# ---------- GNSS thread ----------
 def gnss_reader_thread():
     global latest
     ser = serial.Serial(SERIAL_PORT, SERIAL_BAUD, timeout=1)
@@ -268,40 +193,26 @@ def gnss_reader_thread():
 
         lat = nmea_to_deg(parts[2], parts[3])
         lon = nmea_to_deg(parts[4], parts[5])
-        fix = parts[6]
-        sats = parts[7]
-        hdop = parts[8]
-        alt = parts[9]
-
         if lat is None or lon is None:
             continue
 
+        fix = parts[6]; sats = parts[7]; hdop = parts[8]; alt = parts[9]
         now = time.time()
-        with state_lock:
-            latest = {
-                "lat": lat,
-                "lon": lon,
-                "fix": fix,
-                "fix_text": FIX_MAP.get(fix, fix),
-                "sats": sats,
-                "hdop": hdop,
-                "alt": alt,
-                "ts": now,
-                "raw": line,
-            }
 
+        with state_lock:
+            latest = {"lat":lat,"lon":lon,"fix":fix,"fix_text":FIX_MAP.get(fix,fix),
+                      "sats":sats,"hdop":hdop,"alt":alt,"ts":now,"raw":line}
             if recording["active"]:
                 recording["points"].append([lat, lon])
                 recording["count"] += 1
                 append_point_to_file(now, lat, lon, fix, sats, hdop, alt)
 
 
-# ---------- HTTP ----------
 class Handler(BaseHTTPRequestHandler):
     def _send_json(self, obj, status=200):
-        data = json.dumps(obj).encode("utf-8")
+        data = (json.dumps(obj) + "\n").encode("utf-8")
         self.send_response(status)
-        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Cache-Control", "no-store")
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
@@ -314,10 +225,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/" or path == "/index.html":
             html_path = BASE_DIR / "index.html"
             if not html_path.exists():
-                self.send_response(404)
-                self.end_headers()
-                self.wfile.write(b"Missing index.html")
-                return
+                self.send_response(404); self.end_headers(); self.wfile.write(b"Missing index.html"); return
             body = html_path.read_bytes()
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -325,6 +233,19 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
+            return
+
+        if path == "/files":
+            self._send_json({"ok": True, "files": list_path_files()})
+            return
+
+        if path == "/load":
+            qs = parse_qs(parsed.query)
+            fn = (qs.get("file") or [""])[0]
+            if not fn:
+                self._send_json({"ok": False, "error": "Missing file="}, status=400); return
+            res = load_points_from_file(fn)
+            self._send_json(res, status=200 if res.get("ok") else 404)
             return
 
         if path == "/pos":
@@ -343,38 +264,18 @@ class Handler(BaseHTTPRequestHandler):
                 })
             return
 
-        if path == "/files":
-            files = list_path_files()
-            self._send_json({"ok": True, "files": files})
-            return
-
-        if path == "/load":
-            qs = parse_qs(parsed.query)
-            fn = (qs.get("file") or [""])[0]
-            if not fn:
-                self._send_json({"ok": False, "error": "Missing file="}, status=400)
-                return
-            res = load_points_from_file(fn)
-            self._send_json(res, status=200 if res.get("ok") else 404)
-            return
-
-        self.send_response(404)
-        self.end_headers()
+        self.send_response(404); self.end_headers()
 
     def do_POST(self):
         parsed = urlparse(self.path)
         path = parsed.path
 
         if path == "/start":
-            self._send_json(start_recording())
-            return
-
+            self._send_json(start_recording()); return
         if path == "/stop":
-            self._send_json(stop_recording())
-            return
+            self._send_json(stop_recording()); return
 
-        self.send_response(404)
-        self.end_headers()
+        self.send_response(404); self.end_headers()
 
     def log_message(self, format, *args):
         return
@@ -386,7 +287,6 @@ def main():
     print(f"[WEB] Open: http://<PI-IP>:{HTTP_PORT}/")
     print(f"[WEB] Files saved to: {PATH_DIR}")
     server.serve_forever()
-
 
 if __name__ == "__main__":
     main()
