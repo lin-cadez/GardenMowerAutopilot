@@ -1,5 +1,6 @@
 # GardenMowerAutopilot
-My final project for informatics.
+Ideja: Prejšnje poletje smo doma kupili mulčer na daljinsko vodenje. Zanimalo me je ali bi lahko nekako naredil, da bi bil bolj varen. Razmišljal sem, da bi mu dodal ultraosnične senzorje in potem bi ga nekako ustavil, a na koncu sem prišel do zaključka, da je kamera(tako kot pri avtomobilih tesla) edina možnost, da lahko jasno in učinkovito razločimo med ovirami ali pa ljdumi in živalmi, ki jih kosilnica ne sme pokostiti. Rezila so ostra in poganja jih bencinski motor tako da res ne želiš da bi človek ali pa hišni ljubljneček prišel blizu njih.
+Gosenice kosilnie pa delujejo na podlagi elektornomotrjev.
 
 # Ugotvaljanje kateri sistem za prepoznavanje predmetov je najbolj primeren.
 1. Uporabljam MobileNetSSD
@@ -19,6 +20,10 @@ Desno: gpio17 in 27 na 1050
 potem pa sem opazil, da lahko uporabim še kakšen drug kanal za dodatno funkcijo, zato sem se odločil, da bom CH5 uporabil za določanje ali je varnost(zaustavitev ob zaznavi ovire) vklopljena ali ne.
 Odločil sem se, da bom v mojem izdelku uporabljal te vrednosti, da določilm način delovanja.
 <img width="413" height="397" alt="image" src="https://github.com/user-attachments/assets/7408ac78-76ad-4fd8-8481-10e025889694" />
+
+
+<img width="626" height="443" alt="image" src="https://github.com/user-attachments/assets/f76082ab-6efc-4614-bfdb-ac4dde12a988" />
+
 Gpio22 za delček sekunde na 1000: vklop varne vožnje
 Gpio22 za delček sekunde na 2000: izklop varne vožnje
 
