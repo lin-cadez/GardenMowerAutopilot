@@ -41,4 +41,91 @@ MOUNTPOINT = "FRELIH"
 
   teste sem izvajal v Cerknem, ki je od nje oddaljeno cca. 33km in je dovolj blizu, da so popravki še dovolj natačni. Glede na teste je modul natančen do 1m, kar je veliko boljše kot cenejši gps moduli(npr. .. ), ki dosežejo natančnost +-5m, ki se kdaj nenadoma spremeni v 30m ali celo več.
 
+
+Ideje za podnaslove:
+
+
+2 Jedro naloge
+2.1 Daljinsko vodene kosilnice in varnostni izzivi
+
+(kratka teoretična osnova)
+
+osnovni opis delovanja daljinsko vodenih kosilnic
+
+nevarnosti pri uporabi (rezila, gibanje, teren)
+
+pregled obstoječih varnostnih pristopov (navedeš vire)
+
+2.2 Zaznavanje okolice pri delovnih strojih
+
+(teoretični pregled – OBVEZNI VIRI)
+
+senzorji za zaznavanje ovir (ultrazvočni, infrardeči, kamere)
+
+omejitve preprostih senzorjev
+
+primeri uporabe računalniškega vida v praksi (npr. avtomobilski sistemi)
+
+2.3 Računalniški vid in prepoznavanje objektov
+
+(prehod iz teorije v tvoj projekt)
+
+osnovno delovanje sistemov za prepoznavanje objektov
+
+primerjava uporabljenih modelov (MobileNetSSD, YOLO)
+
+izbira modela glede na omejitve strojne opreme
+
+2.4 Analiza in delovanje daljinskega upravljanja kosilnice
+
+(lastno empirično delo)
+
+opis sprejemnika in PWM-signalov
+
+meritve signalov za gibanje naprej, nazaj, levo in desno
+
+uporaba dodatnega kanala za vklop varnostnega sistema
+
+2.5 Varnostni sistem za samodejno zaustavitev kosilnice
+
+(tvoje jedro!)
+
+logika delovanja varnostnega mehanizma
+
+pogoji za zaustavitev in ponovni zagon
+
+pomen zakasnitve in časovne stabilnosti sistema
+
+2.6 Prostorska umestitev in diferencialni GPS (DGPS)
+
+(teoretično + praktično)
+
+osnovno delovanje GPS in njegove omejitve
+
+razlaga diferencialnega GPS
+
+uporaba NTRIP-storitev in vpliv oddaljenosti postaje
+
+2.7 Izdelava spletnega vmesnika za nadzor sistema
+
+(empirično)
+
+prikaz videoprenosa v realnem času
+
+prikaz položaja kosilnice na zemljevidu
+
+pomen uporabniškega vmesnika za varno upravljanje
+
+2.8 Testiranje sistema in analiza rezultatov
+
+(zelo pomembno za ocenjevanje)
+
+opis testnih pogojev
+
+odziv sistema ob zaznavi človeka ali živali
+
+natančnost GPS-sistema
+
+omejitve in možne izboljšave
+
   
