@@ -18,11 +18,48 @@
 
 
 \refsection{0}
-  \datalist[entry]{nyt/global//global/global/global}
+  \datalist[entry]{nyt/apasortcite//global/global/global}
+    \entry{esa_satnav}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d514c60212474a803f48a06974d89110}{%
+           family={Agency},
+           familyi={A\bibinitperiod},
+           given={European\bibnamedelima Space},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d514c60212474a803f48a06974d89110}
+      \strng{fullhash}{d514c60212474a803f48a06974d89110}
+      \strng{fullhashraw}{d514c60212474a803f48a06974d89110}
+      \strng{bibnamehash}{d514c60212474a803f48a06974d89110}
+      \strng{authorbibnamehash}{d514c60212474a803f48a06974d89110}
+      \strng{authornamehash}{d514c60212474a803f48a06974d89110}
+      \strng{authorfullhash}{d514c60212474a803f48a06974d89110}
+      \strng{authorfullhashraw}{d514c60212474a803f48a06974d89110}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is GNSS? -- European Space Agency Satellite Navigation}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.esa.int/Applications/Navigation/The_benefits_of_Galileo/What_is_GNSS
+      \endverb
+      \verb{url}
+      \verb https://www.esa.int/Applications/Navigation/The_benefits_of_Galileo/What_is_GNSS
+      \endverb
+    \endentry
     \entry{airace_dgps}{online}{}{}
       \name{author}{1}{}{%
-        {{hash=5f82c08ce6abc18df6d07d3b5285a9f3}{%
-           family={{AIRace}},
+        {{un=0,uniquepart=base,hash=5f82c08ce6abc18df6d07d3b5285a9f3}{%
+           family={AIRace},
            familyi={A\bibinitperiod}}}%
       }
       \strng{namehash}{5f82c08ce6abc18df6d07d3b5285a9f3}
@@ -35,213 +72,212 @@
       \strng{authorfullhashraw}{5f82c08ce6abc18df6d07d3b5285a9f3}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{What is DGPS and how does it improve accuracy?}
       \field{urlday}{6}
       \field{urlmonth}{4}
       \field{urlyear}{2026}
-      \field{year}{2026}
+      \field{year}{2024}
       \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://airace.in/community/what-is-dgps-and-how-does-it-improve-accuracy/
       \endverb
       \verb{url}
       \verb https://airace.in/community/what-is-dgps-and-how-does-it-improve-accuracy/
-      \endverb
-    \endentry
-    \entry{esa_satnav}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=1f71b100224fb1b54ae14e751c4b40fa}{%
-           family={{European Space Agency}},
-           familyi={E\bibinitperiod}}}%
-      }
-      \strng{namehash}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{fullhash}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{fullhashraw}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{bibnamehash}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{authorbibnamehash}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{authornamehash}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{authorfullhash}{1f71b100224fb1b54ae14e751c4b40fa}
-      \strng{authorfullhashraw}{1f71b100224fb1b54ae14e751c4b40fa}
-      \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Satellite navigation}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.esa.int/Applications/Satellite_navigation
-      \endverb
-      \verb{url}
-      \verb https://www.esa.int/Applications/Satellite_navigation
-      \endverb
-    \endentry
-    \entry{microzone_mc8re}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=895c03b2a3cf41343d354df3ae75b0b6}{%
-           family={{Microzone}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{fullhash}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{fullhashraw}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{bibnamehash}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{authorbibnamehash}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{authornamehash}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{authorfullhash}{895c03b2a3cf41343d354df3ae75b0b6}
-      \strng{authorfullhashraw}{895c03b2a3cf41343d354df3ae75b0b6}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{MC8RE-V2 user manual}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2021}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb http://microzone.cn/notes/MC8RE-V2/MC8RE-V2%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E8%8B%B1%E6%96%87%EF%BC%89.pdf
-      \endverb
-      \verb{url}
-      \verb http://microzone.cn/notes/MC8RE-V2/MC8RE-V2%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E8%8B%B1%E6%96%87%EF%BC%89.pdf
-      \endverb
-    \endentry
-    \entry{polc2013}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=2a707d16a12b7e97120f26ee077b3c06}{%
-           family={Polc},
-           familyi={P\bibinitperiod},
-           given={Luka},
-           giveni={L\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Maribor}%
-      }
-      \list{publisher}{1}{%
-        {Univerza v Mariboru, Fakulteta za elektrotehniko, računalništvo in informatiko}%
-      }
-      \strng{namehash}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{fullhash}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{fullhashraw}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{bibnamehash}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{authorbibnamehash}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{authornamehash}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{authorfullhash}{2a707d16a12b7e97120f26ee077b3c06}
-      \strng{authorfullhashraw}{2a707d16a12b7e97120f26ee077b3c06}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Elektronski sistem daljinsko vodene kosilnice za zahtevne terene}
-      \field{year}{2013}
-    \endentry
-    \entry{raspi_camera_hardware}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=abdff8c3bc7ac1a29e4f7edc008fe26b}{%
-           family={{Raspberry Pi Ltd}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{fullhash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{fullhashraw}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{bibnamehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authorbibnamehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authornamehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authorfullhash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authorfullhashraw}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \field{extraname}{1}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Camera}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://www.raspberrypi.com/documentation/accessories/camera.html
-      \endverb
-      \verb{url}
-      \verb https://www.raspberrypi.com/documentation/accessories/camera.html
-      \endverb
-    \endentry
-    \entry{raspi_camera_software}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=abdff8c3bc7ac1a29e4f7edc008fe26b}{%
-           family={{Raspberry Pi Ltd}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{fullhash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{fullhashraw}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{bibnamehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authorbibnamehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authornamehash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authorfullhash}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \strng{authorfullhashraw}{abdff8c3bc7ac1a29e4f7edc008fe26b}
-      \field{extraname}{2}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Camera software}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.raspberrypi.com/documentation/computers/camera_software.html
-      \endverb
-      \verb{url}
-      \verb https://www.raspberrypi.com/documentation/computers/camera_software.html
       \endverb
     \endentry
     \entry{rtk2go}{online}{}{}
       \name{author}{1}{}{%
-        {{hash=bc6ccf0d74cfcf783ea44749d8878ed3}{%
-           family={{RTK2go}},
-           familyi={R\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=94bafb01765087eaee60df4edd837113}{%
+           family={Community},
+           familyi={C\bibinitperiod},
+           given={RTK2go},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
       }
-      \strng{namehash}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{fullhash}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{fullhashraw}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{bibnamehash}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{authorbibnamehash}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{authornamehash}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{authorfullhash}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \strng{authorfullhashraw}{bc6ccf0d74cfcf783ea44749d8878ed3}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \strng{namehash}{94bafb01765087eaee60df4edd837113}
+      \strng{fullhash}{94bafb01765087eaee60df4edd837113}
+      \strng{fullhashraw}{94bafb01765087eaee60df4edd837113}
+      \strng{bibnamehash}{94bafb01765087eaee60df4edd837113}
+      \strng{authorbibnamehash}{94bafb01765087eaee60df4edd837113}
+      \strng{authornamehash}{94bafb01765087eaee60df4edd837113}
+      \strng{authorfullhash}{94bafb01765087eaee60df4edd837113}
+      \strng{authorfullhashraw}{94bafb01765087eaee60df4edd837113}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{RTK2go NTRIP caster}
-      \field{urlday}{5}
+      \field{title}{RTK2go -- Free Public NTRIP Caster for GNSS}
+      \field{urlday}{6}
       \field{urlmonth}{4}
       \field{urlyear}{2026}
-      \field{year}{2026}
+      \field{year}{2024}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://rtk2go.com/
+      \verb https://rtk2go.com
       \endverb
       \verb{url}
-      \verb https://rtk2go.com/
+      \verb https://rtk2go.com
+      \endverb
+    \endentry
+    \entry{polc2013}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=460d74a8beab7e08bf7521c2b8d9d0ef}{%
+           family={González},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f27c8458fc4cb27cef680e2ef06f24d}{%
+           family={Pérez},
+           familyi={P\bibinitperiod},
+           given={Joshué},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e216207e14a3787c1e32fc058100356}{%
+           family={Milan},
+           familyi={M\bibinitperiod},
+           given={Miloš},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Butterworth-Heinemann}%
+      }
+      \strng{namehash}{1adb7989a6ea5297a6fa6844bb25e322}
+      \strng{fullhash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{fullhashraw}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{bibnamehash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{authorbibnamehash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{authornamehash}{1adb7989a6ea5297a6fa6844bb25e322}
+      \strng{authorfullhash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{authorfullhashraw}{a4e514defd149cc639d5b80b918a9c6e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Contains principles of safety mechanisms in autonomous systems}
+      \field{title}{Autonomous Vehicles: Principles, Algorithms, and Implementations}
+      \field{year}{2016}
+    \endentry
+    \entry{raspi_camera_software}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=14c106eb83c2455446f5b878fe415027}{%
+           family={Ltd.},
+           familyi={L\bibinitperiod},
+           given={Raspberry\bibnamedelima Pi},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{fullhash}{14c106eb83c2455446f5b878fe415027}
+      \strng{fullhashraw}{14c106eb83c2455446f5b878fe415027}
+      \strng{bibnamehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authorbibnamehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authornamehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authorfullhash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authorfullhashraw}{14c106eb83c2455446f5b878fe415027}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Pi Camera Software - Picamera2 Documentation}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.raspberrypi.com/documentation/computers/camera_software.html
+      \endverb
+      \verb{url}
+      \verb https://www.raspberrypi.com/documentation/computers/camera_software.html
+      \endverb
+    \endentry
+    \entry{microzone_mc8re}{manual}{}{}
+      \list{organization}{1}{%
+        {Septentrio}%
+      }
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{MC8RE -- Septentrio Multi-Constellation GNSS Receiver}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.septentrio.com/en/products/gnss-receivers/optimal/mc8re
+      \endverb
+      \verb{url}
+      \verb https://www.septentrio.com/en/products/gnss-receivers/optimal/mc8re
+      \endverb
+    \endentry
+    \entry{fe-guide}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0d70dd937b7cacd0575e770f47aa45f7}{%
+           family={Murovec},
+           familyi={M\bibinitperiod},
+           given={Boštjan},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Ljubljana}%
+      }
+      \list{publisher}{1}{%
+        {Fakulteta za elektrotehniko}%
+      }
+      \strng{namehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{fullhash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{fullhashraw}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{bibnamehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authorbibnamehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authornamehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authorfullhash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authorfullhashraw}{0d70dd937b7cacd0575e770f47aa45f7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Napotki za piseanje diplomskih nalog in drugih tehničnih besedil,}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://lie.fe.uni-lj.si/Napotki_TehnicnaBesedila.pdf
+      \endverb
+      \verb{url}
+      \verb http://lie.fe.uni-lj.si/Napotki_TehnicnaBesedila.pdf
       \endverb
     \endentry
     \entry{ublox_gnss}{online}{}{}
       \name{author}{1}{}{%
-        {{hash=b1754e5cb767b09c247d1f51b41d4ce5}{%
-           family={{u-blox}},
-           familyi={u\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=b1754e5cb767b09c247d1f51b41d4ce5}{%
+           family={u-blox},
+           familyi={u\bibinithyphendelim b\bibinitperiod}}}%
       }
       \strng{namehash}{b1754e5cb767b09c247d1f51b41d4ce5}
       \strng{fullhash}{b1754e5cb767b09c247d1f51b41d4ce5}
@@ -253,19 +289,312 @@
       \strng{authorfullhashraw}{b1754e5cb767b09c247d1f51b41d4ce5}
       \field{sortinit}{u}
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{GNSS}
-      \field{urlday}{5}
+      \field{title}{u-blox GNSS Receivers -- Positioning and Timing Solutions}
+      \field{urlday}{6}
       \field{urlmonth}{4}
       \field{urlyear}{2026}
-      \field{year}{2026}
+      \field{year}{2024}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://www.u-blox.com/en/technologies/gnss
+      \verb https://www.u-blox.com/en/gnss
       \endverb
       \verb{url}
-      \verb https://www.u-blox.com/en/technologies/gnss
+      \verb https://www.u-blox.com/en/gnss
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{esa_satnav}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d514c60212474a803f48a06974d89110}{%
+           family={Agency},
+           familyi={A\bibinitperiod},
+           given={European\bibnamedelima Space},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d514c60212474a803f48a06974d89110}
+      \strng{fullhash}{d514c60212474a803f48a06974d89110}
+      \strng{fullhashraw}{d514c60212474a803f48a06974d89110}
+      \strng{bibnamehash}{d514c60212474a803f48a06974d89110}
+      \strng{authorbibnamehash}{d514c60212474a803f48a06974d89110}
+      \strng{authornamehash}{d514c60212474a803f48a06974d89110}
+      \strng{authorfullhash}{d514c60212474a803f48a06974d89110}
+      \strng{authorfullhashraw}{d514c60212474a803f48a06974d89110}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is GNSS? -- European Space Agency Satellite Navigation}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.esa.int/Applications/Navigation/The_benefits_of_Galileo/What_is_GNSS
+      \endverb
+      \verb{url}
+      \verb https://www.esa.int/Applications/Navigation/The_benefits_of_Galileo/What_is_GNSS
+      \endverb
+    \endentry
+    \entry{airace_dgps}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5f82c08ce6abc18df6d07d3b5285a9f3}{%
+           family={AIRace},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{fullhash}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{fullhashraw}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{bibnamehash}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{authorbibnamehash}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{authornamehash}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{authorfullhash}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \strng{authorfullhashraw}{5f82c08ce6abc18df6d07d3b5285a9f3}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is DGPS and how does it improve accuracy?}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://airace.in/community/what-is-dgps-and-how-does-it-improve-accuracy/
+      \endverb
+      \verb{url}
+      \verb https://airace.in/community/what-is-dgps-and-how-does-it-improve-accuracy/
+      \endverb
+    \endentry
+    \entry{rtk2go}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=94bafb01765087eaee60df4edd837113}{%
+           family={Community},
+           familyi={C\bibinitperiod},
+           given={RTK2go},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{94bafb01765087eaee60df4edd837113}
+      \strng{fullhash}{94bafb01765087eaee60df4edd837113}
+      \strng{fullhashraw}{94bafb01765087eaee60df4edd837113}
+      \strng{bibnamehash}{94bafb01765087eaee60df4edd837113}
+      \strng{authorbibnamehash}{94bafb01765087eaee60df4edd837113}
+      \strng{authornamehash}{94bafb01765087eaee60df4edd837113}
+      \strng{authorfullhash}{94bafb01765087eaee60df4edd837113}
+      \strng{authorfullhashraw}{94bafb01765087eaee60df4edd837113}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{RTK2go -- Free Public NTRIP Caster for GNSS}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://rtk2go.com
+      \endverb
+      \verb{url}
+      \verb https://rtk2go.com
+      \endverb
+    \endentry
+    \entry{polc2013}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=460d74a8beab7e08bf7521c2b8d9d0ef}{%
+           family={González},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f27c8458fc4cb27cef680e2ef06f24d}{%
+           family={Pérez},
+           familyi={P\bibinitperiod},
+           given={Joshué},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e216207e14a3787c1e32fc058100356}{%
+           family={Milan},
+           familyi={M\bibinitperiod},
+           given={Miloš},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Butterworth-Heinemann}%
+      }
+      \strng{namehash}{1adb7989a6ea5297a6fa6844bb25e322}
+      \strng{fullhash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{fullhashraw}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{bibnamehash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{authorbibnamehash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{authornamehash}{1adb7989a6ea5297a6fa6844bb25e322}
+      \strng{authorfullhash}{a4e514defd149cc639d5b80b918a9c6e}
+      \strng{authorfullhashraw}{a4e514defd149cc639d5b80b918a9c6e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Contains principles of safety mechanisms in autonomous systems}
+      \field{title}{Autonomous Vehicles: Principles, Algorithms, and Implementations}
+      \field{year}{2016}
+    \endentry
+    \entry{raspi_camera_software}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=14c106eb83c2455446f5b878fe415027}{%
+           family={Ltd.},
+           familyi={L\bibinitperiod},
+           given={Raspberry\bibnamedelima Pi},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{fullhash}{14c106eb83c2455446f5b878fe415027}
+      \strng{fullhashraw}{14c106eb83c2455446f5b878fe415027}
+      \strng{bibnamehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authorbibnamehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authornamehash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authorfullhash}{14c106eb83c2455446f5b878fe415027}
+      \strng{authorfullhashraw}{14c106eb83c2455446f5b878fe415027}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Raspberry Pi Camera Software - Picamera2 Documentation}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.raspberrypi.com/documentation/computers/camera_software.html
+      \endverb
+      \verb{url}
+      \verb https://www.raspberrypi.com/documentation/computers/camera_software.html
+      \endverb
+    \endentry
+    \entry{microzone_mc8re}{manual}{}{}
+      \list{organization}{1}{%
+        {Septentrio}%
+      }
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{MC8RE -- Septentrio Multi-Constellation GNSS Receiver}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.septentrio.com/en/products/gnss-receivers/optimal/mc8re
+      \endverb
+      \verb{url}
+      \verb https://www.septentrio.com/en/products/gnss-receivers/optimal/mc8re
+      \endverb
+    \endentry
+    \entry{fe-guide}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0d70dd937b7cacd0575e770f47aa45f7}{%
+           family={Murovec},
+           familyi={M\bibinitperiod},
+           given={Boštjan},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Ljubljana}%
+      }
+      \list{publisher}{1}{%
+        {Fakulteta za elektrotehniko}%
+      }
+      \strng{namehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{fullhash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{fullhashraw}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{bibnamehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authorbibnamehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authornamehash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authorfullhash}{0d70dd937b7cacd0575e770f47aa45f7}
+      \strng{authorfullhashraw}{0d70dd937b7cacd0575e770f47aa45f7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Napotki za piseanje diplomskih nalog in drugih tehničnih besedil,}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://lie.fe.uni-lj.si/Napotki_TehnicnaBesedila.pdf
+      \endverb
+      \verb{url}
+      \verb http://lie.fe.uni-lj.si/Napotki_TehnicnaBesedila.pdf
+      \endverb
+    \endentry
+    \entry{ublox_gnss}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b1754e5cb767b09c247d1f51b41d4ce5}{%
+           family={u-blox},
+           familyi={u\bibinithyphendelim b\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{fullhash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{fullhashraw}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{bibnamehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authorbibnamehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authornamehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authorfullhash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authorfullhashraw}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \field{sortinit}{u}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{u-blox GNSS Receivers -- Positioning and Timing Solutions}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.u-blox.com/en/gnss
+      \endverb
+      \verb{url}
+      \verb https://www.u-blox.com/en/gnss
       \endverb
     \endentry
   \enddatalist

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  6 APR 2026 00:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  6 APR 2026 01:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,6 +513,11 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
     but found:
         2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/lstaddons\lstautogobble.sty
+Package: lstautogobble 2012/05/03 v0.1 Implements 'autogobble' option for 'list
+ings'
+\lstag@spacecount=\count359
+)
 (C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
@@ -537,54 +542,54 @@ Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count359
+\lrq@indent=\count360
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count360
-\c@listtotal=\count361
-\c@listcount=\count362
-\c@liststart=\count363
-\c@liststop=\count364
-\c@citecount=\count365
-\c@citetotal=\count366
-\c@multicitecount=\count367
-\c@multicitetotal=\count368
-\c@instcount=\count369
-\c@maxnames=\count370
-\c@minnames=\count371
-\c@maxitems=\count372
-\c@minitems=\count373
-\c@citecounter=\count374
-\c@maxcitecounter=\count375
-\c@savedcitecounter=\count376
-\c@uniquelist=\count377
-\c@uniquename=\count378
-\c@refsection=\count379
-\c@refsegment=\count380
-\c@maxextratitle=\count381
-\c@maxextratitleyear=\count382
-\c@maxextraname=\count383
-\c@maxextradate=\count384
-\c@maxextraalpha=\count385
-\c@abbrvpenalty=\count386
-\c@highnamepenalty=\count387
-\c@lownamepenalty=\count388
-\c@maxparens=\count389
-\c@parenlevel=\count390
-\blx@tempcnta=\count391
-\blx@tempcntb=\count392
-\blx@tempcntc=\count393
-\c@blx@maxsection=\count394
-\blx@maxsegment@0=\count395
-\blx@notetype=\count396
-\blx@parenlevel@text=\count397
-\blx@parenlevel@foot=\count398
-\blx@sectionciteorder@0=\count399
-\blx@sectionciteorderinternal@0=\count400
-\blx@entrysetcounter=\count401
-\blx@biblioinstance=\count402
+\c@tabx@nest=\count361
+\c@listtotal=\count362
+\c@listcount=\count363
+\c@liststart=\count364
+\c@liststop=\count365
+\c@citecount=\count366
+\c@citetotal=\count367
+\c@multicitecount=\count368
+\c@multicitetotal=\count369
+\c@instcount=\count370
+\c@maxnames=\count371
+\c@minnames=\count372
+\c@maxitems=\count373
+\c@minitems=\count374
+\c@citecounter=\count375
+\c@maxcitecounter=\count376
+\c@savedcitecounter=\count377
+\c@uniquelist=\count378
+\c@uniquename=\count379
+\c@refsection=\count380
+\c@refsegment=\count381
+\c@maxextratitle=\count382
+\c@maxextratitleyear=\count383
+\c@maxextraname=\count384
+\c@maxextradate=\count385
+\c@maxextraalpha=\count386
+\c@abbrvpenalty=\count387
+\c@highnamepenalty=\count388
+\c@lownamepenalty=\count389
+\c@maxparens=\count390
+\c@parenlevel=\count391
+\blx@tempcnta=\count392
+\blx@tempcntb=\count393
+\blx@tempcntc=\count394
+\c@blx@maxsection=\count395
+\blx@maxsegment@0=\count396
+\blx@notetype=\count397
+\blx@parenlevel@text=\count398
+\blx@parenlevel@foot=\count399
+\blx@sectionciteorder@0=\count400
+\blx@sectionciteorderinternal@0=\count401
+\blx@entrysetcounter=\count402
+\blx@biblioinstance=\count403
 \labelnumberwidth=\skip57
 \labelalphawidth=\skip58
 \biblabelsep=\skip59
@@ -596,9 +601,9 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language80
-\c@mincomprange=\count403
-\c@maxcomprange=\count404
-\c@mincompwidth=\count405
+\c@mincomprange=\count404
+\c@maxcomprange=\count405
+\c@mincompwidth=\count406
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -606,77 +611,91 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'numeric.dbx' not found.
+Package biblatex Info: ... file 'apa.dbx' found.
+
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/biblatex-apa\apa.dbx
+File: apa.dbx 2025/08/27 v9.20 APA biblatex style data model
+)
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count406
-\c@savedafterword=\count407
-\c@annotator=\count408
-\c@savedannotator=\count409
-\c@author=\count410
-\c@savedauthor=\count411
-\c@bookauthor=\count412
-\c@savedbookauthor=\count413
-\c@commentator=\count414
-\c@savedcommentator=\count415
-\c@editor=\count416
-\c@savededitor=\count417
-\c@editora=\count418
-\c@savededitora=\count419
-\c@editorb=\count420
-\c@savededitorb=\count421
-\c@editorc=\count422
-\c@savededitorc=\count423
-\c@foreword=\count424
-\c@savedforeword=\count425
-\c@holder=\count426
-\c@savedholder=\count427
-\c@introduction=\count428
-\c@savedintroduction=\count429
-\c@namea=\count430
-\c@savednamea=\count431
-\c@nameb=\count432
-\c@savednameb=\count433
-\c@namec=\count434
-\c@savednamec=\count435
-\c@translator=\count436
-\c@savedtranslator=\count437
-\c@shortauthor=\count438
-\c@savedshortauthor=\count439
-\c@shorteditor=\count440
-\c@savedshorteditor=\count441
-\c@labelname=\count442
-\c@savedlabelname=\count443
-\c@institution=\count444
-\c@savedinstitution=\count445
-\c@lista=\count446
-\c@savedlista=\count447
-\c@listb=\count448
-\c@savedlistb=\count449
-\c@listc=\count450
-\c@savedlistc=\count451
-\c@listd=\count452
-\c@savedlistd=\count453
-\c@liste=\count454
-\c@savedliste=\count455
-\c@listf=\count456
-\c@savedlistf=\count457
-\c@location=\count458
-\c@savedlocation=\count459
-\c@organization=\count460
-\c@savedorganization=\count461
-\c@origlocation=\count462
-\c@savedoriglocation=\count463
-\c@origpublisher=\count464
-\c@savedorigpublisher=\count465
-\c@publisher=\count466
-\c@savedpublisher=\count467
-\c@language=\count468
-\c@savedlanguage=\count469
-\c@origlanguage=\count470
-\c@savedoriglanguage=\count471
-\c@pageref=\count472
-\c@savedpageref=\count473
+\c@afterword=\count407
+\c@savedafterword=\count408
+\c@annotator=\count409
+\c@savedannotator=\count410
+\c@author=\count411
+\c@savedauthor=\count412
+\c@bookauthor=\count413
+\c@savedbookauthor=\count414
+\c@commentator=\count415
+\c@savedcommentator=\count416
+\c@editor=\count417
+\c@savededitor=\count418
+\c@editora=\count419
+\c@savededitora=\count420
+\c@editorb=\count421
+\c@savededitorb=\count422
+\c@editorc=\count423
+\c@savededitorc=\count424
+\c@foreword=\count425
+\c@savedforeword=\count426
+\c@holder=\count427
+\c@savedholder=\count428
+\c@introduction=\count429
+\c@savedintroduction=\count430
+\c@namea=\count431
+\c@savednamea=\count432
+\c@nameb=\count433
+\c@savednameb=\count434
+\c@namec=\count435
+\c@savednamec=\count436
+\c@translator=\count437
+\c@savedtranslator=\count438
+\c@shortauthor=\count439
+\c@savedshortauthor=\count440
+\c@shorteditor=\count441
+\c@savedshorteditor=\count442
+\c@narrator=\count443
+\c@savednarrator=\count444
+\c@execproducer=\count445
+\c@savedexecproducer=\count446
+\c@execdirector=\count447
+\c@savedexecdirector=\count448
+\c@with=\count449
+\c@savedwith=\count450
+\c@labelname=\count451
+\c@savedlabelname=\count452
+\c@institution=\count453
+\c@savedinstitution=\count454
+\c@lista=\count455
+\c@savedlista=\count456
+\c@listb=\count457
+\c@savedlistb=\count458
+\c@listc=\count459
+\c@savedlistc=\count460
+\c@listd=\count461
+\c@savedlistd=\count462
+\c@liste=\count463
+\c@savedliste=\count464
+\c@listf=\count465
+\c@savedlistf=\count466
+\c@location=\count467
+\c@savedlocation=\count468
+\c@organization=\count469
+\c@savedorganization=\count470
+\c@origlocation=\count471
+\c@savedoriglocation=\count472
+\c@origpublisher=\count473
+\c@savedorigpublisher=\count474
+\c@publisher=\count475
+\c@savedpublisher=\count476
+\c@language=\count477
+\c@savedlanguage=\count478
+\c@origlanguage=\count479
+\c@savedoriglanguage=\count480
+\c@citation=\count481
+\c@savedcitation=\count482
+\c@pageref=\count483
+\c@savedpageref=\count484
 \shorthandwidth=\skip65
 \shortjournalwidth=\skip66
 \shortserieswidth=\skip67
@@ -702,49 +721,66 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (C:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count474
-\c@textcitetotal=\count475
-\c@textcitemaxnames=\count476
-\c@biburlbigbreakpenalty=\count477
-\c@biburlbreakpenalty=\count478
-\c@biburlnumpenalty=\count479
-\c@biburlucpenalty=\count480
-\c@biburllcpenalty=\count481
+\c@textcitecount=\count485
+\c@textcitetotal=\count486
+\c@textcitemaxnames=\count487
+\c@biburlbigbreakpenalty=\count488
+\c@biburlbreakpenalty=\count489
+\c@biburlnumpenalty=\count490
+\c@biburlucpenalty=\count491
+\c@biburllcpenalty=\count492
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count482
+\c@smartand=\count493
 )
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
+Package biblatex Info: Trying to load bibliography style 'apa'...
+Package biblatex Info: ... file 'apa.bbx' found.
 
-(C:\Program Files\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
-File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/biblatex-apa\apa.bbx
+File: apa.bbx 2025/08/27 v9.20 APA biblatex references style
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
 (C:\Program Files\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count483
-\c@bbx:relatedtotal=\count484
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
+\c@bbx:relatedcount=\count494
+\c@bbx:relatedtotal=\count495
+)
+Package biblatex Info: Delimiter 'nameyeardelim' in context 'bib' already defin
+ed, overwriting.
+Package biblatex Info: Delimiter 'nameyeardelim' in context 'biblist' already d
+efined, overwriting.
+Package biblatex Info: Delimiter 'nonameyeardelim' in context 'bib' already def
+ined, overwriting.
+Package biblatex Info: Delimiter 'nonameyeardelim' in context 'biblist' already
+ defined, overwriting.
+)
+Package biblatex Info: Trying to load citation style 'apa'...
+Package biblatex Info: ... file 'apa.cbx' found.
 
-(C:\Program Files\MiKTeX\tex/latex/biblatex/cbx\numeric.cbx
-File: numeric.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/biblatex-apa\apa.cbx
+File: apa.cbx 2025/08/27 v9.20 APA biblatex citation style
+Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
+ overwriting.
+Package biblatex Info: Delimiter 'andothersdelim' in context '' already defined
+, overwriting.
+Package biblatex Info: Redefining '\fullcite'.
+Package biblatex Info: Redefining '\citeauthor'.
+Package biblatex Info: Redefining '\citeyear'.
 Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\cites'.
 Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\parencites'.
 Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcites'.
 Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\footcitetexts'.
 Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\smartcites'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
@@ -760,7 +796,7 @@ Package: expl3 2026-01-19 L3 programming layer (loader)
 
 (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count485
+\l__color_backend_stack_int=\count496
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2026-01-19 L3 programming layer (loader) 
@@ -869,16 +905,16 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count486
+\scratchcounter=\count497
 \scratchdimen=\dimen187
 \scratchbox=\box61
-\nofMPsegments=\count487
-\nofMParguments=\count488
+\nofMPsegments=\count498
+\nofMParguments=\count499
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count489
+\MPscratchCnt=\count500
 \MPscratchDim=\dimen188
-\MPnumerator=\count490
-\makeMPintoPDFobject=\count491
+\MPnumerator=\count501
+\makeMPintoPDFobject=\count502
 \everyMPtoPDFconversion=\toks38
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -891,7 +927,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count492
+\c@lstlisting=\count503
 Package biblatex Info: Trying to load language 'slovene' -> 'slovene-apa'...
 Package biblatex Info: ... file 'slovene-apa.lbx' found.
 
@@ -919,18 +955,24 @@ Package biblatex Info: ... file 'Naloga.bbl' found.
  (Naloga.bbl)
 Package biblatex Info: Reference section=0 on input line 51.
 Package biblatex Info: Reference segment=0 on input line 51.
-<slike/logotip_vegova_leze_brezokvirja.png, id=127, 403.0257pt x 51.5526pt>
-File: slike/logotip_vegova_leze_brezokvirja.png Graphic file (type png)
-<use slike/logotip_vegova_leze_brezokvirja.png>
-Package pdftex.def Info: slike/logotip_vegova_leze_brezokvirja.png  used on inp
-ut line 59.
-(pdftex.def)             Requested size: 403.0247pt x 51.55246pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \\
+           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 [1
 
 {C:/Users/linca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Fi
-les/MiKTeX/fonts/enc/dvips/base/8r.enc} <./slike/logotip_vegova_leze_brezokvirj
-a.png>] [2] [3] (Naloga.toc
+les/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] [3] (Naloga.toc
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
@@ -955,22 +997,24 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout5 = `Naloga.toc'.
 
 
-[4] (Naloga.lof)
+[4] [5] (Naloga.lof)
 \tf@lof=\write6
 \openout6 = `Naloga.lof'.
 
- [5]
-<slike/Mulcer_cover_image.jpg, id=221, 237.177pt x 178.047pt>
-File: slike/Mulcer_cover_image.jpg Graphic file (type jpg)
-<use slike/Mulcer_cover_image.jpg>
-Package pdftex.def Info: slike/Mulcer_cover_image.jpg  used on input line 145.
-(pdftex.def)             Requested size: 373.3035pt x 280.25977pt.
+ [6]
+<slike/testiranje_na_terenu.png, id=233, 165.61874pt x 221.15958pt>
+File: slike/testiranje_na_terenu.png Graphic file (type png)
+<use slike/testiranje_na_terenu.png>
+Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 145
+.
+(pdftex.def)             Requested size: 373.3035pt x 498.56279pt.
+ [7]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 52.
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [6 <./slike/Mulcer_cover_image.jpg>]
+) [8 <./slike/testiranje_na_terenu.png>]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 19
 9.
 
@@ -981,46 +1025,25 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [7]
-<slike/fotografija vseh modulov, ki so povezani skupaj(gps shield, receiver, pi
-cam, raspbery pi in gps antena).jpg, id=236, 4111.36pt x 3083.52pt>
-File: slike/fotografija vseh modulov, ki so povezani skupaj(gps shield, receive
-r, picam, raspbery pi in gps antena).jpg Graphic file (type jpg)
-<use slike/fotografija vseh modulov, ki so povezani skupaj(gps shield, receiver
-, picam, raspbery pi in gps antena).jpg>
-Package pdftex.def Info: slike/fotografija vseh modulov, ki so povezani skupaj(
-gps shield, receiver, picam, raspbery pi in gps antena).jpg  used on input line
- 241.
+ [9]
+<slike/moduli_sistema.jpg, id=254, 4111.36pt x 3083.52pt>
+File: slike/moduli_sistema.jpg Graphic file (type jpg)
+<use slike/moduli_sistema.jpg>
+Package pdftex.def Info: slike/moduli_sistema.jpg  used on input line 241.
 (pdftex.def)             Requested size: 355.08984pt x 266.30676pt.
- [8]
-<slike/skita iz dokumentaacije, kjer je razlozeno kateri pini na receiverju so 
-odgovorni za kaksno funkciji (kateri so za 7pwn, sbsu etc., signal +-).png, id=
-241, 587.86292pt x 339.2675pt>
-File: slike/skita iz dokumentaacije, kjer je razlozeno kateri pini na receiverj
-u so odgovorni za kaksno funkciji (kateri so za 7pwn, sbsu etc., signal +-).png
- Graphic file (type png)
-<use slike/skita iz dokumentaacije, kjer je razlozeno kateri pini na receiverju
- so odgovorni za kaksno funkciji (kateri so za 7pwn, sbsu etc., signal +-).png>
-
-Package pdftex.def Info: slike/skita iz dokumentaacije, kjer je razlozeno kater
-i pini na receiverju so odgovorni za kaksno funkciji (kateri so za 7pwn, sbsu e
-tc., signal +-).png  used on input line 257.
+ [10 <./slike/moduli_sistema.jpg>]
+<slike/shema_sprejemnika.png, id=259, 587.86292pt x 339.2675pt>
+File: slike/shema_sprejemnika.png Graphic file (type png)
+<use slike/shema_sprejemnika.png>
+Package pdftex.def Info: slike/shema_sprejemnika.png  used on input line 257.
 (pdftex.def)             Requested size: 327.7763pt x 189.17056pt.
-<slike/daljinec_z_rdeco_obkrozeni gumbi in josticki, ki jih uporabljam priu pro
-jektu.png, id=242, 338.59833pt x 307.81667pt>
-File: slike/daljinec_z_rdeco_obkrozeni gumbi in josticki, ki jih uporabljam pri
-u projektu.png Graphic file (type png)
-<use slike/daljinec_z_rdeco_obkrozeni gumbi in josticki, ki jih uporabljam priu
- projektu.png>
-Package pdftex.def Info: slike/daljinec_z_rdeco_obkrozeni gumbi in josticki, ki
- jih uporabljam priu projektu.png  used on input line 264.
+<slike/remote_control.png, id=260, 338.59833pt x 307.81667pt>
+File: slike/remote_control.png Graphic file (type png)
+<use slike/remote_control.png>
+Package pdftex.def Info: slike/remote_control.png  used on input line 264.
 (pdftex.def)             Requested size: 327.7763pt x 297.98059pt.
-
-[9 <./slike/fotografija vseh modulov, ki so povezani skupaj(gps shield, receive
-r, picam, raspbery pi in gps antena).jpg> <./slike/skita iz dokumentaacije, kje
-r je razlozeno kateri pini na receiverju so odgovorni za kaksno funkciji (kater
-i so za 7pwn, sbsu etc., signal +-).png>]
-<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=248, 2071.74pt x 11
+ [11 <./slike/shema_sprejemnika.png>]
+<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=266, 2071.74pt x 11
 89.44376pt>
 File: slike/skica s pojasnsili vseh pinov na raspbery pi.png Graphic file (type
  png)
@@ -1028,103 +1051,133 @@ File: slike/skica s pojasnsili vseh pinov na raspbery pi.png Graphic file (type
 Package pdftex.def Info: slike/skica s pojasnsili vseh pinov na raspbery pi.png
   used on input line 271.
 (pdftex.def)             Requested size: 327.7763pt x 188.17325pt.
- [10 <./slike/daljinec_z_rdeco_obkrozeni gumbi in josticki, ki jih uporabljam p
-riu projektu.png> <./slike/skica s pojasnsili vseh pinov na raspbery pi.png (PN
-G copy)>] [11]
-<slike/graf merjeenja analognega signala na arduinotu..png, id=267, 428.93584pt
- x 200.08083pt>
-File: slike/graf merjeenja analognega signala na arduinotu..png Graphic file (t
-ype png)
-<use slike/graf merjeenja analognega signala na arduinotu..png>
-Package pdftex.def Info: slike/graf merjeenja analognega signala na arduinotu..
-png  used on input line 334.
-(pdftex.def)             Requested size: 386.96027pt x 180.51071pt.
-
-(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+ [12 <./slike/remote_control.png> <./slike/skica s pojasnsili vseh pinov na ras
+pbery pi.png (PNG copy)>] [13]
+<slike/graf_merjenja_signala.png, id=286, 176.66pt x 84.98416pt>
+File: slike/graf_merjenja_signala.png Graphic file (type png)
+<use slike/graf_merjenja_signala.png>
+Package pdftex.def Info: slike/graf_merjenja_signala.png  used on input line 33
+4.
+(pdftex.def)             Requested size: 386.96027pt x 186.15392pt.
+ (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 348.
- [12 <./slike/graf merjeenja analognega signala na arduinotu..png>] [13] [14] [
-15] [16]
-<slike/DGPS SKETCH.jpg, id=402, 978.65625pt x 783.67781pt>
+ [14 <./slike/graf_merjenja_signala.png>] [15]
+(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(C:\Program Files\MiKTeX\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2025/11/14 1.11b listings language file
+)
+(C:\Program Files\MiKTeX\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2025/11/14 1.11b listings language file
+)
+
+! Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.460 ...lo\v{z}aja in posodabljanje zemljevida.}]
+                                                  
+The following languages weren't loadable:
+    ,javascript$
+This may cause errors in the sequel.
+
+
+! Package Listings Error: language javascript undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.460 ...lo\v{z}aja in posodabljanje zemljevida.}]
+                                                  
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[16] [17] [18]
+<slike/DGPS SKETCH.jpg, id=420, 770.88pt x 617.30624pt>
 File: slike/DGPS SKETCH.jpg Graphic file (type jpg)
 <use slike/DGPS SKETCH.jpg>
 Package pdftex.def Info: slike/DGPS SKETCH.jpg  used on input line 608.
-(pdftex.def)             Requested size: 364.19667pt x 291.64232pt.
- [17] [18 <./slike/DGPS SKETCH.jpg>]
-<slike/fotografija spletnaega uija z livecamera feedom in natacnoi gps lokacijo
-.png, id=434, 587.19376pt x 312.16624pt>
-File: slike/fotografija spletnaega uija z livecamera feedom in natacnoi gps lok
-acijo.png Graphic file (type png)
-<use slike/fotografija spletnaega uija z livecamera feedom in natacnoi gps loka
-cijo.png>
-Package pdftex.def Info: slike/fotografija spletnaega uija z livecamera feedom 
-in natacnoi gps lokacijo.png  used on input line 655.
+(pdftex.def)             Requested size: 364.19667pt x 291.64107pt.
+ [19] [20 <./slike/DGPS SKETCH.jpg>]
+<slike/web_interface.png, id=453, 587.19376pt x 312.16624pt>
+File: slike/web_interface.png Graphic file (type png)
+<use slike/web_interface.png>
+Package pdftex.def Info: slike/web_interface.png  used on input line 655.
 (pdftex.def)             Requested size: 382.40338pt x 203.29623pt.
-<slike/mulcer od dalec s prenostikom med testiranjem(dodaj k testom).jpg, id=43
-5, 1067.99pt x 1425.325pt>
-File: slike/mulcer od dalec s prenostikom med testiranjem(dodaj k testom).jpg G
-raphic file (type jpg)
-<use slike/mulcer od dalec s prenostikom med testiranjem(dodaj k testom).jpg>
-Package pdftex.def Info: slike/mulcer od dalec s prenostikom med testiranjem(do
-daj k testom).jpg  used on input line 680.
-(pdftex.def)             Requested size: 373.3035pt x 498.19702pt.
- [19 <./slike/fotografija spletnaega uija z livecamera feedom in natacnoi gps l
-okacijo.png>]
-<slike/slika notranjosti mulcerja z dodanim raspbery piom.jpg, id=442, 1067.99p
-t x 1425.325pt>
-File: slike/slika notranjosti mulcerja z dodanim raspbery piom.jpg Graphic file
- (type jpg)
-<use slike/slika notranjosti mulcerja z dodanim raspbery piom.jpg>
-Package pdftex.def Info: slike/slika notranjosti mulcerja z dodanim raspbery pi
-om.jpg  used on input line 687.
-(pdftex.def)             Requested size: 355.08984pt x 473.90375pt.
- [20 <./slike/mulcer od dalec s prenostikom med testiranjem(dodaj k testom).jpg
->]
-<slike/slika daljinca na mulcerju.jpg, id=447, 1899.095pt x 1425.325pt>
-File: slike/slika daljinca na mulcerju.jpg Graphic file (type jpg)
-<use slike/slika daljinca na mulcerju.jpg>
-Package pdftex.def Info: slike/slika daljinca na mulcerju.jpg  used on input li
-ne 694.
-(pdftex.def)             Requested size: 327.7763pt x 245.99931pt.
- [21 <./slike/slika notranjosti mulcerja z dodanim raspbery piom.jpg>] [22 <./s
-like/slika daljinca na mulcerju.jpg>]
-Overfull \hbox (7.7189pt too wide) in paragraph at lines 739--739
-[]\T1/ptm/m/n/12 (-20) Raspberry Pi Ltd. \T1/ptm/m/it/12 (-20) Ca-mera soft-war
-e\T1/ptm/m/n/12 (-20) . 2026. \T1/ptm/m/sc/12 (-20) url\T1/ptm/m/n/12 (-20) : [
-]$https : / / www . raspberrypi . com / documentation /
- []
-
-[23] [24] [25] (Naloga.aux)
+File: slike/testiranje_na_terenu.png Graphic file (type png)
+<use slike/testiranje_na_terenu.png>
+Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 680
+.
+(pdftex.def)             Requested size: 373.3035pt x 498.56279pt.
+ [21 <./slike/web_interface.png>]
+<slike/slika_notranjosti_mulcerja.png, id=459, 157.92334pt x 209.78375pt>
+File: slike/slika_notranjosti_mulcerja.png Graphic file (type png)
+<use slike/slika_notranjosti_mulcerja.png>
+Package pdftex.def Info: slike/slika_notranjosti_mulcerja.png  used on input li
+ne 687.
+(pdftex.def)             Requested size: 355.08984pt x 471.74655pt.
+ [22]
+<slike/daljinec_na_mulcerju.png, id=464, 145.87833pt x 109.07417pt>
+File: slike/daljinec_na_mulcerju.png Graphic file (type png)
+<use slike/daljinec_na_mulcerju.png>
+Package pdftex.def Info: slike/daljinec_na_mulcerju.png  used on input line 694
+.
+(pdftex.def)             Requested size: 327.7763pt x 245.08502pt.
+ [23 <./slike/slika_notranjosti_mulcerja.png>] [24 <./slike/daljinec_na_mulcerj
+u.png>] [25] [26] [27] (Naloga.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-Package rerunfilecheck Info: File `Naloga.out' has not changed.
-(rerunfilecheck)             Checksum: E19C6C81D3991AC593B20A0471DDFBB2;6350.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Naloga.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Naloga.out':
+(rerunfilecheck)             Before: C65D10D97E727D24438126BDB9771B5F;6750
+(rerunfilecheck)             After:  109C446D099FA658FAF97B0148A6C1FE;6751.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to 'Naloga.run.xml'.
 \openout1 = `Naloga.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26756 strings out of 467867
- 461839 string characters out of 5428402
- 1661945 words of memory out of 5000000
- 54901 multiletter control sequences out of 15000+600000
- 672888 words of font info for 215 fonts, out of 8000000 for 9000
+ 27168 strings out of 467867
+ 468609 string characters out of 5428402
+ 1754442 words of memory out of 5000000
+ 55302 multiletter control sequences out of 15000+600000
+ 667741 words of font info for 210 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1041b,3009s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Progra
-m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type
-1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8
-a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on Naloga.pdf (25 pages, 4975055 bytes).
+ 75i,6n,79p,1041b,3359s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{appendix.B} has been referenced but does not exist,
+ replaced by a fixed one
+
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program 
+Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/
+urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.
+pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files
+/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on Naloga.pdf (27 pages, 4784988 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
- 210 named destinations out of 1000 (max. 500000)
- 42293 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 582 PDF objects out of 1000 (max. 8388607)
+ 213 named destinations out of 1000 (max. 500000)
+ 38203 words of extra memory for PDF output out of 42996 (max. 10000000)
 
