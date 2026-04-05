@@ -1,0 +1,32 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{6}{section.1}%
+\contentsline {section}{\numberline {2}Jedro}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Daljinsko vodene kosilnice in varnostni izzivi}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Elektronsko zaznavanje okolice pri delovnih strojih}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Pregled tehnologij}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Raspberry Pi 4B}{9}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}OpenCV in MobileNetSSD}{10}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Picamera2}{11}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}GNSS modul LC29H z DGPS podporo}{11}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}NTRIP in RTK2go}{11}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Python in ve\v {c}nitnost}{11}{subsubsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.4}Analiza RC-krmiljenja in PWM-meritve}{11}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Varnostna preklopna logika}{12}{subsubsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.5}Na\v {c}rt sistema in razvojne iteracije}{12}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Osnovna arhitektura sistema}{12}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Nastavitve za RC, kamero in GNSS}{13}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Glavna zanka programa}{13}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Stre\v {z}nik in uporabni\v {s}ki vmesnik}{14}{subsubsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.6}Varnostni mehanizem samodejne zaustavitve}{15}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Sprotna zaustavitev ob zaznavi \v {c}loveka}{15}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Clear-delay logika}{16}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Zaznava objektov s MobileNetSSD}{16}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}Zmanj\v {s}anje zakasnitve video toka}{16}{subsubsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.7}GNSS, DGPS in NTRIP v praksi}{17}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Delovanje GPS in omejitve navadnih modulov}{17}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Diferencialni GPS in NTRIP}{17}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Povezava na NTRIP in po\v {s}iljanje GGA}{18}{subsubsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.8}Spletni vmesnik za operaterja}{19}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Testiranje sistema in analiza rezultatov}{19}{subsection.2.9}%
+\contentsline {section}{\numberline {3}Zaklju\v {c}ek}{22}{section.3}%
+\contentsline {section}{\numberline {4}Viri in literatura}{23}{section.4}%
