@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mower Dashboard — Live Stream + DGPS Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#121a33;
+      --panel2:#0f1730;
+      --text:#e7ecff;
+      --muted:#a9b2da;
+      --ok:#35d07f;
+      --warn:#ffcc00;
+      --bad:#ff5a6b;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --gap: 14px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(87,117,255,.18), transparent 60%),
+                  radial-gradient(1000px 500px at 100% 30%, rgba(53,208,127,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,.85), rgba(11,16,32,.45));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wrap{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 16px;
+    }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .title{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .badge{
+      font-size:12px;
+      padding:4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .statusRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+
+    .chip{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--warn);
+      box-shadow: 0 0 0 4px rgba(255,204,0,.12);
+    }
+    .dot.ok{ background: var(--ok); box-shadow: 0 0 0 4px rgba(53,208,127,.12);}
+    .dot.bad{ background: var(--bad); box-shadow: 0 0 0 4px rgba(255,90,107,.12);}
+
+    main .wrap{ padding-top: 16px; padding-bottom: 22px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      min-height: 340px;
+    }
+
+    .cardHeader{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,.15);
+    }
+
+    .cardHeader h2{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.3px;
+      color: var(--text);
+      font-weight: 700;
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .pill{
+      font-size:12px;
+      padding:4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* Stream */
+    .streamWrap{
+      position:relative;
+      width:100%;
+      height: calc(100% - 49px);
+      background: #000;
+    }
+    .streamImg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit: cover;
+      background: #000;
+    }
+    .streamOverlay{
+      position:absolute; inset:auto 12px 12px 12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      pointer-events:none;
+    }
+    .overlayTag{
+      pointer-events:none;
+      background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .2px;
+    }
+
+    /* Map */
+    #map{
+      width:100%;
+      height: calc(100% - 49px);
+      min-height: 360px;
+    }
+
+    /* Footer help */
+    .help{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      opacity: .95;
+    }
+    code{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 8px;
+      color: var(--text);
+    }
+    a{ color: #a9c0ff; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title">
+        <span style="font-size:18px">🧭</span>
+        <span>Mower Dashboard</span>
+        <span class="badge">Live Stream + DGPS Map</span>
+      </div>
+      <div class="badge" id="clock">--:--:--</div>
+    </div>
+
+    <div class="statusRow">
+      <div class="chip">
+        <span class="dot" id="fixDot"></span>
+        <span><b id="fixText">Fix:</b> <span id="fixVal">--</span></span>
+      </div>
+      <div class="chip"><span>🛰️ <b>Sats:</b> <span id="satsVal">--</span></span></div>
+      <div class="chip"><span>📉 <b>HDOP:</b> <span id="hdopVal">--</span></span></div>
+      <div class="chip"><span>⛰️ <b>Alt:</b> <span id="altVal">--</span></span></div>
+      <div class="chip"><span>⏱️ <b>Age:</b> <span id="ageVal">--</span>s</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- STREAM CARD -->
+      <section class="card">
+        <div class="cardHeader">
+          <h2>📷 Live Camera</h2>
+          <span class="pill" id="streamPill">Stream: connecting…</span>
+        </div>
+
+        <div class="streamWrap">
+          <!-- IMPORTANT:
+               Use relative hostname so you can open this page from PI
+               and it still works from any device: it will use the same host.
+               Port 8090 = your mjpeg stream server.
+           -->
+          <img
+            id="streamImg"
+            class="streamImg"
+            alt="Live stream"
+            src=""
+          />
+          <div class="streamOverlay">
+            <div class="overlayTag">http://<span id="hostA">PI</span>:8090/stream</div>
+            <div class="overlayTag" id="streamFpsTag">FPS: --</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAP CARD -->
+      <section class="card">
+        <div class="cardHeader">
+          <h2>🗺️ DGPS Position</h2>
+          <span class="pill" id="posPill">/pos: waiting…</span>
+        </div>
+        <div id="map"></div>
+      </section>
+
+    </div>
+
+    <div class="help">
+      <div><b>How it works:</b> This page fetches GNSS data from <code>http://&lt;PI-IP&gt;:8080/pos</code> every 500ms and shows it on the map.
+      The live stream is embedded from <code>http://&lt;PI-IP&gt;:8090/stream</code>.</div>
+      <div style="margin-top:6px;">If you open this dashboard from a different device, make sure you use the PI’s IP in the URL.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // ---------- Helpers ----------
+  function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+
+  function fixDotByText(fixText){
+    // simple, intuitive coloring
+    // NO FIX = red, GNSS/DGPS = yellow, RTK = green
+    const dot = document.getElementById('fixDot');
+    dot.classList.remove('ok','bad');
+    if(!fixText) return;
+
+    const t = fixText.toUpperCase();
+    if(t.includes('NO FIX')) dot.classList.add('bad');
+    else if(t.includes('RTK')) dot.classList.add('ok');
+    else dot.classList.add(''); // default warn
+  }
+
+  function setPill(el, text){
+    el.textContent = text;
+  }
+
+  // ---------- Clock ----------
+  setInterval(() => {
+    const d = new Date();
+    const hh = String(d.getHours()).padStart(2,'0');
+    const mm = String(d.getMinutes()).padStart(2,'0');
+    const ss = String(d.getSeconds()).padStart(2,'0');
+    document.getElementById('clock').textContent = `${hh}:${mm}:${ss}`;
+  }, 250);
+
+  // ---------- Resolve host + set stream URL ----------
+  const host = window.location.hostname || 'localhost';
+  document.getElementById('hostA').textContent = host;
+  const streamUrl = `http://${host}:8090/stream`;
+  const streamImg = document.getElementById('streamImg');
+  streamImg.src = streamUrl;
+
+  // Stream status (basic)
+  const streamPill = document.getElementById('streamPill');
+  let streamOk = false;
+  streamImg.onload = () => { streamOk = true; setPill(streamPill, 'Stream: OK'); };
+  streamImg.onerror = () => { streamOk = false; setPill(streamPill, 'Stream: ERROR'); };
+
+  // FPS estimate for MJPEG <img> refreshes (rough)
+  let frameCount = 0;
+  let lastFpsTs = performance.now();
+  // We can approximate "frames" by observing image load events.
+  streamImg.addEventListener('load', () => {
+    frameCount++;
+    const now = performance.now();
+    const dt = (now - lastFpsTs) / 1000;
+    if(dt >= 1.0){
+      const fps = frameCount / dt;
+      document.getElementById('streamFpsTag').textContent = `FPS: ${fps.toFixed(1)}`;
+      frameCount = 0;
+      lastFpsTs = now;
+    }
+  });
+
+  // ---------- Leaflet map ----------
+  const map = L.map('map', { zoomControl: true }).setView([46.0569, 14.5058], 16);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 20,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  const marker = L.marker([46.0569, 14.5058]).addTo(map);
+  const trail = L.polyline([], { weight: 3, opacity: 0.7 }).addTo(map); // default Leaflet style
+  let firstFix = true;
+
+  // ---------- Position polling ----------
+  const posPill = document.getElementById('posPill');
+  const FIX = {
+    fixVal: document.getElementById('fixVal'),
+    satsVal: document.getElementById('satsVal'),
+    hdopVal: document.getElementById('hdopVal'),
+    altVal: document.getElementById('altVal'),
+    ageVal: document.getElementById('ageVal')
+  };
+
+  async function pollPos(){
+    try{
+      const r = await fetch('/pos', { cache:'no-store' });
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      const d = await r.json();
+
+      if(d.lat == null || d.lon == null){
+        setPill(posPill, '/pos: no data');
+        return;
+      }
+
+      setPill(posPill, '/pos: OK');
+
+      // Update HUD
+      FIX.fixVal.textContent = d.fix_text ?? d.fix ?? '--';
+      FIX.satsVal.textContent = d.sats ?? '--';
+      FIX.hdopVal.textContent = d.hdop ?? '--';
+      FIX.altVal.textContent = d.alt ?? '--';
+
+      const age = (d.ts != null) ? (Date.now()/1000 - d.ts) : null;
+      FIX.ageVal.textContent = (age != null) ? clamp(age, 0, 999).toFixed(1) : '--';
+
+      fixDotByText(d.fix_text);
+
+      // Update map
+      const lat = d.lat, lon = d.lon;
+      marker.setLatLng([lat, lon]);
+
+      const pts = trail.getLatLngs();
+      // append point if moved enough (avoid excessive points)
+      const last = pts.length ? pts[pts.length - 1] : null;
+      if(!last || Math.hypot(last.lat - lat, last.lng - lon) > 0.00001){
+        pts.push(L.latLng(lat, lon));
+        // cap trail length
+        if(pts.length > 250) pts.splice(0, pts.length - 250);
+        trail.setLatLngs(pts);
+      }
+
+      if(firstFix){
+        map.setView([lat, lon], 18);
+        firstFix = false;
+      }
+
+    }catch(e){
+      setPill(posPill, '/pos: ERROR');
+    }
+  }
+
+  setInterval(pollPos, 500);
+  pollPos();
+</script>
+</body>
+</html>
