@@ -1,0 +1,227 @@
+\documentclass[12pt]{article}
+
+
+\usepackage[
+    a4paper, 
+    margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}         % UTF8 enkodiranje
+\usepackage[slovene]{babel}          % Slovenščina
+\usepackage[
+    pdfusetitle, 
+    hidelinks, 
+    unicode]{hyperref}              % Nastavi atribute PDF-ja, ne označuj povezav
+\usepackage{microtype}              % Izboljšave za tipografijsko perfekcijo :)
+\usepackage{enumitem}               % Seznami za člene
+\usepackage{graphicx}               % Vključitev slik
+\usepackage{dirtytalk}              % Citat
+\usepackage{listings}               % Kodni blok
+\usepackage{fancyvrb}
+\usepackage[font=]{caption}         % Required for specifying captions
+\usepackage[normalem]{ulem}         % Krašanje enot v enačbi
+\usepackage{times}                  % Times New Roman pisava
+\usepackage{tikz} 
+\usepackage[european]{circuitikz}   % Električna vezja
+\usepackage{datetime}               % Datum
+% \usepackage[slovenian]{csquotes}
+\usepackage{braket}
+\usepackage{amsmath} % matematika ki izgleda lepo
+\usepackage{amsfonts} % množice
+\usepackage[style=ieee, maxbibnames=3, minbibnames=1, 
+    maxcitenames=1, mincitenames=1, sorting=nyt]{biblatex}   % Navajanje virov
+\bibliography{viri}
+
+\urlstyle{rm}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1ex}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{4}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
+\renewcommand{\thesubparagraph}{\theparagraph.\arabic{subparagraph}}
+
+\renewcommand{\labelnamepunct}{\addcomma\space}
+\DeclareFieldFormat[article]{title}{#1}
+\DeclareFieldFormat[online]{title}{\mkbibemph{#1}}
+
+\DefineBibliographyStrings{slovene}{
+  andothers = {et. al\adddot},
+  urlseen = {dostopano:}
+}
+
+\newdateformat{MMYYYYdate}{\monthname[\THEMONTH] \THEYEAR}
+
+\title{Naslov naloge}
+\author{Jaka Kovač, G 4. b}
+
+\begin{document}
+\pagenumbering{arabic}
+
+\begin{center}
+    \thispagestyle{empty}
+    \includegraphics[scale=1]{slike/logotip_vegova_leze_brezokvirja.png}
+    \\
+    \textbf{Vegova ulica 4, 1000 Ljubljana}
+
+    \vspace{\fill} 
+    Seminarska naloga pri predmetu predmet
+
+    \Huge{\textbf{Naslov naloge}}
+
+    \normalsize
+    \vspace{\fill}
+
+    Mentor: Mentor Priimek, prof. \hfill Avtor: Jaka Kovač, G 4. b\\
+    \null
+    Ljubljana, mesec leto – \MMYYYYdate\today %zamenjaj <mesec in leto> z mesecem in letom začetka
+\end{center}
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+\section*{Povzetek}
+V tej seminarski nalogi bom predstavil kako uporabiti \LaTeX{} za pisanje seminarske naloge.
+\\ %prazna vrstica
+\textbf{Ključe besede:} \LaTeX{}, seminarska naloga, \LaTeX{} predloga
+
+\vfill
+\section*{Abstract}
+\foreignlanguage{english}{This paper describes how to use \LaTeX{} to write a paper.
+\\ %prazna vrstica
+\textbf{Keywords:} \LaTeX{}, paper, \LaTeX{} template}
+\vfill
+
+% KAZALO 
+\newpage
+\thispagestyle{empty} % ne številčimo strani
+\tableofcontents % kazalo
+
+\begingroup     % kazalo slik
+\makeatletter
+\section*{Slike}
+\@starttoc{lof}
+\let\clearpage\relax
+\makeatother
+\endgroup
+
+
+\newpage
+\section{Uvod}
+Orodje \LaTeX mi je zelo všeč zato sem se odločil, da bom napisal seminarsko nalogo v njem.
+Primer seminarske naloge napisane v \LaTeX-u najdeš na https://github.com/insightfulbriyan/Komunkacijska-vezja-in-naprave.
+
+\section{Namestitev \LaTeX-a}
+    \subsection{Linux}
+    Ustvarimo si mapo v katero bomo namestili \LaTeX{} in se v njo premaknemo. Najbolje je da to storiš v /home/username/Downloads.
+    \begin{lstlisting}[language=bash]
+        mkdir latex
+
+        cd latex
+    \end{lstlisting}
+
+    Nato si prenesemo namestitveni paket iz https://www.tug.org/texlive/acquire-netinstall.html in ga razpakiramo.
+    \begin{lstlisting}[language=bash]
+        wget https://mirror.ctan.org/systems/
+        texlive/tlnet/install-tl-unx.tar.gz
+
+        tar -xzf install-tl-unx.tar.gz
+
+        cd install-tl-*
+    \end{lstlisting}
+
+    Kot sudo zašemeno namestitveno skripto. Bodi pripravljen, popolna namestitev lahko traja nekaj ur. 
+    \begin{lstlisting}[language=bash]
+        sudo ./install-tl
+    \end{lstlisting}
+    POZOR:
+    Predlagam, da namestiš vse pakete. Če veš, da nekaterih ne boš potreboval potem lahko prihraniš nekaj časa (zanemarljiv malo, glede na izkušnje)
+
+    \subsection{Windows}
+    IDK, vprašaj koga drugega. Prosim dopolni to poglavje.
+
+    \subsection{MacOS}
+    IDK, vprašaj koga drugega. Prosim dopolni to poglavje.
+
+\newpage
+\section{Uporaba \LaTeX-a}
+    Spletni vodič: https://www.overleaf.com/learn/latex/Learn\_LaTeX\_in\_30\_minutes
+    \begin{verbatim}
+        \section{Naslov poglavja}
+        \subsection{Naslov podpoglavja}
+        \subsubsection{Naslov podpodpoglavja}
+        \paragraph{Naslov odstavka (podpodpodpoglavja)}
+        \subparagraph{Naslov pododstavka}
+    \end{verbatim}
+
+    Uporbni vodič za pisanje tehničnih besedil: http://lie.fe.uni-lj.si/Napotki\_TehnicnaBesedila.pdf \\
+    dodatno pozornost posveti prvi in drugi strani ter obkroženim delom. \\
+    p.s.: Vodič vsebuje tudi pogoste slovnične napake (od vključno napotka 36 dalje)
+    \subsection{Slike}
+    \begin{verbatim}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale=0.5]{slike/vegova\_logo.png}
+            \caption{Vegova logo}
+            \label{fig:vegova\_logo}
+        \end{figure}
+    \end{verbatim}
+
+    \subsection{Formule}
+    https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf
+    \begin{equation}
+        E = mc^2
+    \end{equation}
+    $$\frac{1}{2}$$
+    $$\sqrt{2}$$
+    \begin{equation}
+        \frac{a}{b} = \frac{c}{d} \Rightarrow a*d = b*d
+    \end{equation}
+
+    Enačbe in formule naj bodo obdane z equation wrapperjem, izrazi načeloma ne potrebujejo.
+    Posvetuj se s povesorjem, ki bo ocenjeval seminarsko nalogo. Izrazi izven wrapperja morajo biti obdani z \$\$.
+
+
+\newpage
+\section{BibTeX}
+    \subsection{Izvoz iz COBISS-a}
+    COBISS podpira izvažanje citiranja v format BibTeX. To opcijo izkoristi.
+    Tudi Google Scholar podpira izvoz v BibTeX formatu.
+    \subsection{Izvoz iz spletnega pomočnika}
+    Predlagam: https://boberle.com/projects/bibtex-entry-generator/online/
+    Lahko uporabiš tudi JabRef (https://www.jabref.org/), ki je podprt na vseh namiznih opeacijskih sistemih.
+    \subsection{Samostojo pisanje}
+    Spletni vodič za začetek: https://www.overleaf.com/learn/latex/Bibliography\_management\_with\_bibtex
+    Drugače pa uporabi Google.
+
+
+
+
+\newpage
+\begingroup
+\makeatletter
+    \section{Viri in literatura}
+    \nocite{*}
+    \printbibliography[heading=none]
+\makeatother
+\endgroup
+\newpage
+
+\begin{samepage}
+    \thispagestyle{empty}
+    \section*{Izjava o avtorstvu}
+    Izjavljam, da je seminarska naloga v celoti moje avtorsko delo, ki sem ga 
+    izdelal samostojno s pomočjo navedene literature in pod vodstvom mentorja.
+
+    \vfill
+    
+    \today \hfill Jaka Kovač
+    
+    \vspace{3 cm}
+\end{samepage}
+
+\end{document}

@@ -1,0 +1,14 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'Naloga.blg'
+[80] biber-MSWIN64:342> INFO - === 
+[116] Biber.pm:421> INFO - Reading 'Naloga.bcf'
+[190] Biber.pm:999> INFO - Using all citekeys in bib section 0
+[199] Biber.pm:4487> INFO - Processing section 0
+[206] Biber.pm:4678> INFO - Looking for bibtex file 'viri.bib' for section 0
+[268] bibtex.pm:1713> INFO - LaTeX decoding ...
+[275] bibtex.pm:1519> INFO - Found BibTeX data source 'viri.bib'
+[320] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
+[321] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[321] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
+[328] bbl.pm:676> INFO - Writing 'Naloga.bbl' with encoding 'UTF-8'
+[330] bbl.pm:779> INFO - Output to Naloga.bbl
