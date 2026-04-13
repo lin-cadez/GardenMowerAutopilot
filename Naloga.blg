@@ -1,17 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'Naloga.blg'
-[82] biber-MSWIN64:342> INFO - === 
+[83] biber-MSWIN64:342> INFO - === 
 [121] Biber.pm:421> INFO - Reading 'Naloga.bcf'
-[210] Biber.pm:1002> INFO - Found 7 citekeys in bib section 0
-[223] Biber.pm:4487> INFO - Processing section 0
-[231] Biber.pm:4678> INFO - Looking for bibtex file 'viri.bib' for section 0
-[291] bibtex.pm:1713> INFO - LaTeX decoding ...
-[300] bibtex.pm:1519> INFO - Found BibTeX data source 'viri.bib'
-[349] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
-[349] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[350] Biber.pm:4307> INFO - Sorting list 'nyt/apasortcite//global/global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
-[359] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[360] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
-[360] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
-[368] bbl.pm:676> INFO - Writing 'Naloga.bbl' with encoding 'UTF-8'
-[374] bbl.pm:779> INFO - Output to Naloga.bbl
+[211] Biber.pm:1002> INFO - Found 7 citekeys in bib section 0
+[224] Biber.pm:4487> INFO - Processing section 0
+[232] Biber.pm:4678> INFO - Looking for bibtex file 'viri.bib' for section 0
+[294] bibtex.pm:1713> INFO - LaTeX decoding ...
+[320] bibtex.pm:1519> INFO - Found BibTeX data source 'viri.bib'
+[371] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[371] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
+[371] Biber.pm:4307> INFO - Sorting list 'nyt/apasortcite//global/global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
+[382] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
+[382] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[382] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
+[390] bbl.pm:676> INFO - Writing 'Naloga.bbl' with encoding 'UTF-8'
+[397] bbl.pm:779> INFO - Output to Naloga.bbl

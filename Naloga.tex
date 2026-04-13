@@ -156,6 +156,19 @@ Naloga dokazuje, da je mogoče z dostopnimi komponentami izdelati učinkovit var
 \textbf{Ključne besede:} daljinsko vodena kosilnica, računalniški vid,
 PWM, DGPS, NTRIP, Raspberry~Pi
 
+\vspace{1cm}
+
+\section*{Abstract}
+In this seminar paper, I presented the upgrade of a remote-controlled mower with computer vision and spatial positioning. The purpose of the paper was to increase the safety of the machine's operation on demanding terrain, as the system automatically stops the mower upon detecting a human or an animal.
+
+For the implementation, I used a Raspberry Pi 4B computer, a PiCam camera, the OpenCV library, the MobileNet SSD model, and a GNSS module with DGPS corrections via the NTRIP protocol. I also developed a web interface for direct monitoring of the video stream and the mower's position on the map.
+
+The test results showed that the system reliably detects a human or an animal under appropriate conditions and stops the mower in less than 100 ms. I also found that differential GPS improves the positioning accuracy. Among the system limitations are poorer performance in the dark, lower detection reliability at greater distances, and video transmission delay.
+
+The paper proves that it is possible to build an effective safety system for upgrading a remote-controlled working machine using accessible components.
+\newline
+\textbf{Keywords:} remote-controlled mower, computer vision, PWM, DGPS, NTRIP, Raspberry~Pi
+
 \vfill
 
 % ==============================================================
@@ -818,7 +831,7 @@ natančne GPS položaj.
   \centering
   \includegraphics[width=0.80\textwidth]{slike/DGPS SKETCH.jpg}
   \caption{Prikaz principa delovanja diferencialnega GPS in popravkov
-    NTRIP.}
+    NTRIP.\\Vir: \url{https://st2.depositphotos.com/1004370/11686/i/950/depositphotos_116869570-stock-photo-real-time-differential-gps.jpg}}
   \label{fig:dgps-sketch}
 \end{figure}
 
@@ -986,7 +999,8 @@ resničnem okolju.
 Skozi razvoj projekta sem pridobil praktične izkušnje z računalniškim
 vidom, večnitnim programiranjem, GNSS-lociranjem, spletnimi vmesniki
 in povezovanjem elektronskih modulov v enoten sistem. Za morebitno
-nadgradnjo bi bil smiseln novejš modul z AI kamero in dodajanje luči za boljšo osvetlitev.
+nadgradnjo bi bil smiseln novejši modul z AI kamero in dodajanjem
+luči za boljšo osvetlitev.
 
 % ==============================================================
 %  VIRI IN LITERATURA

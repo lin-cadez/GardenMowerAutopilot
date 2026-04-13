@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  13 APR 2026 23:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  13 APR 2026 23:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1111,7 +1111,14 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout5 = `Naloga.toc'.
 
 
-[2] (Naloga.lof)
+[2] (Naloga.lof
+Overfull \hbox (189.8237pt too wide) in paragraph at lines 8--8
+ []$\T1/ptm/m/n/12 (-20) https : / / st2 . depositphotos . com / 1004370 / 1168
+6 / i / 950 / depositphotos _ 116869570-[]stock-[]photo-[]real-[]time-[]di^^[er
+ential-[]gps . 
+ []
+
+)
 \tf@lof=\write6
 \openout6 = `Naloga.lof'.
 
@@ -1121,7 +1128,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--218
  []
 
 [4]
-<slike/mulcer.png, id=258, 166.28792pt x 124.13042pt>
+<slike/mulcer.png, id=262, 166.28792pt x 124.13042pt>
 File: slike/mulcer.png Graphic file (type png)
 <use slike/mulcer.png>
 Package pdftex.def Info: slike/mulcer.png  used on input line 258.
@@ -1133,12 +1140,12 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 [7 <./slike/mulcer.png>] [8]
-<slike/moduli_sistema.jpg, id=272, 4111.36pt x 3083.52pt>
+<slike/moduli_sistema.jpg, id=276, 4111.36pt x 3083.52pt>
 File: slike/moduli_sistema.jpg Graphic file (type jpg)
 <use slike/moduli_sistema.jpg>
 Package pdftex.def Info: slike/moduli_sistema.jpg  used on input line 346.
 (pdftex.def)             Requested size: 343.99329pt x 257.9788pt.
-<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=273, 2071.74pt x 11
+<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=277, 2071.74pt x 11
 89.44376pt>
 File: slike/skica s pojasnsili vseh pinov na raspbery pi.png Graphic file (type
  png)
@@ -1158,19 +1165,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [10 <./slike/skica s pojasnsili vseh pinov na raspbery pi.png (PNG copy)>]
-<slike/shema_sprejemnika.png, id=293, 587.86292pt x 339.2675pt>
+<slike/shema_sprejemnika.png, id=297, 587.86292pt x 339.2675pt>
 File: slike/shema_sprejemnika.png Graphic file (type png)
 <use slike/shema_sprejemnika.png>
 Package pdftex.def Info: slike/shema_sprejemnika.png  used on input line 440.
 (pdftex.def)             Requested size: 317.5333pt x 183.25865pt.
  [11]
-<slike/graf_merjenja_signala.png, id=304, 176.66pt x 84.98416pt>
+<slike/graf_merjenja_signala.png, id=308, 176.66pt x 84.98416pt>
 File: slike/graf_merjenja_signala.png Graphic file (type png)
 <use slike/graf_merjenja_signala.png>
 Package pdftex.def Info: slike/graf_merjenja_signala.png  used on input line 45
 4.
 (pdftex.def)             Requested size: 374.86775pt x 180.33669pt.
-<slike/remote_control.png, id=305, 338.59833pt x 307.81667pt>
+<slike/remote_control.png, id=309, 338.59833pt x 307.81667pt>
 File: slike/remote_control.png Graphic file (type png)
 <use slike/remote_control.png>
 Package pdftex.def Info: slike/remote_control.png  used on input line 471.
@@ -1453,41 +1460,47 @@ The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [17] [18] [19]
-<slike/DGPS SKETCH.jpg, id=469, 770.88pt x 617.30624pt>
+<slike/DGPS SKETCH.jpg, id=473, 770.88pt x 617.30624pt>
 File: slike/DGPS SKETCH.jpg Graphic file (type jpg)
 <use slike/DGPS SKETCH.jpg>
 Package pdftex.def Info: slike/DGPS SKETCH.jpg  used on input line 819.
 (pdftex.def)             Requested size: 352.81552pt x 282.52316pt.
- [20] [21 <./slike/DGPS SKETCH.jpg>]
-<slike/web_interface.png, id=491, 587.19376pt x 312.16624pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 821--821
+\T1/ptm/m/n/12 (+20) Vir: []$https : / / st2 . depositphotos . com / 1004370 / 
+11686 / i / 950 / depositphotos _
+ []
+
+[20] [21 <./slike/DGPS SKETCH.jpg>]
+<slike/web_interface.png, id=497, 587.19376pt x 312.16624pt>
 File: slike/web_interface.png Graphic file (type png)
 <use slike/web_interface.png>
 Package pdftex.def Info: slike/web_interface.png  used on input line 865.
 (pdftex.def)             Requested size: 370.45328pt x 196.94205pt.
  [22 <./slike/web_interface.png>]
-<slike/testiranje_na_terenu.png, id=497, 165.61874pt x 221.15958pt>
+<slike/testiranje_na_terenu.png, id=504, 165.61874pt x 221.15958pt>
 File: slike/testiranje_na_terenu.png Graphic file (type png)
 <use slike/testiranje_na_terenu.png>
 Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 938
 .
 (pdftex.def)             Requested size: 361.63776pt x 482.98555pt.
  [23]
-<slike/slika_notranjosti_mulcerja.png, id=504, 157.92334pt x 209.78375pt>
+<slike/slika_notranjosti_mulcerja.png, id=511, 157.92334pt x 209.78375pt>
 File: slike/slika_notranjosti_mulcerja.png Graphic file (type png)
 <use slike/slika_notranjosti_mulcerja.png>
 Package pdftex.def Info: slike/slika_notranjosti_mulcerja.png  used on input li
 ne 946.
 (pdftex.def)             Requested size: 343.99329pt x 457.00256pt.
- [24 <./slike/testiranje_na_terenu.png>]
-<slike/daljinec_na_mulcerju.png, id=510, 145.87833pt x 109.07417pt>
+
+[24 <./slike/testiranje_na_terenu.png>]
+<slike/daljinec_na_mulcerju.png, id=517, 145.87833pt x 109.07417pt>
 File: slike/daljinec_na_mulcerju.png Graphic file (type png)
 <use slike/daljinec_na_mulcerju.png>
 Package pdftex.def Info: slike/daljinec_na_mulcerju.png  used on input line 954
 .
 (pdftex.def)             Requested size: 317.5333pt x 237.42575pt.
  [25 <./slike/slika_notranjosti_mulcerja.png>] [26 <./slike/daljinec_na_mulcerj
-u.png>] [27] [28] [29]
-(Naloga.aux)
+u.png>] [27] [28] [29] (Naloga.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1501,7 +1514,7 @@ Package logreq Info: Writing requests to 'Naloga.run.xml'.
 Here is how much of TeX's memory you used:
  28444 strings out of 467867
  489169 string characters out of 5428402
- 1762163 words of memory out of 5000000
+ 1763289 words of memory out of 5000000
  56486 multiletter control sequences out of 15000+600000
  685305 words of font info for 257 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1513,9 +1526,9 @@ X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type
 a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
 es/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on Naloga.pdf (31 pages, 5291925 bytes).
+Output written on Naloga.pdf (31 pages, 5293809 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
+ 640 PDF objects out of 1000 (max. 8388607)
  222 named destinations out of 1000 (max. 500000)
  58221 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -5,7 +5,7 @@
 \contentsline {figure}{\numberline {4}{\ignorespaces Shema priključkov sprejemnika iz dokumentacije, ki sem jo uporabil pri načrtovanju GPIO-vezave.}}{12}{figure.caption.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Graf meritev PWM-signalov posameznih kanalov, izmerjenih z Arduinom in Serial Plotterjem v Arduino~IDE.}}{12}{figure.caption.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Daljinec z označenimi gumbi in joysticki, ki sem jih testiral in jih uporabljam pri upravljanju kosilnice. Stikalo na vrhu služi za spremembo načina delovanja, joysticka pa za usmerjanje naprej, nazaj, levo in desno.}}{13}{figure.caption.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Prikaz principa delovanja diferencialnega GPS in popravkov NTRIP.}}{21}{figure.caption.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Prikaz principa delovanja diferencialnega GPS in popravkov NTRIP. Vir: \url {https://st2.depositphotos.com/1004370/11686/i/950/depositphotos_116869570-stock-photo-real-time-differential-gps.jpg}}}{21}{figure.caption.8}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Spletni vmesnik z živim videoposnetkom kamere in GPS-lokacijo kosilnice na interaktivnem zemljevidu.}}{22}{figure.caption.9}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Testiranje sistema na terenu: mulčar od daleč s prenosnim računalnikom med preizkusi.}}{24}{figure.caption.11}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Notranjost mulčarja z dodanim računalnikom Raspberry~Pi in nameščeno elektroniko.}}{25}{figure.caption.12}%
