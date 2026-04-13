@@ -1,12 +1,12 @@
 \babel@toc {slovene}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Izhodi\v {s}\v {c}ni mul\v {c}er, ki sem ga uporabil za nadgradnjo.}}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Vsi moduli sistema, povezani skupaj: GPS \v {s}\v {c}it, RC sprejemnik, PiCam, Raspberry~Pi in GPS antena.}}{10}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Shema priklju\v {c}kov sprejemnika iz dokumentacije, ki sem jo uporabil pri na\v {c}rtovanju GPIO-vezave.}}{11}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Daljinec z ozna\v {c}enimi gumbi in joysticki, ki sem jih testiral in jih uporabljam pri upravljanju kosilnice. Stikalo na vrhu slu\v {z}i za spremembo na\v {c}ina delovanja, joysticka pa za usmerjanje naprej, nazaj, levo in desno.}}{12}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Skica Raspberry~Pi z ozna\v {c}enimi pini in navedenim funkcijami PINOV, ki sem jih uporabljal pri povezovanju sistema.}}{12}{figure.caption.9}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Graf meritev PWM-signalov posameznih kanalov, izmerjenih z Arduinom in Serial Plotterjem v Arduino~IDE.}}{14}{figure.caption.10}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Prikaz principa delovanja diferencialnega GPS in popravkov NTRIP \blx@tocontentsinit {0}\parencite {airace_dgps}.}}{20}{figure.caption.11}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Spletni vmesnik z \v {z}ivim videoposnetkom kamere in GPS-lokacijo kosilnice na interaktivnem zemljevidu.}}{21}{figure.caption.12}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Testiranje sistema na terenu: mul\v {c}er od dale\v {c} s prenosnim ra\v {c}unalnikom med preizkusi.}}{22}{figure.caption.13}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Notranjost mul\v {c}erja z dodanim Raspberry~Pi ra\v {c}unalnikom in name\v {s}\v {c}eno elektroniko.}}{23}{figure.caption.14}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Daljinec, name\v {s}\v {c}en na mul\v {c}erju med terenskim testiranjem.}}{24}{figure.caption.15}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Izhodiščni mulčar, ki sem ga uporabil za nadgradnjo.}}{7}{figure.caption.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Vsi moduli sistema, povezani skupaj: GPS ščit, RC sprejemnik, kamera PiCam, Raspberry~Pi in GPS antena.}}{9}{figure.caption.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Skica Raspberry~Pi z označenimi pini in navedenimi funkcijami pinov, ki sem jih uporabljal pri povezovanju sistema.}}{10}{figure.caption.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Shema priključkov sprejemnika iz dokumentacije, ki sem jo uporabil pri načrtovanju GPIO-vezave.}}{12}{figure.caption.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Graf meritev PWM-signalov posameznih kanalov, izmerjenih z Arduinom in Serial Plotterjem v Arduino~IDE.}}{12}{figure.caption.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Daljinec z označenimi gumbi in joysticki, ki sem jih testiral in jih uporabljam pri upravljanju kosilnice. Stikalo na vrhu služi za spremembo načina delovanja, joysticka pa za usmerjanje naprej, nazaj, levo in desno.}}{13}{figure.caption.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Prikaz principa delovanja diferencialnega GPS in popravkov NTRIP.}}{21}{figure.caption.8}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Spletni vmesnik z živim videoposnetkom kamere in GPS-lokacijo kosilnice na interaktivnem zemljevidu.}}{22}{figure.caption.9}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Testiranje sistema na terenu: mulčar od daleč s prenosnim računalnikom med preizkusi.}}{24}{figure.caption.11}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Notranjost mulčarja z dodanim računalnikom Raspberry~Pi in nameščeno elektroniko.}}{25}{figure.caption.12}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Daljinec, nameščen na mulčarju med terenskim testiranjem.}}{26}{figure.caption.13}%

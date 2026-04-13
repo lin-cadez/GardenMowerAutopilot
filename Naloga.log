@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  6 APR 2026 01:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  13 APR 2026 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -286,32 +286,52 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks24
 \@floatcapt=\box55
 )
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen165
+\lightrulewidth=\dimen166
+\cmidrulewidth=\dimen167
+\belowrulesep=\dimen168
+\belowbottomsep=\dimen169
+\aboverulesep=\dimen170
+\abovetopsep=\dimen171
+\cmidrulesep=\dimen172
+\cmidrulekern=\dimen173
+\defaultaddspace=\dimen174
+\@cmidla=\count303
+\@cmidlb=\count304
+\@aboverulesep=\dimen175
+\@belowrulesep=\dimen176
+\@thisruleclass=\count305
+\@lastruleclass=\count306
+\@thisrulewidth=\dimen177
+)
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip53
-\enit@outerparindent=\dimen165
+\enit@outerparindent=\dimen178
 \enit@toks=\toks25
 \enit@inbox=\box56
-\enit@count@id=\count303
-\enitdp@description=\count304
+\enit@count@id=\count307
+\enitdp@description=\count308
 )
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen166
-\captionmargin=\dimen167
-\caption@leftmargin=\dimen168
-\caption@rightmargin=\dimen169
-\caption@width=\dimen170
-\caption@indent=\dimen171
-\caption@parindent=\dimen172
-\caption@hangindent=\dimen173
+\caption@tempdima=\dimen179
+\captionmargin=\dimen180
+\caption@leftmargin=\dimen181
+\caption@rightmargin=\dimen182
+\caption@width=\dimen183
+\caption@indent=\dimen184
+\caption@parindent=\dimen185
+\caption@hangindent=\dimen186
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count305
-\c@continuedfloat=\count306
+\c@caption@flags=\count309
+\c@continuedfloat=\count310
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
@@ -329,23 +349,23 @@ Package: amstext 2024/11/17 v2.01 AMS text
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks26
-\ex@=\dimen174
+\ex@=\dimen187
 ))
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen175
+\pmbraise@=\dimen188
 )
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count307
+\inf@bad=\count311
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count308
-\leftroot@=\count309
+\uproot@=\count312
+\leftroot@=\count313
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count310
-\DOTSCASE@=\count311
+\classnum@=\count314
+\DOTSCASE@=\count315
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -355,30 +375,30 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen176
+\big@size=\dimen189
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count312
+\macc@depth=\count316
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count313
+\c@MaxMatrixCols=\count317
 \dotsspace@=\muskip18
-\c@parentequation=\count314
-\dspbrk@lvl=\count315
+\c@parentequation=\count318
+\dspbrk@lvl=\count319
 \tag@help=\toks27
-\row@=\count316
-\column@=\count317
-\maxfields@=\count318
+\row@=\count320
+\column@=\count321
+\maxfields@=\count322
 \andhelp@=\toks28
-\eqnshift@=\dimen177
-\alignsep@=\dimen178
-\tagshift@=\dimen179
-\tagwidth@=\dimen180
-\totwidth@=\dimen181
-\lineht@=\dimen182
+\eqnshift@=\dimen190
+\alignsep@=\dimen191
+\tagshift@=\dimen192
+\tagwidth@=\dimen193
+\totwidth@=\dimen194
+\lineht@=\dimen195
 \@envbody=\toks29
 \multlinegap=\skip55
 \multlinetaggap=\skip56
@@ -412,7 +432,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks31
 \XKV@tempa@toks=\toks32
 )
-\XKV@depth=\count319
+\XKV@depth=\count323
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/fmtcount\fcprefix.sty
@@ -420,38 +440,38 @@ Package: fcprefix 2012/09/28
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/fmtcount\fcnumparser.sty
 Package: fcnumparser 2017/06/15
-\fc@digit@counter=\count320
+\fc@digit@counter=\count324
 ))
-\c@padzeroesN=\count321
-\fc@tmpcatcode=\count322
-\@DT@modctr=\count323
-\@ordinalctr=\count324
-\@orgargctr=\count325
-\@strctr=\count326
-\@tmpstrctr=\count327
-\@DT@loopN=\count328
-\@DT@X=\count329
+\c@padzeroesN=\count325
+\fc@tmpcatcode=\count326
+\@DT@modctr=\count327
+\@ordinalctr=\count328
+\@orgargctr=\count329
+\@strctr=\count330
+\@tmpstrctr=\count331
+\@DT@loopN=\count332
+\@DT@X=\count333
 )
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/datetime\datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count330
-\@month=\count331
-\@year=\count332
-\c@HOUR=\count333
-\c@HOURXII=\count334
-\c@MINUTE=\count335
-\c@TOHOUR=\count336
-\c@TOMINUTE=\count337
-\c@SECOND=\count338
-\currenthour=\count339
-\currentminute=\count340
-\currentsecond=\count341
+\@day=\count334
+\@month=\count335
+\@year=\count336
+\c@HOUR=\count337
+\c@HOURXII=\count338
+\c@MINUTE=\count339
+\c@TOHOUR=\count340
+\c@TOMINUTE=\count341
+\c@SECOND=\count342
+\currenthour=\count343
+\currentminute=\count344
+\currentsecond=\count345
 Package datetime Info: No datetime.cfg file found, using default settings on in
 put line 308.
-\@dtctr=\count342
-\dayofyear=\count343
-\dayofweek=\count344
+\@dtctr=\count346
+\dayofyear=\count347
+\dayofweek=\count348
 LaTeX Info: Redefining \today on input line 736.
  (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/datetime\dt-slovene.def
 File: dt-slovene.def 2013/09/10
@@ -462,12 +482,12 @@ LaTeX Info: Redefining \dateslovene on input line 63.
 )
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count345
-\csq@gtype=\count346
-\csq@glevel=\count347
-\csq@qlevel=\count348
-\csq@maxlvl=\count349
-\csq@tshold=\count350
+\csq@reset=\count349
+\csq@gtype=\count350
+\csq@glevel=\count351
+\csq@qlevel=\count352
+\csq@maxlvl=\count353
+\csq@tshold=\count354
 \csq@ltx@everypar=\toks35
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/csquotes\csquotes.def
@@ -479,28 +499,120 @@ Package csquotes Info: ... configuration file loaded successfully.
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
 ))
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip57
+\f@nch@offset@elh=\skip58
+\f@nch@offset@erh=\skip59
+\f@nch@offset@olh=\skip60
+\f@nch@offset@orh=\skip61
+\f@nch@offset@elf=\skip62
+\f@nch@offset@erf=\skip63
+\f@nch@offset@olf=\skip64
+\f@nch@offset@orf=\skip65
+\f@nch@height=\skip66
+\f@nch@footalignment=\skip67
+\f@nch@widthL=\skip68
+\f@nch@widthC=\skip69
+\f@nch@widthR=\skip70
+\@temptokenb=\toks36
+)
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box59
+\beforetitleunit=\skip71
+\aftertitleunit=\skip72
+\ttl@plus=\dimen196
+\ttl@minus=\dimen197
+\ttl@toksa=\toks37
+\titlewidth=\dimen198
+\titlewidthlast=\dimen199
+\titlewidthfirst=\dimen256
+)
+(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/tocloft\tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 51.
+\cftparskip=\skip73
+\cftbeforetoctitleskip=\skip74
+\cftaftertoctitleskip=\skip75
+\cftbeforepartskip=\skip76
+\cftpartnumwidth=\skip77
+\cftpartindent=\skip78
+\cftbeforesecskip=\skip79
+\cftsecindent=\skip80
+\cftsecnumwidth=\skip81
+\cftbeforesubsecskip=\skip82
+\cftsubsecindent=\skip83
+\cftsubsecnumwidth=\skip84
+\cftbeforesubsubsecskip=\skip85
+\cftsubsubsecindent=\skip86
+\cftsubsubsecnumwidth=\skip87
+\cftbeforeparaskip=\skip88
+\cftparaindent=\skip89
+\cftparanumwidth=\skip90
+\cftbeforesubparaskip=\skip91
+\cftsubparaindent=\skip92
+\cftsubparanumwidth=\skip93
+\cftbeforeloftitleskip=\skip94
+\cftafterloftitleskip=\skip95
+\cftbeforefigskip=\skip96
+\cftfigindent=\skip97
+\cftfignumwidth=\skip98
+\c@lofdepth=\count355
+\c@lotdepth=\count356
+\cftbeforelottitleskip=\skip99
+\cftafterlottitleskip=\skip100
+\cftbeforetabskip=\skip101
+\cfttabindent=\skip102
+\cfttabnumwidth=\skip103
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Program Files\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen257
+\ar@mcellbox=\box60
+\extrarowheight=\dimen258
+\NC@list=\toks38
+\extratabsurround=\skip104
+\backup@length=\skip105
+\ar@cellbox=\box61
+)
+\TX@col@width=\dimen259
+\TX@old@table=\dimen260
+\TX@old@col=\dimen261
+\TX@target=\dimen262
+\TX@delta=\dimen263
+\TX@cols=\count357
+\TX@ftn=\toks39
+)
 (C:\Program Files\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count351
-\lst@gtempboxa=\box59
-\lst@token=\toks36
-\lst@length=\count352
-\lst@currlwidth=\dimen183
-\lst@column=\count353
-\lst@pos=\count354
-\lst@lostspace=\dimen184
-\lst@width=\dimen185
-\lst@newlines=\count355
-\lst@lineno=\count356
-\lst@maxwidth=\dimen186
+\lst@mode=\count358
+\lst@gtempboxa=\box62
+\lst@token=\toks40
+\lst@length=\count359
+\lst@currlwidth=\dimen264
+\lst@column=\count360
+\lst@pos=\count361
+\lst@lostspace=\dimen265
+\lst@width=\dimen266
+\lst@newlines=\count362
+\lst@lineno=\count363
+\lst@maxwidth=\dimen267
 
 (C:\Program Files\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 )
 (C:\Program Files\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count357
-\lst@skipnumbers=\count358
-\lst@framebox=\box60
+\c@lstnumber=\count364
+\lst@skipnumbers=\count365
+\lst@framebox=\box63
 )
 (C:\Program Files\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
@@ -516,7 +628,7 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/lstaddons\lstautogobble.sty
 Package: lstautogobble 2012/05/03 v0.1 Implements 'autogobble' option for 'list
 ings'
-\lstag@spacecount=\count359
+\lstag@spacecount=\count366
 )
 (C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
@@ -542,68 +654,68 @@ Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count360
+\lrq@indent=\count367
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count361
-\c@listtotal=\count362
-\c@listcount=\count363
-\c@liststart=\count364
-\c@liststop=\count365
-\c@citecount=\count366
-\c@citetotal=\count367
-\c@multicitecount=\count368
-\c@multicitetotal=\count369
-\c@instcount=\count370
-\c@maxnames=\count371
-\c@minnames=\count372
-\c@maxitems=\count373
-\c@minitems=\count374
-\c@citecounter=\count375
-\c@maxcitecounter=\count376
-\c@savedcitecounter=\count377
-\c@uniquelist=\count378
-\c@uniquename=\count379
-\c@refsection=\count380
-\c@refsegment=\count381
-\c@maxextratitle=\count382
-\c@maxextratitleyear=\count383
-\c@maxextraname=\count384
-\c@maxextradate=\count385
-\c@maxextraalpha=\count386
-\c@abbrvpenalty=\count387
-\c@highnamepenalty=\count388
-\c@lownamepenalty=\count389
-\c@maxparens=\count390
-\c@parenlevel=\count391
-\blx@tempcnta=\count392
-\blx@tempcntb=\count393
-\blx@tempcntc=\count394
-\c@blx@maxsection=\count395
-\blx@maxsegment@0=\count396
-\blx@notetype=\count397
-\blx@parenlevel@text=\count398
-\blx@parenlevel@foot=\count399
-\blx@sectionciteorder@0=\count400
-\blx@sectionciteorderinternal@0=\count401
-\blx@entrysetcounter=\count402
-\blx@biblioinstance=\count403
-\labelnumberwidth=\skip57
-\labelalphawidth=\skip58
-\biblabelsep=\skip59
-\bibitemsep=\skip60
-\bibnamesep=\skip61
-\bibinitsep=\skip62
-\bibparsep=\skip63
-\bibhang=\skip64
+\c@tabx@nest=\count368
+\c@listtotal=\count369
+\c@listcount=\count370
+\c@liststart=\count371
+\c@liststop=\count372
+\c@citecount=\count373
+\c@citetotal=\count374
+\c@multicitecount=\count375
+\c@multicitetotal=\count376
+\c@instcount=\count377
+\c@maxnames=\count378
+\c@minnames=\count379
+\c@maxitems=\count380
+\c@minitems=\count381
+\c@citecounter=\count382
+\c@maxcitecounter=\count383
+\c@savedcitecounter=\count384
+\c@uniquelist=\count385
+\c@uniquename=\count386
+\c@refsection=\count387
+\c@refsegment=\count388
+\c@maxextratitle=\count389
+\c@maxextratitleyear=\count390
+\c@maxextraname=\count391
+\c@maxextradate=\count392
+\c@maxextraalpha=\count393
+\c@abbrvpenalty=\count394
+\c@highnamepenalty=\count395
+\c@lownamepenalty=\count396
+\c@maxparens=\count397
+\c@parenlevel=\count398
+\blx@tempcnta=\count399
+\blx@tempcntb=\count400
+\blx@tempcntc=\count401
+\c@blx@maxsection=\count402
+\blx@maxsegment@0=\count403
+\blx@notetype=\count404
+\blx@parenlevel@text=\count405
+\blx@parenlevel@foot=\count406
+\blx@sectionciteorder@0=\count407
+\blx@sectionciteorderinternal@0=\count408
+\blx@entrysetcounter=\count409
+\blx@biblioinstance=\count410
+\labelnumberwidth=\skip106
+\labelalphawidth=\skip107
+\biblabelsep=\skip108
+\bibitemsep=\skip109
+\bibnamesep=\skip110
+\bibinitsep=\skip111
+\bibparsep=\skip112
+\bibhang=\skip113
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language80
-\c@mincomprange=\count404
-\c@maxcomprange=\count405
-\c@mincompwidth=\count406
+\c@mincomprange=\count411
+\c@maxcomprange=\count412
+\c@mincompwidth=\count413
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -618,98 +730,98 @@ File: apa.dbx 2025/08/27 v9.20 APA biblatex style data model
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count407
-\c@savedafterword=\count408
-\c@annotator=\count409
-\c@savedannotator=\count410
-\c@author=\count411
-\c@savedauthor=\count412
-\c@bookauthor=\count413
-\c@savedbookauthor=\count414
-\c@commentator=\count415
-\c@savedcommentator=\count416
-\c@editor=\count417
-\c@savededitor=\count418
-\c@editora=\count419
-\c@savededitora=\count420
-\c@editorb=\count421
-\c@savededitorb=\count422
-\c@editorc=\count423
-\c@savededitorc=\count424
-\c@foreword=\count425
-\c@savedforeword=\count426
-\c@holder=\count427
-\c@savedholder=\count428
-\c@introduction=\count429
-\c@savedintroduction=\count430
-\c@namea=\count431
-\c@savednamea=\count432
-\c@nameb=\count433
-\c@savednameb=\count434
-\c@namec=\count435
-\c@savednamec=\count436
-\c@translator=\count437
-\c@savedtranslator=\count438
-\c@shortauthor=\count439
-\c@savedshortauthor=\count440
-\c@shorteditor=\count441
-\c@savedshorteditor=\count442
-\c@narrator=\count443
-\c@savednarrator=\count444
-\c@execproducer=\count445
-\c@savedexecproducer=\count446
-\c@execdirector=\count447
-\c@savedexecdirector=\count448
-\c@with=\count449
-\c@savedwith=\count450
-\c@labelname=\count451
-\c@savedlabelname=\count452
-\c@institution=\count453
-\c@savedinstitution=\count454
-\c@lista=\count455
-\c@savedlista=\count456
-\c@listb=\count457
-\c@savedlistb=\count458
-\c@listc=\count459
-\c@savedlistc=\count460
-\c@listd=\count461
-\c@savedlistd=\count462
-\c@liste=\count463
-\c@savedliste=\count464
-\c@listf=\count465
-\c@savedlistf=\count466
-\c@location=\count467
-\c@savedlocation=\count468
-\c@organization=\count469
-\c@savedorganization=\count470
-\c@origlocation=\count471
-\c@savedoriglocation=\count472
-\c@origpublisher=\count473
-\c@savedorigpublisher=\count474
-\c@publisher=\count475
-\c@savedpublisher=\count476
-\c@language=\count477
-\c@savedlanguage=\count478
-\c@origlanguage=\count479
-\c@savedoriglanguage=\count480
-\c@citation=\count481
-\c@savedcitation=\count482
-\c@pageref=\count483
-\c@savedpageref=\count484
-\shorthandwidth=\skip65
-\shortjournalwidth=\skip66
-\shortserieswidth=\skip67
-\shorttitlewidth=\skip68
-\shortauthorwidth=\skip69
-\shorteditorwidth=\skip70
-\locallabelnumberwidth=\skip71
-\locallabelalphawidth=\skip72
-\localshorthandwidth=\skip73
-\localshortjournalwidth=\skip74
-\localshortserieswidth=\skip75
-\localshorttitlewidth=\skip76
-\localshortauthorwidth=\skip77
-\localshorteditorwidth=\skip78
+\c@afterword=\count414
+\c@savedafterword=\count415
+\c@annotator=\count416
+\c@savedannotator=\count417
+\c@author=\count418
+\c@savedauthor=\count419
+\c@bookauthor=\count420
+\c@savedbookauthor=\count421
+\c@commentator=\count422
+\c@savedcommentator=\count423
+\c@editor=\count424
+\c@savededitor=\count425
+\c@editora=\count426
+\c@savededitora=\count427
+\c@editorb=\count428
+\c@savededitorb=\count429
+\c@editorc=\count430
+\c@savededitorc=\count431
+\c@foreword=\count432
+\c@savedforeword=\count433
+\c@holder=\count434
+\c@savedholder=\count435
+\c@introduction=\count436
+\c@savedintroduction=\count437
+\c@namea=\count438
+\c@savednamea=\count439
+\c@nameb=\count440
+\c@savednameb=\count441
+\c@namec=\count442
+\c@savednamec=\count443
+\c@translator=\count444
+\c@savedtranslator=\count445
+\c@shortauthor=\count446
+\c@savedshortauthor=\count447
+\c@shorteditor=\count448
+\c@savedshorteditor=\count449
+\c@narrator=\count450
+\c@savednarrator=\count451
+\c@execproducer=\count452
+\c@savedexecproducer=\count453
+\c@execdirector=\count454
+\c@savedexecdirector=\count455
+\c@with=\count456
+\c@savedwith=\count457
+\c@labelname=\count458
+\c@savedlabelname=\count459
+\c@institution=\count460
+\c@savedinstitution=\count461
+\c@lista=\count462
+\c@savedlista=\count463
+\c@listb=\count464
+\c@savedlistb=\count465
+\c@listc=\count466
+\c@savedlistc=\count467
+\c@listd=\count468
+\c@savedlistd=\count469
+\c@liste=\count470
+\c@savedliste=\count471
+\c@listf=\count472
+\c@savedlistf=\count473
+\c@location=\count474
+\c@savedlocation=\count475
+\c@organization=\count476
+\c@savedorganization=\count477
+\c@origlocation=\count478
+\c@savedoriglocation=\count479
+\c@origpublisher=\count480
+\c@savedorigpublisher=\count481
+\c@publisher=\count482
+\c@savedpublisher=\count483
+\c@language=\count484
+\c@savedlanguage=\count485
+\c@origlanguage=\count486
+\c@savedoriglanguage=\count487
+\c@citation=\count488
+\c@savedcitation=\count489
+\c@pageref=\count490
+\c@savedpageref=\count491
+\shorthandwidth=\skip114
+\shortjournalwidth=\skip115
+\shortserieswidth=\skip116
+\shorttitlewidth=\skip117
+\shortauthorwidth=\skip118
+\shorteditorwidth=\skip119
+\locallabelnumberwidth=\skip120
+\locallabelalphawidth=\skip121
+\localshorthandwidth=\skip122
+\localshortjournalwidth=\skip123
+\localshortserieswidth=\skip124
+\localshorttitlewidth=\skip125
+\localshortauthorwidth=\skip126
+\localshorteditorwidth=\skip127
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -721,19 +833,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (C:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count485
-\c@textcitetotal=\count486
-\c@textcitemaxnames=\count487
-\c@biburlbigbreakpenalty=\count488
-\c@biburlbreakpenalty=\count489
-\c@biburlnumpenalty=\count490
-\c@biburlucpenalty=\count491
-\c@biburllcpenalty=\count492
+\c@textcitecount=\count492
+\c@textcitetotal=\count493
+\c@textcitemaxnames=\count494
+\c@biburlbigbreakpenalty=\count495
+\c@biburlbreakpenalty=\count496
+\c@biburlnumpenalty=\count497
+\c@biburlucpenalty=\count498
+\c@biburllcpenalty=\count499
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count493
+\c@smartand=\count500
 )
 Package biblatex Info: Trying to load bibliography style 'apa'...
 Package biblatex Info: ... file 'apa.bbx' found.
@@ -745,8 +857,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (C:\Program Files\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count494
-\c@bbx:relatedtotal=\count495
+\c@bbx:relatedcount=\count501
+\c@bbx:relatedtotal=\count502
 )
 Package biblatex Info: Delimiter 'nameyeardelim' in context 'bib' already defin
 ed, overwriting.
@@ -796,7 +908,7 @@ Package: expl3 2026-01-19 L3 programming layer (loader)
 
 (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count496
+\l__color_backend_stack_int=\count503
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2026-01-19 L3 programming layer (loader) 
@@ -813,7 +925,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'slovene'.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 51
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 86
 .
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1ptm.fd
@@ -824,24 +936,24 @@ Package babel Info: 'slovene' activates 'slovene' shorthands.
 )
 \openout1 = `Naloga.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -851,14 +963,14 @@ LaTeX Font Info:    ... okay on input line 51.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* h-part:(L,W,R)=(85.35826pt, 441.01773pt, 71.13188pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
+* \textwidth=441.01773pt
 * \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
 * \topmargin=-38.1381pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -877,18 +989,21 @@ LaTeX Font Info:    ... okay on input line 51.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 51.
+Package hyperref Info: Link coloring OFF on input line 86.
 (Naloga.out) (Naloga.out)
 \@outlinefile=\write4
 \openout4 = `Naloga.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 51.
-Package microtype Info: Applying patch `item' on input line 51.
-Package microtype Info: Applying patch `toc' on input line 51.
-Package microtype Info: Applying patch `eqnum' on input line 51.
-Package microtype Info: Applying patch `footnote' on input line 51.
-Package microtype Info: Applying patch `verbatim' on input line 51.
-LaTeX Info: Redefining \microtypesetup on input line 51.
+LaTeX Info: Redefining \microtypecontext on input line 86.
+Package microtype Info: Applying patch `item' on input line 86.
+Package microtype Info: Applying patch `toc' on input line 86.
+Package microtype Info: Applying patch `eqnum' on input line 86.
+
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 86.
+
+Package microtype Info: Applying patch `verbatim' on input line 86.
+LaTeX Info: Redefining \microtypesetup on input line 86.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -899,23 +1014,22 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count497
-\scratchdimen=\dimen187
-\scratchbox=\box61
-\nofMPsegments=\count498
-\nofMParguments=\count499
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count500
-\MPscratchDim=\dimen188
-\MPnumerator=\count501
-\makeMPintoPDFobject=\count502
-\everyMPtoPDFconversion=\toks38
+\scratchcounter=\count504
+\scratchdimen=\dimen268
+\scratchbox=\box64
+\nofMPsegments=\count505
+\nofMParguments=\count506
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count507
+\MPscratchDim=\dimen269
+\MPnumerator=\count508
+\makeMPintoPDFobject=\count509
+\everyMPtoPDFconversion=\toks42
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -927,7 +1041,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count503
+\c@lstlisting=\count510
 Package biblatex Info: Trying to load language 'slovene' -> 'slovene-apa'...
 Package biblatex Info: ... file 'slovene-apa.lbx' found.
 
@@ -953,31 +1067,31 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Naloga.bbl' found.
  (Naloga.bbl)
-Package biblatex Info: Reference section=0 on input line 51.
-Package biblatex Info: Reference segment=0 on input line 51.
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.60     \\
-           
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Package biblatex Info: Reference section=0 on input line 86.
+Package biblatex Info: Reference segment=0 on input line 86.
+<slike/logotip_vegova_leze_brezokvirja.png, id=154, 403.0257pt x 51.5526pt>
+File: slike/logotip_vegova_leze_brezokvirja.png Graphic file (type png)
+<use slike/logotip_vegova_leze_brezokvirja.png>
+Package pdftex.def Info: slike/logotip_vegova_leze_brezokvirja.png  used on inp
+ut line 99.
+(pdftex.def)             Requested size: 199.16928pt x 25.47652pt.
 
 [1
 
 {C:/Users/linca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Fi
-les/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] [3] (Naloga.toc
+les/MiKTeX/fonts/enc/dvips/base/8r.enc} <./slike/logotip_vegova_leze_brezokvirj
+a.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.145 \newpage
+               [1] [2] (Naloga.toc
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -985,38 +1099,56 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-))
+) [1])
 \tf@toc=\write5
 \openout5 = `Naloga.toc'.
 
 
-[4] [5] (Naloga.lof)
+[2] (Naloga.lof)
 \tf@lof=\write6
 \openout6 = `Naloga.lof'.
 
- [6]
-<slike/testiranje_na_terenu.png, id=233, 165.61874pt x 221.15958pt>
-File: slike/testiranje_na_terenu.png Graphic file (type png)
-<use slike/testiranje_na_terenu.png>
-Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 145
-.
-(pdftex.def)             Requested size: 373.3035pt x 498.56279pt.
- [7]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-52.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 215--218
 
-(C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+ []
+
+[4]
+<slike/mulcer.png, id=258, 166.28792pt x 124.13042pt>
+File: slike/mulcer.png Graphic file (type png)
+<use slike/mulcer.png>
+Package pdftex.def Info: slike/mulcer.png  used on input line 258.
+(pdftex.def)             Requested size: 361.63776pt x 269.96442pt.
+ [6]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
+65.
+ (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [8 <./slike/testiranje_na_terenu.png>]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 19
-9.
+)
+[7 <./slike/mulcer.png>] [8]
+<slike/moduli_sistema.jpg, id=272, 4111.36pt x 3083.52pt>
+File: slike/moduli_sistema.jpg Graphic file (type jpg)
+<use slike/moduli_sistema.jpg>
+Package pdftex.def Info: slike/moduli_sistema.jpg  used on input line 346.
+(pdftex.def)             Requested size: 343.99329pt x 257.9788pt.
+<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=273, 2071.74pt x 11
+89.44376pt>
+File: slike/skica s pojasnsili vseh pinov na raspbery pi.png Graphic file (type
+ png)
+<use slike/skica s pojasnsili vseh pinov na raspbery pi.png>
+Package pdftex.def Info: slike/skica s pojasnsili vseh pinov na raspbery pi.png
+  used on input line 365.
+(pdftex.def)             Requested size: 317.5333pt x 182.29283pt.
+ [9 <./slike/moduli_sistema.jpg>]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 37
+5.
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1025,46 +1157,267 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [9]
-<slike/moduli_sistema.jpg, id=254, 4111.36pt x 3083.52pt>
-File: slike/moduli_sistema.jpg Graphic file (type jpg)
-<use slike/moduli_sistema.jpg>
-Package pdftex.def Info: slike/moduli_sistema.jpg  used on input line 241.
-(pdftex.def)             Requested size: 355.08984pt x 266.30676pt.
- [10 <./slike/moduli_sistema.jpg>]
-<slike/shema_sprejemnika.png, id=259, 587.86292pt x 339.2675pt>
+ [10 <./slike/skica s pojasnsili vseh pinov na raspbery pi.png (PNG copy)>]
+<slike/shema_sprejemnika.png, id=293, 587.86292pt x 339.2675pt>
 File: slike/shema_sprejemnika.png Graphic file (type png)
 <use slike/shema_sprejemnika.png>
-Package pdftex.def Info: slike/shema_sprejemnika.png  used on input line 257.
-(pdftex.def)             Requested size: 327.7763pt x 189.17056pt.
-<slike/remote_control.png, id=260, 338.59833pt x 307.81667pt>
-File: slike/remote_control.png Graphic file (type png)
-<use slike/remote_control.png>
-Package pdftex.def Info: slike/remote_control.png  used on input line 264.
-(pdftex.def)             Requested size: 327.7763pt x 297.98059pt.
- [11 <./slike/shema_sprejemnika.png>]
-<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=266, 2071.74pt x 11
-89.44376pt>
-File: slike/skica s pojasnsili vseh pinov na raspbery pi.png Graphic file (type
- png)
-<use slike/skica s pojasnsili vseh pinov na raspbery pi.png>
-Package pdftex.def Info: slike/skica s pojasnsili vseh pinov na raspbery pi.png
-  used on input line 271.
-(pdftex.def)             Requested size: 327.7763pt x 188.17325pt.
- [12 <./slike/remote_control.png> <./slike/skica s pojasnsili vseh pinov na ras
-pbery pi.png (PNG copy)>] [13]
-<slike/graf_merjenja_signala.png, id=286, 176.66pt x 84.98416pt>
+Package pdftex.def Info: slike/shema_sprejemnika.png  used on input line 440.
+(pdftex.def)             Requested size: 317.5333pt x 183.25865pt.
+ [11]
+<slike/graf_merjenja_signala.png, id=304, 176.66pt x 84.98416pt>
 File: slike/graf_merjenja_signala.png Graphic file (type png)
 <use slike/graf_merjenja_signala.png>
-Package pdftex.def Info: slike/graf_merjenja_signala.png  used on input line 33
+Package pdftex.def Info: slike/graf_merjenja_signala.png  used on input line 45
 4.
-(pdftex.def)             Requested size: 386.96027pt x 186.15392pt.
- (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+(pdftex.def)             Requested size: 374.86775pt x 180.33669pt.
+<slike/remote_control.png, id=305, 338.59833pt x 307.81667pt>
+File: slike/remote_control.png Graphic file (type png)
+<use slike/remote_control.png>
+Package pdftex.def Info: slike/remote_control.png  used on input line 471.
+(pdftex.def)             Requested size: 317.5333pt x 288.66664pt.
+ [12 <./slike/shema_sprejemnika.png> <./slike/graf_merjenja_signala.png>]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.488     Naprej    & 2000\,\mu
+                                s & 1050\,\mu s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.488     Naprej    & 2000\,\mu s &
+                                    1050\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.488     Naprej    & 2000\,\mu s & 1050\,\mu
+                                              s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.489     M
+           irovanje & 1500\,\mu s & 1500\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.489     Mirovanje & 1500\,\mu
+                                s & 1500\,\mu s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.489     Mirovanje & 1500\,\mu s &
+                                    1500\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.489     Mirovanje & 1500\,\mu s & 1500\,\mu
+                                              s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.490     N
+           azaj     & 1050\,\mu s & 2000\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.490     Nazaj     & 1050\,\mu
+                                s & 2000\,\mu s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.490     Nazaj     & 1050\,\mu s &
+                                    2000\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.490     Nazaj     & 1050\,\mu s & 2000\,\mu
+                                              s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.491     L
+           evo      & 2000\,\mu s & 2000\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.491     Levo      & 2000\,\mu
+                                s & 2000\,\mu s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.491     Levo      & 2000\,\mu s &
+                                    2000\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.491     Levo      & 2000\,\mu s & 2000\,\mu
+                                              s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.492     D
+           esno     & 1050\,\mu s & 1050\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.492     Desno     & 1050\,\mu
+                                s & 1050\,\mu s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.492     Desno     & 1050\,\mu s &
+                                    1050\,\mu s \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.492     Desno     & 1050\,\mu s & 1050\,\mu
+                                              s \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.493     \bottomrule
+                     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.514 ...u sem nastavil mejo za vklop na 1900\,\mu
+                                                   s, mejo za izklop
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 515.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 515.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 518.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 518.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 518.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.520 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no º in font cmr12!
+Missing character: There is no ƒ in font cmr12!
+Missing character: There is no £ in font cmr12!
+Missing character: There is no £ in font cmr12!
+Missing character: There is no £ in font cmr12!
+
+Overfull \hbox (1124.60773pt too wide) in paragraph at lines 514--520
+[]\T1/ptm/m/n/12 (-20) V pro-gramu sem na-sta-vil mejo za vklop na 1900$\OML/cm
+m/m/it/12 ^^Vs; mejozaizklopna\OT1/cmr/m/n/12 1100 \OML/cmm/m/it/12 ^^Vs; nevtr
+alnavrednostpajepriblino\OT1/cmr/m/n/12 1500 \OML/cmm/m/it/12 ^^Vs:esestikalopr
+emaknelezakratektrenutek; sestanjenastavina[]ali[]; natopasesignallahkovrnevnev
+tralnoobmoje:Natanainostanenaindelovanjanastavljengledenazadnjipremikstikala:$ 
+
+ []
+
+(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
+) [13 <./slike/remote_control.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 348.
- [14 <./slike/graf_merjenja_signala.png>] [15]
+nput line 522.
+ [14] [15] [16]
 (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1081,8 +1434,8 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.460 ...lo\v{z}aja in posodabljanje zemljevida.}]
-                                                  
+l.674     zemljevida.}]
+                       
 The following languages weren't loadable:
     ,javascript$
 This may cause errors in the sequel.
@@ -1094,90 +1447,75 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.460 ...lo\v{z}aja in posodabljanje zemljevida.}]
-                                                  
+l.674     zemljevida.}]
+                       
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[16] [17] [18]
-<slike/DGPS SKETCH.jpg, id=420, 770.88pt x 617.30624pt>
+[17] [18] [19]
+<slike/DGPS SKETCH.jpg, id=469, 770.88pt x 617.30624pt>
 File: slike/DGPS SKETCH.jpg Graphic file (type jpg)
 <use slike/DGPS SKETCH.jpg>
-Package pdftex.def Info: slike/DGPS SKETCH.jpg  used on input line 608.
-(pdftex.def)             Requested size: 364.19667pt x 291.64107pt.
- [19] [20 <./slike/DGPS SKETCH.jpg>]
-<slike/web_interface.png, id=453, 587.19376pt x 312.16624pt>
+Package pdftex.def Info: slike/DGPS SKETCH.jpg  used on input line 819.
+(pdftex.def)             Requested size: 352.81552pt x 282.52316pt.
+ [20] [21 <./slike/DGPS SKETCH.jpg>]
+<slike/web_interface.png, id=491, 587.19376pt x 312.16624pt>
 File: slike/web_interface.png Graphic file (type png)
 <use slike/web_interface.png>
-Package pdftex.def Info: slike/web_interface.png  used on input line 655.
-(pdftex.def)             Requested size: 382.40338pt x 203.29623pt.
+Package pdftex.def Info: slike/web_interface.png  used on input line 865.
+(pdftex.def)             Requested size: 370.45328pt x 196.94205pt.
+ [22 <./slike/web_interface.png>]
+<slike/testiranje_na_terenu.png, id=497, 165.61874pt x 221.15958pt>
 File: slike/testiranje_na_terenu.png Graphic file (type png)
 <use slike/testiranje_na_terenu.png>
-Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 680
+Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 938
 .
-(pdftex.def)             Requested size: 373.3035pt x 498.56279pt.
- [21 <./slike/web_interface.png>]
-<slike/slika_notranjosti_mulcerja.png, id=459, 157.92334pt x 209.78375pt>
+(pdftex.def)             Requested size: 361.63776pt x 482.98555pt.
+ [23]
+<slike/slika_notranjosti_mulcerja.png, id=504, 157.92334pt x 209.78375pt>
 File: slike/slika_notranjosti_mulcerja.png Graphic file (type png)
 <use slike/slika_notranjosti_mulcerja.png>
 Package pdftex.def Info: slike/slika_notranjosti_mulcerja.png  used on input li
-ne 687.
-(pdftex.def)             Requested size: 355.08984pt x 471.74655pt.
- [22]
-<slike/daljinec_na_mulcerju.png, id=464, 145.87833pt x 109.07417pt>
+ne 946.
+(pdftex.def)             Requested size: 343.99329pt x 457.00256pt.
+ [24 <./slike/testiranje_na_terenu.png>]
+<slike/daljinec_na_mulcerju.png, id=510, 145.87833pt x 109.07417pt>
 File: slike/daljinec_na_mulcerju.png Graphic file (type png)
 <use slike/daljinec_na_mulcerju.png>
-Package pdftex.def Info: slike/daljinec_na_mulcerju.png  used on input line 694
+Package pdftex.def Info: slike/daljinec_na_mulcerju.png  used on input line 954
 .
-(pdftex.def)             Requested size: 327.7763pt x 245.08502pt.
- [23 <./slike/slika_notranjosti_mulcerja.png>] [24 <./slike/daljinec_na_mulcerj
-u.png>] [25] [26] [27] (Naloga.aux)
+(pdftex.def)             Requested size: 317.5333pt x 237.42575pt.
+ [25 <./slike/slika_notranjosti_mulcerja.png>] [26 <./slike/daljinec_na_mulcerj
+u.png>] [27] [28] [29]
+(Naloga.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Naloga.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Naloga.out':
-(rerunfilecheck)             Before: C65D10D97E727D24438126BDB9771B5F;6750
-(rerunfilecheck)             After:  109C446D099FA658FAF97B0148A6C1FE;6751.
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+Package rerunfilecheck Info: File `Naloga.out' has not changed.
+(rerunfilecheck)             Checksum: 1200B3334AB7F7C1D3EBC7737041B3ED;7828.
 Package logreq Info: Writing requests to 'Naloga.run.xml'.
 \openout1 = `Naloga.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27168 strings out of 467867
- 468609 string characters out of 5428402
- 1754442 words of memory out of 5000000
- 55302 multiletter control sequences out of 15000+600000
- 667741 words of font info for 210 fonts, out of 8000000 for 9000
+ 28444 strings out of 467867
+ 489169 string characters out of 5428402
+ 1762163 words of memory out of 5000000
+ 56486 multiletter control sequences out of 15000+600000
+ 685305 words of font info for 257 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1041b,3359s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{appendix.B} has been referenced but does not exist,
- replaced by a fixed one
-
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program 
-Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/
-urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.
-pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files
-/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/u
-rw/times/utmri8a.pfb>
-Output written on Naloga.pdf (27 pages, 4784988 bytes).
+ 75i,12n,79p,1185b,2985s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type
+1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8
+a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
+es/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1
+/urw/times/utmri8a.pfb>
+Output written on Naloga.pdf (31 pages, 5291925 bytes).
 PDF statistics:
- 582 PDF objects out of 1000 (max. 8388607)
- 213 named destinations out of 1000 (max. 500000)
- 38203 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 633 PDF objects out of 1000 (max. 8388607)
+ 222 named destinations out of 1000 (max. 500000)
+ 58221 words of extra memory for PDF output out of 61914 (max. 10000000)
 

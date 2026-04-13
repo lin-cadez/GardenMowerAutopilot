@@ -3071,16 +3071,15 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">viri.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="2" intorder="1">polc2013</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">opencv_dnn</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">mobilenetssd</bcf:citekey>
     <bcf:citekey order="3" intorder="1">raspi_camera_software</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">raspi_camera_software</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">rtk2go</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">microzone_mc8re</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">lc29h_datasheet</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">ntrip_protocol</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">rtk2go</bcf:citekey>
     <bcf:citekey order="7" intorder="1">esa_satnav</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">ublox_gnss</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">ntrip_protocol</bcf:citekey>
     <bcf:citekey order="9" intorder="1">rtk2go</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">airace_dgps</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">airace_dgps</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

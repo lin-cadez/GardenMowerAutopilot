@@ -1,65 +1,109 @@
-@online{fe-guide,
-    title     = {Napotki za piseanje diplomskih nalog in drugih tehničnih besedil,},
-    url       = {http://lie.fe.uni-lj.si/Napotki_TehnicnaBesedila.pdf},
-    year      = {2014},
-    location  = {Ljubljana},
-    publisher = {Fakulteta za elektrotehniko},
-    urldate   = {2022-10-29},
-    author    = {Boštjan Murovec}
-}
+% viri.bib – Seminarska naloga: Nadgradnja daljinsko vodene kosilnice
+% Avtor: Lin Čadež, G 4. A
 
-@book{polc2013,
-    title     = {Autonomous Vehicles: Principles, Algorithms, and Implementations},
-    author    = {González, David and Pérez, Joshué and Milan, Miloš},
-    year      = {2016},
-    publisher = {Butterworth-Heinemann},
-    note      = {Contains principles of safety mechanisms in autonomous systems}
-}
+% --- Uradna dokumentacija knjižnic in modulov ---
 
 @online{raspi_camera_software,
-    title     = {Raspberry Pi Camera Software - Picamera2 Documentation},
-    url       = {https://www.raspberrypi.com/documentation/computers/camera_software.html},
-    year      = {2024},
-    author    = {Raspberry Pi Ltd.},
-    urldate   = {2026-04-06}
+  title   = {The Picamera2 Library},
+  author  = {{Raspberry Pi Ltd.}},
+  url     = {https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf},
+  year    = {2023},
+  urldate = {2026-04-06}
+}
+
+@online{raspi_gpio,
+  title   = {Raspberry Pi GPIO Documentation},
+  author  = {{Raspberry Pi Ltd.}},
+  url     = {https://www.raspberrypi.com/documentation/computers/raspberry-pi.html},
+  year    = {2024},
+  urldate = {2026-04-06}
+}
+
+@online{opencv_dnn,
+  title   = {Deep Neural Networks (dnn module) -- OpenCV Documentation},
+  author  = {{OpenCV Team}},
+  url     = {https://docs.opencv.org/4.x/d2/d58/tutorial_table_of_content_dnn.html},
+  year    = {2024},
+  urldate = {2026-04-06}
+}
+
+@online{mobilenetssd,
+  title   = {MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications},
+  author  = {Howard, Andrew G. and Zhu, Menglong and Chen, Bo and Kalenichenko, Dmitry and Wang, Weijun and Weyand, Tobias and Andreetto, Marco and Adam, Hartwig},
+  url     = {https://arxiv.org/abs/1704.04861},
+  year    = {2017},
+  urldate = {2026-04-06}
+}
+
+@online{pigpio,
+  title   = {pigpio -- Raspberry Pi GPIO Library},
+  author  = {Harding, Joan},
+  url     = {https://abyz.me.uk/rpi/pigpio/},
+  year    = {2024},
+  urldate = {2026-04-06}
+}
+
+@online{pdflib_js,
+  title   = {pdf-lib -- Create and Modify PDF Documents in any JavaScript Environment},
+  author  = {{Hopding}},
+  url     = {https://pdf-lib.js.org/},
+  year    = {2024},
+  urldate = {2026-04-06}
+}
+
+% --- GNSS / GPS / NTRIP ---
+
+@online{esa_satnav,
+  title   = {What is GNSS?},
+  author  = {{European Space Agency}},
+  url     = {https://www.esa.int/Applications/Navigation/The_benefits_of_Galileo/What_is_GNSS},
+  year    = {2024},
+  urldate = {2026-04-06}
 }
 
 @online{rtk2go,
-    title     = {RTK2go -- Free Public NTRIP Caster for GNSS},
-    url       = {https://rtk2go.com},
-    year      = {2024},
-    author    = {RTK2go Community},
-    urldate   = {2026-04-06}
+  title   = {RTK2go -- Free Public NTRIP Caster},
+  author  = {{SNIP / RTK2go Community}},
+  url     = {https://rtk2go.com},
+  year    = {2024},
+  urldate = {2026-04-06}
 }
 
-@manual{microzone_mc8re,
-    title     = {MC8RE -- Septentrio Multi-Constellation GNSS Receiver},
-    organization = {Septentrio},
-    year      = {2023},
-    url       = {https://www.septentrio.com/en/products/gnss-receivers/optimal/mc8re},
-    urldate   = {2026-04-06}
+@manual{lc29h_datasheet,
+  title        = {LC29H (EA\&DA) GNSS Module Series -- Hardware Design Guide},
+  organization = {Quectel Wireless Solutions},
+  year         = {2023},
+  url          = {https://www.quectel.com/product/gnss-lc29h-series},
+  urldate      = {2026-04-06}
 }
 
-@online{esa_satnav,
-    title     = {What is GNSS? -- European Space Agency Satellite Navigation},
-    url       = {https://www.esa.int/Applications/Navigation/The_benefits_of_Galileo/What_is_GNSS},
-    author    = {European Space Agency},
-    year      = {2024},
-    urldate   = {2026-04-06}
+@online{ntrip_protocol,
+  title   = {NTRIP -- Networked Transport of RTCM via Internet Protocol},
+  author  = {{Federal Agency for Cartography and Geodesy (BKG)}},
+  url     = {https://igs.org/ntrip/},
+  year    = {2024},
+  urldate = {2026-04-06}
 }
 
-@online{ublox_gnss,
-    title     = {u-blox GNSS Receivers -- Positioning and Timing Solutions},
-    url       = {https://www.u-blox.com/en/gnss},
-    author    = {u-blox},
-    year      = {2024},
-    urldate   = {2026-04-06}
+% --- Varnost pri avtonomnih sistemih (2 raziskovalni deli) ---
+
+@article{bechar2016,
+  author  = {Bechar, Avital and Vigneault, Clément},
+  title   = {Agricultural robots for field operations: Concepts and components},
+  journal = {Biosystems Engineering},
+  volume  = {149},
+  pages   = {94--111},
+  year    = {2016},
+  doi     = {10.1016/j.biosystemseng.2016.06.014}
 }
 
-@online{airace_dgps,
-    title     = {What is DGPS and how does it improve accuracy?},
-    url       = {https://airace.in/community/what-is-dgps-and-how-does-it-improve-accuracy/},
-    year      = {2024},
-    urldate   = {2026-04-06},
-    author    = {AIRace}
+@article{xiong2022,
+  author  = {Xiong, Yang and Ge, Yufei and Grimstad, Lars and From, Pål Johan},
+  title   = {An autonomous strawberry-harvesting robot: Design, development, integration, and field evaluation},
+  journal = {Journal of Field Robotics},
+  volume  = {37},
+  number  = {2},
+  pages   = {202--224},
+  year    = {2020},
+  doi     = {10.1002/rob.21889}
 }
