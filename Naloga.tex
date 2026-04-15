@@ -68,7 +68,7 @@
 }
 \newcommand{\arabicpages}{%
     \pagenumbering{arabic}%
-    \setcounter{page}{6}%
+    \setcounter{page}{8}%
 }
 
 \pagestyle{fancy}
@@ -79,8 +79,7 @@
 \renewcommand{\contentsname}{Kazalo vsebine}
 \renewcommand{\listfigurename}{Kazalo slik}
 
-\title{Krmiljenje, regulacije, nadzor procesov: Nadgradnja daljinsko
-  vodene kosilnice z računalniškim vidom in prostorskim umeščanjem}
+\title{Krmiljenje, regulacije, nadzor procesov: Avtopilot z računalniškim vidom za krmiljenje kosilnice}
 \author{Lin Čadež, G 4. A}
 
 \begin{document}
@@ -112,8 +111,7 @@
 
     \vspace{0.6cm}
 
-    {\large \textit{Nadgradnja daljinsko vodene kosilnice z računalniškim
-      vidom in prostorskim umeščanjem}}
+    {\large \textit{Avtopilot z računalniškim vidom za krmiljenje kosilnice}}
 
     \vfill
 
@@ -144,6 +142,7 @@ njegovem mulčarju.
 % ==============================================================
 \newpage
 \thispagestyle{empty}
+\begin{singlespace}
 \section*{Povzetek}
 V seminarski nalogi sem predstavil nadgradnjo daljinsko vodene kosilnice z računalniškim vidom in prostorskim umeščanjem. Namen naloge je bil povečati varnost delovanja stroja na zahtevnem terenu, saj sistem ob zaznavi človeka ali živali samodejno zaustavi kosilnico.
 
@@ -151,12 +150,11 @@ Pri izdelavi sem uporabil računalnik Raspberry Pi 4B, kamero PiCam, knjižnico 
 
 Rezultati testiranja so pokazali, da sistem v ustreznih razmerah zanesljivo zazna človeka ali žival ter zaustavi kosilnico v manj kot 100 ms. Ugotovil sem tudi, da diferencialni GPS izboljša natančnost določanja položaja. Med omejitvami sistema ostajajo slabše delovanje v temi, manjša zanesljivost zaznave na večjih razdaljah in zakasnitev video prenosa.
 
-Naloga dokazuje, da je mogoče z dostopnimi komponentami izdelati učinkovit varnostni sistem za nadgradnjo daljinsko vodenega delovnega stroja.
-\newline
-\textbf{Ključne besede:} daljinsko vodena kosilnica, računalniški vid,
+\vspace{0.5cm}
+\noindent\textbf{Ključne besede:} daljinsko vodena kosilnica, računalniški vid,
 PWM, DGPS, NTRIP, Raspberry~Pi
 
-\vspace{1cm}
+\vspace{0.8cm}
 
 \section*{Abstract}
 In this seminar paper, I presented the upgrade of a remote-controlled mower with computer vision and spatial positioning. The purpose of the paper was to increase the safety of the machine's operation on demanding terrain, as the system automatically stops the mower upon detecting a human or an animal.
@@ -165,9 +163,9 @@ For the implementation, I used a Raspberry Pi 4B computer, a PiCam camera, the O
 
 The test results showed that the system reliably detects a human or an animal under appropriate conditions and stops the mower in less than 100 ms. I also found that differential GPS improves the positioning accuracy. Among the system limitations are poorer performance in the dark, lower detection reliability at greater distances, and video transmission delay.
 
-The paper proves that it is possible to build an effective safety system for upgrading a remote-controlled working machine using accessible components.
-\newline
-\textbf{Keywords:} remote-controlled mower, computer vision, PWM, DGPS, NTRIP, Raspberry~Pi
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} remote-controlled mower, computer vision, PWM, DGPS, NTRIP, Raspberry~Pi
+\end{singlespace}
 
 \vfill
 
@@ -239,7 +237,7 @@ The paper proves that it is possible to build an effective safety system for upg
 Daljinsko vodene kosilnice se vse pogosteje uporabljajo za košnjo
 težje dostopnih terenov, kjer je klasična ročna košnja zahtevna ali
 nevarna. Opremljene so z ostrimi rezili, ki jih poganja bencinski
-motor, gibanje pa omogočajo električni motorji in goseničen pogon.
+motor, gibanje pa omogočajo električni motorji in gosenični pogon.
 Ukazi z daljinskega upravljalnika se do kosilnice prenašajo v obliki
 PWM-signalov (angl.\ \textit{Pulse Width Modulation}, modulacija
 širine impulza) --- to je način kodiranja ukazov z različno dolžino
@@ -248,20 +246,19 @@ vprašanje, kako zagotoviti dodatno varnost in zmanjšati možnost
 nesreč, zlasti kadar se v bližini stroja znajdejo ljudje ali živali.
 
 Za to seminarsko nalogo sem se odločil na podlagi osebne izkušnje z
-mulčarjem, ki ga upravljam na daljavo. Med delom sem razmišljal, kako
+mulčarjem, s katerim doma kosim travnik. Med delom sem razmišljal, kako
 bi bilo mogoče izboljšati varnost njegovega delovanja. Sprva sem
 preizkušal preproste ultrazvočne in temperaturne senzorje za
 zaznavanje ovir, vendar sem ugotovil, da niso primerni za ta namen:
 kosilnica namreč dela pretežno v zaraščenem in težko dostopnem terenu,
-na primer v praproti ali trnju, kjer je ves čas neka rasltina pred
-senzorjem in bi povzročila lažne zaznave. Takšno zaznavanje zato ni
-zanesljivo. Zato sem se odločil za uporabo kamere in računalniškega
-vida, ki omogočata razlikovanje med živimi bitji in neaktivnimi
+na primer v praproti ali trnju, kjer so ves čas rastline pred
+senzorjem in bi povzročale lažne zaznave. Zato sem se odločil za uporabo kamere in računalniškega
+vida, ki omogočata razlikovanje med živimi bitji in neživimi
 ovirami.
 
 Namen seminarske naloge je predelava navadne daljinsko vodene kosilnice
 v varnejši sistem z zaznavanjem okolice in prostorsko umestitvijo.
-Cilj je razviti sistem, ki ob zaznavi človeka ali živali samodejno
+Želel sem si razviti sistem, ki ob zaznavi človeka ali živali samodejno
 zaustavi kosilnico ter operaterju omogoča nadzor nad njenim delovanjem
 in položajem, pri čemer osnovno daljinsko upravljanje ostane
 nespremenjeno.
@@ -345,7 +342,7 @@ na temperaturne razmere: pri poletni košnji so zunanje temperature
 včasih primerljive s temperaturo človeškega telesa, kar zmanjša
 zanesljivost razlikovanja med živimi bitji in segreto okolico.
 
-\textbf{Kamerični sistemi} zajemajo vizualne podatke, ki jih procesira
+\textbf{Sistemi kamer} zajemajo vizualne podatke, ki jih procesira
 programska oprema. Kamere omogočajo bistveno
 bogatejše informacije o okolju kot enostavni senzorji, saj omogočajo
 detekcijo, sledenje in razlikovanje med različnimi vrstami ovir.
@@ -377,7 +374,7 @@ in delo s kamero, kar mi je bistveno olajšalo razvoj sistema.
   \includegraphics[width=0.72\textwidth]{slike/skica s pojasnsili vseh
     pinov na raspbery pi.png}
   \caption{Skica Raspberry~Pi z označenimi pini in navedenimi
-    funkcijami pinov, ki sem jih uporabljal pri povezovanju sistema.}
+    funkcijami pinov.}
   \label{fig:rpi-pinout}
 \end{figure}
 
@@ -400,7 +397,7 @@ ni kritično.
 
 Knjižnica Picamera2 je uradna Python knjižnica za upravljanje kamere na
 Raspberry~Pi \parencite{raspi_camera_software}. V primerjavi s starejšo
-knjižnico PiCamera bolje podpira novejše kamerne module in se
+knjižnico PiCamera bolje podpira novejše module s kamero in se
 brezhibno integrira z OpenCV, kar omogoča neposreden prenos okvirjev
 v obliki NumPy matrik brez dodatnih konverzij. To je pomenilo manj
 dela pri pisanju kode za zajem slike.
@@ -452,7 +449,7 @@ sprejemnika, ki je že vgrajen v kosilnico.
   \centering
   \includegraphics[width=0.72\textwidth]{slike/shema_sprejemnika.png}
   \caption{Shema priključkov sprejemnika iz dokumentacije, ki sem jo
-    uporabil pri načrtovanju GPIO-vezave.}
+    uporabil pri načrtovanju GPIO povezav.}
   \label{fig:receiver-pinout}
 \end{figure}
 
@@ -498,11 +495,11 @@ V spodnji tabeli so zapisane vrednosti, ki sem jih ekspirementalno določil s pr
     \toprule
     \textbf{Položaj} & \textbf{CH2 / GPIO 27} & \textbf{CH1 / GPIO 17} \\
     \midrule
-    Naprej    & 2000\,\mu s & 1050\,\mu s \\
-    Mirovanje & 1500\,\mu s & 1500\,\mu s \\
-    Nazaj     & 1050\,\mu s & 2000\,\mu s \\
-    Levo      & 2000\,\mu s & 2000\,\mu s \\
-    Desno     & 1050\,\mu s & 1050\,\mu s \\
+    Naprej    & 2000\,$\mu$s & 1050\,$\mu$s \\
+    Mirovanje & 1500\,$\mu$s & 1500\,$\mu$s \\
+    Nazaj     & 1050\,$\mu$s & 2000\,$\mu$s \\
+    Levo      & 2000\,$\mu$s & 2000\,$\mu$s \\
+    Desno     & 1050\,$\mu$s & 1050\,$\mu$s \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -524,8 +521,8 @@ PWM-signal, sem za določanje položaja stikala uporabil merjenje
 funkcije \texttt{pigpio.tickDiff(\_last\_tick[gpio], tick)}, ki
 določi časovno razliko med naraščajočim in padajočim robom signala.
 
-V programu sem nastavil mejo za vklop na 1900\,\mu s, mejo za izklop
-na 1100\,\mu s, nevtralna vrednost pa je približno 1500\,\mu s. Če se
+V programu sem nastavil mejo za vklop na 1900\,$\mu$s, mejo za izklop
+na 1100\,$\mu$s, nevtralna vrednost pa je približno 1500\,$\mu$s. Če se
 stikalo premakne le za kratek trenutek, se stanje nastavi na
 \texttt{True} ali \texttt{False}, nato pa se signal lahko vrne v
 nevtralno območje. Na ta način ostane način delovanja nastavljen glede
@@ -593,7 +590,7 @@ delovanje spletnega strežnika.
 Tu sem definiral osnovne konstante in preklopne meje na enem mestu,
 ker sem jih med testiranjem večkrat spreminjal. V \texttt{TARGETS} sem
 vpisal imena objektov, ki jih nevronska mreža zazna na sliki. Z dodajanjem drugih
-imen objektov bi lahko dosegli, da bi se kosilnica ustavila tudi ob
+imen objektov (ki so vnaprej določeni v modelu MobileNet~SSD) bi lahko dosegli, da bi se kosilnica ustavila tudi ob
 zaznavi drugačnih predmetov, vendar to za cilj moje naloge ni bilo
 potrebno.
 
@@ -682,7 +679,7 @@ Na strani odjemalca sem uporabil JavaScript, ki vsakih 500 milisekund pošilja z
 zemljevidu. Hkrati se nalaga video tok z naslova \texttt{/stream},
 zato lahko operater na enem mestu spremlja sliko in lokacijo.
 
-\begin{lstlisting}[language=JavaScript,
+\begin{lstlisting}[language=Java,
   caption={Periodično pridobivanje položaja in posodabljanje
     zemljevida.}]
 async function pollPos(){
@@ -786,7 +783,7 @@ Video tok sem namensko stisnil in zmanjšal kakovost slike, ker sem
 ugotovil, da je za vodenje kosilnice na daljavo pomembnejša odzivnost kot 
 ostrina vsakega okvirja. Sprva se je slika posodabljala približno vsakih
 1{,}5\,s; po zmanjšanju ločljivosti in omogočenju kompresije sem zakasnitev
-zmanjšal na približno 0{,}5\,s, kar je bilo dovolj hitro za varno
+zmanjšal na približno 1{,}0\,s, kar je bilo dovolj hitro za varno
 vodenje na daljavo.
 
 \begin{lstlisting}[language=Python,
@@ -804,7 +801,7 @@ if ok:
 
 \subsubsection{Delovanje GPS in omejitve navadnih modulov}
 
-GPS deluje na podlagi izmere časa, ki ga signal potrebuje, da potuje
+GPS deluje na podlagi meritve časa, ki ga signal potrebuje, da potuje
 od satelita do sprejemnika. Ker signal potuje s svetlobno hitrostjo,
 sprejemnik iz razlik v časih sprejema od vsaj štirih satelitov
 izračuna svoj prostorski položaj. Natančnost je odvisna od lokacije
@@ -823,18 +820,17 @@ nevarna, saj operater ne more zanesljivo oceniti, kje je stroj.
 
 Diferencialni GPS (DGPS) deluje tako, da referenčna postaja na znani
 lokaciji neprestano meri napako GPS-a in te popravke v obliki
-RTCM-sporočil pošilja sprejemniku v terenu \parencite{ntrip_protocol}.
+RTCM-sporočil pošilja preko interneta/GSM/LoRa sprejemniku na terenu \parencite{ntrip_protocol}.
 Sprejemnik nato odšteje izmerjeno napako in dobi bistveno bolj
 natančne GPS položaj.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.80\textwidth]{slike/DGPS SKETCH.jpg}
-  \caption{Prikaz principa delovanja diferencialnega GPS in popravkov
-    NTRIP.\\Vir: \url{https://st2.depositphotos.com/1004370/11686/i/950/depositphotos_116869570-stock-photo-real-time-differential-gps.jpg}}
+  \caption[Prikaz principa delovanja diferencialnega GPS in popravkov NTRIP]{Prikaz principa delovanja diferencialnega GPS in popravkov NTRIP.\\
+  {\footnotesize \textit{Opomba}. Prevzeto po AirAce. (b.\,d.). \textit{What is DGPS and how does it improve accuracy?}. https://airace.in/community/what-is-dgps-and-how-does-it-improve-accuracy/}}
   \label{fig:dgps-sketch}
 \end{figure}
-
 
 Za popravke sem uporabil javno dostopno storitev RTK2go in referenčno
 postajo FRELIH v Črnem Vrhu nad Idrijo \parencite{rtk2go}. Testiranja
@@ -876,7 +872,7 @@ ostane čim enostavnejši za vzdrževanje.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.84\textwidth]{slike/web_interface.png}
-  \caption{Spletni vmesnik z živim videoposnetkom kamere in
+  \caption{Spletni vmesnik z neposrednim video tokom kamere in
     GPS-lokacijo kosilnice na interaktivnem zemljevidu.}
   \label{fig:web-interface}
 \end{figure}
@@ -899,7 +895,7 @@ daljinca, medtem ko sem se postavil pred kosilnico in upal, da me ne povozi. Med
 
 Sistem je zaustavil kosilnico v manj kot 100\,ms od zaznave osebe pri
 razdalji do 4\,m in zadostnih svetlobnih razmerah. GPS-natančnost je
-bila z DGPS-popravki stabilna pod 1\,m, v primerjavi s $\pm 5$\,m ali
+bila z DGPS-popravki okoli 1{,}5\,m, v primerjavi s $\pm 5$\,m ali
 več brez popravkov. Spodnja tabela povzema ključne izmerjene vrednosti.
 
 \begin{table}[H]
@@ -965,7 +961,7 @@ pragov je sistem deloval stabilno.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.72\textwidth]{slike/daljinec_na_mulcerju.png}
-  \caption{Daljinec, nameščen na mulčarju med terenskim testiranjem.}
+  \caption{Daljinec za upravljanje kosilnice}
   \label{fig:daljinec-na-mulcerju}
 \end{figure}
 
@@ -978,7 +974,7 @@ V seminarski nalogi sem predstavil nadgradnjo daljinsko vodene
 kosilnice z računalniškim vidom, spletnim vmesnikom in natančnejšim
 določanjem položaja. Projekt sem zasnoval od izbire strojne opreme in
 programske arhitekture do implementacije glavnih funkcionalnosti:
-zaznavanja ljudi in živali, samodejne zaustavitve, prenosa video slike
+zaznavanja ljudi in živali, samodejne zaustavitve, prenosa video toka
 ter prikaza lokacije na interaktivnem zemljevidu.
 
 Hipotezo, da je z računalniškim vidom mogoče zanesljivo zaznati
@@ -999,7 +995,7 @@ resničnem okolju.
 Skozi razvoj projekta sem pridobil praktične izkušnje z računalniškim
 vidom, večnitnim programiranjem, GNSS-lociranjem, spletnimi vmesniki
 in povezovanjem elektronskih modulov v enoten sistem. Za morebitno
-nadgradnjo bi bil smiseln novejši modul z AI kamero in dodajanjem
+nadgradnjo bi bil smiseln novejši modul z UI kamero in dodajanjem
 luči za boljšo osvetlitev.
 
 % ==============================================================
@@ -1026,6 +1022,8 @@ GPS-lociranjem je dostopna na naslovu:
 Celotna izvorna koda projekta je javno dostopna na repozitoriju GitHub:
 \url{https://github.com/lin-cadez/GardenMowerAutopilot/tree/main/code}
 
+
+Glavna datoteka z implementacijo sistema se imenuje \texttt{final.py}.
 % ==============================================================
 %  IZJAVA O AVTORSTVU
 % ==============================================================

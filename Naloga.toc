@@ -1,39 +1,39 @@
 \babel@toc {slovene}{}\relax 
-\contentsline {section}{\numberline {1}Uvod}{6}{section.1}%
-\contentsline {section}{\numberline {2}Načrtovanje in izbira tehnologij}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Daljinsko vodene kosilnice in varnostni izzivi}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Elektronsko zaznavanje okolice pri delovnih strojih}{8}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Pregled izbranih tehnologij}{9}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Raspberry Pi 4B}{9}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}OpenCV in MobileNet~SSD}{10}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Knjižnica Picamera2}{10}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}GNSS modul LC29H z DGPS podporo}{10}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}NTRIP in RTK2go}{11}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Python in večnitnost}{11}{subsubsection.2.3.6}%
-\contentsline {section}{\numberline {3}Predelava mulčarja}{11}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Analiza RC-krmiljenja in PWM-meritve}{11}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Varnostna preklopna logika}{13}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Načrt sistema in razvojne iteracije}{14}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Osnovna arhitektura sistema}{14}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Nastavitve za RC, kamero in GNSS}{15}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Glavna zanka programa}{15}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Strežnik in spletni vmesnik}{16}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.3}Varnostni mehanizem samodejne zaustavitve}{17}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Sprotna zaustavitev ob zaznavi človeka}{18}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Zakasnitvena logika}{18}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Zaznava objektov z MobileNet~SSD}{18}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Zmanjšanje zakasnitve video toka}{19}{subsubsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.4}GNSS, DGPS in NTRIP v praksi}{20}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Delovanje GPS in omejitve navadnih modulov}{20}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Diferencialni GPS in NTRIP}{20}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Vzpostavitev NTRIP-povezave in pošiljanje GGA}{21}{subsubsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.5}Spletni vmesnik za operaterja}{22}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Terensko testiranje in analiza rezultatov}{22}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Metodologija testiranja}{22}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Rezultati meritev}{23}{subsubsection.3.6.2}%
-\contentsline {subsubsection}{\numberline {3.6.3}Analiza napak in omejitve sistema}{23}{subsubsection.3.6.3}%
-\contentsline {section}{\numberline {4}Zaključek}{26}{section.4}%
-\contentsline {section}{Viri in literatura}{28}{section.4}%
-\contentsline {section}{\numberline {A}Priloge}{28}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Video demonstracija sistema}{28}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Izvorna koda projekta}{28}{subsection.A.2}%
+\contentsline {section}{\numberline {1}Uvod}{8}{section.1}%
+\contentsline {section}{\numberline {2}Načrtovanje in izbira tehnologij}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Daljinsko vodene kosilnice in varnostni izzivi}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Elektronsko zaznavanje okolice pri delovnih strojih}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Pregled izbranih tehnologij}{11}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Raspberry Pi 4B}{11}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}OpenCV in MobileNet~SSD}{12}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Knjižnica Picamera2}{12}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}GNSS modul LC29H z DGPS podporo}{12}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}NTRIP in RTK2go}{13}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Python in večnitnost}{13}{subsubsection.2.3.6}%
+\contentsline {section}{\numberline {3}Predelava mulčarja}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Analiza RC-krmiljenja in PWM-meritve}{13}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Varnostna preklopna logika}{15}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Načrt sistema in razvojne iteracije}{16}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Osnovna arhitektura sistema}{16}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Nastavitve za RC, kamero in GNSS}{17}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Glavna zanka programa}{17}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Strežnik in spletni vmesnik}{18}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Varnostni mehanizem samodejne zaustavitve}{19}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Sprotna zaustavitev ob zaznavi človeka}{20}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Zakasnitvena logika}{20}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Zaznava objektov z MobileNet~SSD}{20}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Zmanjšanje zakasnitve video toka}{21}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}GNSS, DGPS in NTRIP v praksi}{22}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Delovanje GPS in omejitve navadnih modulov}{22}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Diferencialni GPS in NTRIP}{22}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Vzpostavitev NTRIP-povezave in pošiljanje GGA}{23}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Spletni vmesnik za operaterja}{24}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Terensko testiranje in analiza rezultatov}{24}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Metodologija testiranja}{24}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Rezultati meritev}{25}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}Analiza napak in omejitve sistema}{25}{subsubsection.3.6.3}%
+\contentsline {section}{\numberline {4}Zaključek}{28}{section.4}%
+\contentsline {section}{Viri in literatura}{30}{section.4}%
+\contentsline {section}{\numberline {A}Priloge}{30}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Video demonstracija sistema}{30}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Izvorna koda projekta}{30}{subsection.A.2}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  13 APR 2026 23:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  15 APR 2026 09:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -925,7 +925,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'slovene'.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 86
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 85
 .
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1ptm.fd
@@ -936,24 +936,24 @@ Package babel Info: 'slovene' activates 'slovene' shorthands.
 )
 \openout1 = `Naloga.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -989,21 +989,21 @@ LaTeX Font Info:    ... okay on input line 86.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 86.
+Package hyperref Info: Link coloring OFF on input line 85.
 (Naloga.out) (Naloga.out)
 \@outlinefile=\write4
 \openout4 = `Naloga.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 86.
-Package microtype Info: Applying patch `item' on input line 86.
-Package microtype Info: Applying patch `toc' on input line 86.
-Package microtype Info: Applying patch `eqnum' on input line 86.
+LaTeX Info: Redefining \microtypecontext on input line 85.
+Package microtype Info: Applying patch `item' on input line 85.
+Package microtype Info: Applying patch `toc' on input line 85.
+Package microtype Info: Applying patch `eqnum' on input line 85.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 86.
+Package microtype Warning: Unable to apply patch `footnote' on input line 85.
 
-Package microtype Info: Applying patch `verbatim' on input line 86.
-LaTeX Info: Redefining \microtypesetup on input line 86.
+Package microtype Info: Applying patch `verbatim' on input line 85.
+LaTeX Info: Redefining \microtypesetup on input line 85.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1067,13 +1067,13 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Naloga.bbl' found.
  (Naloga.bbl)
-Package biblatex Info: Reference section=0 on input line 86.
-Package biblatex Info: Reference segment=0 on input line 86.
+Package biblatex Info: Reference section=0 on input line 85.
+Package biblatex Info: Reference segment=0 on input line 85.
 <slike/logotip_vegova_leze_brezokvirja.png, id=154, 403.0257pt x 51.5526pt>
 File: slike/logotip_vegova_leze_brezokvirja.png Graphic file (type png)
 <use slike/logotip_vegova_leze_brezokvirja.png>
 Package pdftex.def Info: slike/logotip_vegova_leze_brezokvirja.png  used on inp
-ut line 99.
+ut line 98.
 (pdftex.def)             Requested size: 199.16928pt x 25.47652pt.
 
 [1
@@ -1085,7 +1085,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145 \newpage
+l.143 \newpage
                [1] [2] (Naloga.toc
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
@@ -1111,50 +1111,43 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout5 = `Naloga.toc'.
 
 
-[2] (Naloga.lof
-Overfull \hbox (189.8237pt too wide) in paragraph at lines 8--8
- []$\T1/ptm/m/n/12 (-20) https : / / st2 . depositphotos . com / 1004370 / 1168
-6 / i / 950 / depositphotos _ 116869570-[]stock-[]photo-[]real-[]time-[]di^^[er
-ential-[]gps . 
- []
-
-)
+[2] (Naloga.lof)
 \tf@lof=\write6
 \openout6 = `Naloga.lof'.
 
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
+Underfull \hbox (badness 10000) in paragraph at lines 226--229
 
  []
 
 [4]
-<slike/mulcer.png, id=262, 166.28792pt x 124.13042pt>
+<slike/mulcer.png, id=257, 166.28792pt x 124.13042pt>
 File: slike/mulcer.png Graphic file (type png)
 <use slike/mulcer.png>
-Package pdftex.def Info: slike/mulcer.png  used on input line 258.
+Package pdftex.def Info: slike/mulcer.png  used on input line 268.
 (pdftex.def)             Requested size: 361.63776pt x 269.96442pt.
- [6]
+ [8]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-65.
+75.
  (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-[7 <./slike/mulcer.png>] [8]
-<slike/moduli_sistema.jpg, id=276, 4111.36pt x 3083.52pt>
+[9 <./slike/mulcer.png>] [10]
+<slike/moduli_sistema.jpg, id=271, 4111.36pt x 3083.52pt>
 File: slike/moduli_sistema.jpg Graphic file (type jpg)
 <use slike/moduli_sistema.jpg>
-Package pdftex.def Info: slike/moduli_sistema.jpg  used on input line 346.
+Package pdftex.def Info: slike/moduli_sistema.jpg  used on input line 356.
 (pdftex.def)             Requested size: 343.99329pt x 257.9788pt.
-<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=277, 2071.74pt x 11
+<slike/skica s pojasnsili vseh pinov na raspbery pi.png, id=272, 2071.74pt x 11
 89.44376pt>
 File: slike/skica s pojasnsili vseh pinov na raspbery pi.png Graphic file (type
  png)
 <use slike/skica s pojasnsili vseh pinov na raspbery pi.png>
 Package pdftex.def Info: slike/skica s pojasnsili vseh pinov na raspbery pi.png
-  used on input line 365.
+  used on input line 375.
 (pdftex.def)             Requested size: 317.5333pt x 182.29283pt.
- [9 <./slike/moduli_sistema.jpg>]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 37
+ [11 <./slike/moduli_sistema.jpg>]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 38
 5.
 
 (C:\Users\linca\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1pcr.fd
@@ -1164,343 +1157,78 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [10 <./slike/skica s pojasnsili vseh pinov na raspbery pi.png (PNG copy)>]
-<slike/shema_sprejemnika.png, id=297, 587.86292pt x 339.2675pt>
+ [12 <./slike/skica s pojasnsili vseh pinov na raspbery pi.png (PNG copy)>]
+<slike/shema_sprejemnika.png, id=294, 587.86292pt x 339.2675pt>
 File: slike/shema_sprejemnika.png Graphic file (type png)
 <use slike/shema_sprejemnika.png>
-Package pdftex.def Info: slike/shema_sprejemnika.png  used on input line 440.
+Package pdftex.def Info: slike/shema_sprejemnika.png  used on input line 450.
 (pdftex.def)             Requested size: 317.5333pt x 183.25865pt.
- [11]
-<slike/graf_merjenja_signala.png, id=308, 176.66pt x 84.98416pt>
+ [13]
+<slike/graf_merjenja_signala.png, id=303, 176.66pt x 84.98416pt>
 File: slike/graf_merjenja_signala.png Graphic file (type png)
 <use slike/graf_merjenja_signala.png>
-Package pdftex.def Info: slike/graf_merjenja_signala.png  used on input line 45
+Package pdftex.def Info: slike/graf_merjenja_signala.png  used on input line 46
 4.
 (pdftex.def)             Requested size: 374.86775pt x 180.33669pt.
-<slike/remote_control.png, id=309, 338.59833pt x 307.81667pt>
+<slike/remote_control.png, id=304, 761.84625pt x 692.5875pt>
 File: slike/remote_control.png Graphic file (type png)
 <use slike/remote_control.png>
-Package pdftex.def Info: slike/remote_control.png  used on input line 471.
-(pdftex.def)             Requested size: 317.5333pt x 288.66664pt.
- [12 <./slike/shema_sprejemnika.png> <./slike/graf_merjenja_signala.png>]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.488     Naprej    & 2000\,\mu
-                                s & 1050\,\mu s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.488     Naprej    & 2000\,\mu s &
-                                    1050\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.488     Naprej    & 2000\,\mu s & 1050\,\mu
-                                              s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.489     M
-           irovanje & 1500\,\mu s & 1500\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.489     Mirovanje & 1500\,\mu
-                                s & 1500\,\mu s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.489     Mirovanje & 1500\,\mu s &
-                                    1500\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.489     Mirovanje & 1500\,\mu s & 1500\,\mu
-                                              s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.490     N
-           azaj     & 1050\,\mu s & 2000\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.490     Nazaj     & 1050\,\mu
-                                s & 2000\,\mu s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.490     Nazaj     & 1050\,\mu s &
-                                    2000\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.490     Nazaj     & 1050\,\mu s & 2000\,\mu
-                                              s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.491     L
-           evo      & 2000\,\mu s & 2000\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.491     Levo      & 2000\,\mu
-                                s & 2000\,\mu s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.491     Levo      & 2000\,\mu s &
-                                    2000\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.491     Levo      & 2000\,\mu s & 2000\,\mu
-                                              s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.492     D
-           esno     & 1050\,\mu s & 1050\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.492     Desno     & 1050\,\mu
-                                s & 1050\,\mu s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.492     Desno     & 1050\,\mu s &
-                                    1050\,\mu s \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.492     Desno     & 1050\,\mu s & 1050\,\mu
-                                              s \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.493     \bottomrule
-                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.514 ...u sem nastavil mejo za vklop na 1900\,\mu
-                                                   s, mejo za izklop
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 515.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 515.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 518.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 518.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 518.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.520 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no º in font cmr12!
-Missing character: There is no ƒ in font cmr12!
-Missing character: There is no £ in font cmr12!
-Missing character: There is no £ in font cmr12!
-Missing character: There is no £ in font cmr12!
-
-Overfull \hbox (1124.60773pt too wide) in paragraph at lines 514--520
-[]\T1/ptm/m/n/12 (-20) V pro-gramu sem na-sta-vil mejo za vklop na 1900$\OML/cm
-m/m/it/12 ^^Vs; mejozaizklopna\OT1/cmr/m/n/12 1100 \OML/cmm/m/it/12 ^^Vs; nevtr
-alnavrednostpajepriblino\OT1/cmr/m/n/12 1500 \OML/cmm/m/it/12 ^^Vs:esestikalopr
-emaknelezakratektrenutek; sestanjenastavina[]ali[]; natopasesignallahkovrnevnev
-tralnoobmoje:Natanainostanenaindelovanjanastavljengledenazadnjipremikstikala:$ 
-
- []
-
-(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+Package pdftex.def Info: slike/remote_control.png  used on input line 481.
+(pdftex.def)             Requested size: 317.5333pt x 288.66548pt.
+ [14 <./slike/shema_sprejemnika.png> <./slike/graf_merjenja_signala.png>] [15 <
+./slike/remote_control.png>] (C:\Program Files\MiKTeX\tex/latex/listings\lstlan
+g1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
-) [13 <./slike/remote_control.png>]
+)
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 522.
- [14] [15] [16]
-(C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+nput line 532.
+
+[16] [17] [18] (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-(C:\Program Files\MiKTeX\tex/latex/listings\lstlang2.sty
-File: lstlang2.sty 2025/11/14 1.11b listings language file
-)
-(C:\Program Files\MiKTeX\tex/latex/listings\lstlang3.sty
-File: lstlang3.sty 2025/11/14 1.11b listings language file
-)
-
-! Package Listings Error: Couldn't load requested language.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.674     zemljevida.}]
-                       
-The following languages weren't loadable:
-    ,javascript$
-This may cause errors in the sequel.
-
-
-! Package Listings Error: language javascript undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.674     zemljevida.}]
-                       
-The language is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[17] [18] [19]
-<slike/DGPS SKETCH.jpg, id=473, 770.88pt x 617.30624pt>
+[19] [20] [21]
+<slike/DGPS SKETCH.jpg, id=468, 770.88pt x 617.30624pt>
 File: slike/DGPS SKETCH.jpg Graphic file (type jpg)
 <use slike/DGPS SKETCH.jpg>
-Package pdftex.def Info: slike/DGPS SKETCH.jpg  used on input line 819.
+Package pdftex.def Info: slike/DGPS SKETCH.jpg  used on input line 829.
 (pdftex.def)             Requested size: 352.81552pt x 282.52316pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 821--821
-\T1/ptm/m/n/12 (+20) Vir: []$https : / / st2 . depositphotos . com / 1004370 / 
-11686 / i / 950 / depositphotos _
+Underfull \hbox (badness 2065) in paragraph at lines 831--831
+\T1/ptm/m/it/10 (+20) Opomba\T1/ptm/m/n/10 (+20) . Pre-vzeto po Ai-rAce. (b.d.)
+. \T1/ptm/m/it/10 (+20) What is DGPS and how does it im-prove accu-racy?\T1/ptm
+/m/n/10 (+20) .
  []
 
-[20] [21 <./slike/DGPS SKETCH.jpg>]
-<slike/web_interface.png, id=497, 587.19376pt x 312.16624pt>
+[22] [23 <./slike/DGPS SKETCH.jpg>]
+<slike/web_interface.png, id=489, 587.19376pt x 312.16624pt>
 File: slike/web_interface.png Graphic file (type png)
 <use slike/web_interface.png>
-Package pdftex.def Info: slike/web_interface.png  used on input line 865.
+Package pdftex.def Info: slike/web_interface.png  used on input line 874.
 (pdftex.def)             Requested size: 370.45328pt x 196.94205pt.
- [22 <./slike/web_interface.png>]
-<slike/testiranje_na_terenu.png, id=504, 165.61874pt x 221.15958pt>
+ [24 <./slike/web_interface.png>]
+<slike/testiranje_na_terenu.png, id=496, 165.61874pt x 221.15958pt>
 File: slike/testiranje_na_terenu.png Graphic file (type png)
 <use slike/testiranje_na_terenu.png>
-Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 938
+Package pdftex.def Info: slike/testiranje_na_terenu.png  used on input line 947
 .
 (pdftex.def)             Requested size: 361.63776pt x 482.98555pt.
- [23]
-<slike/slika_notranjosti_mulcerja.png, id=511, 157.92334pt x 209.78375pt>
+ [25]
+<slike/slika_notranjosti_mulcerja.png, id=503, 157.92334pt x 209.78375pt>
 File: slike/slika_notranjosti_mulcerja.png Graphic file (type png)
 <use slike/slika_notranjosti_mulcerja.png>
 Package pdftex.def Info: slike/slika_notranjosti_mulcerja.png  used on input li
-ne 946.
+ne 955.
 (pdftex.def)             Requested size: 343.99329pt x 457.00256pt.
 
-[24 <./slike/testiranje_na_terenu.png>]
-<slike/daljinec_na_mulcerju.png, id=517, 145.87833pt x 109.07417pt>
+[26 <./slike/testiranje_na_terenu.png>]
+<slike/daljinec_na_mulcerju.png, id=509, 145.87833pt x 109.07417pt>
 File: slike/daljinec_na_mulcerju.png Graphic file (type png)
 <use slike/daljinec_na_mulcerju.png>
-Package pdftex.def Info: slike/daljinec_na_mulcerju.png  used on input line 954
+Package pdftex.def Info: slike/daljinec_na_mulcerju.png  used on input line 963
 .
 (pdftex.def)             Requested size: 317.5333pt x 237.42575pt.
- [25 <./slike/slika_notranjosti_mulcerja.png>] [26 <./slike/daljinec_na_mulcerj
-u.png>] [27] [28] [29] (Naloga.aux)
+ [27 <./slike/slika_notranjosti_mulcerja.png>] [28 <./slike/daljinec_na_mulcerj
+u.png>] [29] [30] [31] (Naloga.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1512,11 +1240,11 @@ Package logreq Info: Writing requests to 'Naloga.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28444 strings out of 467867
- 489169 string characters out of 5428402
- 1763289 words of memory out of 5000000
- 56486 multiletter control sequences out of 15000+600000
- 685305 words of font info for 257 fonts, out of 8000000 for 9000
+ 28469 strings out of 467867
+ 489227 string characters out of 5428402
+ 1762030 words of memory out of 5000000
+ 56505 multiletter control sequences out of 15000+600000
+ 687484 words of font info for 263 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,1185b,2985s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Progra
@@ -1526,9 +1254,9 @@ X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type
 a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
 es/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on Naloga.pdf (31 pages, 5293809 bytes).
+Output written on Naloga.pdf (31 pages, 5290352 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
+ 632 PDF objects out of 1000 (max. 8388607)
  222 named destinations out of 1000 (max. 500000)
- 58221 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 61293 words of extra memory for PDF output out of 61914 (max. 10000000)
 
